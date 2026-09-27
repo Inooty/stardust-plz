@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://clciy402442pb"]
+
+[ext_resource type="Shader" uid="uid://mjlcjonchl1y" path="res://Scenes/pixel_effect.gdshader" id="1_4dqbg"]
+[ext_resource type="Texture2D" uid="uid://cko3kbxuj4xia" path="res://Assets/Objects/boulder.png" id="2_umxe1"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vxn5h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3vf2y"]
+radius = 16.492422
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qs4hv"]
+shader = ExtResource("1_4dqbg")
+
+[node name="Boulder" type="Node2D" unique_id=258961269]
+
+[node name="Boulder" type="RigidBody2D" parent="." unique_id=624726123]
+mass = 200.0
+physics_material_override = SubResource("PhysicsMaterial_vxn5h")
+gravity_scale = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boulder" unique_id=160069049]
+shape = SubResource("CircleShape2D_3vf2y")
+
+[node name="Sprite2D" type="Sprite2D" parent="Boulder" unique_id=1173746704]
+material = SubResource("ShaderMaterial_qs4hv")
+scale = Vector2(2.1406376, 2.1406376)
+texture = ExtResource("2_umxe1")

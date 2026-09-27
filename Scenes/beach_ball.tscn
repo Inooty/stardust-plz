@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://c5wuvlxe5ogd1"]
+
+[ext_resource type="Shader" uid="uid://mjlcjonchl1y" path="res://Scenes/pixel_effect.gdshader" id="1_mmxfk"]
+[ext_resource type="Texture2D" uid="uid://mb2auvfvoswk" path="res://Assets/Objects/beachball.png" id="2_jy2ob"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vxn5h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3vf2y"]
+radius = 16.492422
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qs4hv"]
+shader = ExtResource("1_mmxfk")
+
+[node name="BeachBall" type="Node2D" unique_id=258961269]
+
+[node name="BeachBall" type="RigidBody2D" parent="." unique_id=624726123]
+mass = 10.0
+physics_material_override = SubResource("PhysicsMaterial_vxn5h")
+gravity_scale = 0.1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BeachBall" unique_id=160069049]
+shape = SubResource("CircleShape2D_3vf2y")
+
+[node name="Sprite2D" type="Sprite2D" parent="BeachBall" unique_id=1173746704]
+material = SubResource("ShaderMaterial_qs4hv")
+scale = Vector2(2.1406376, 2.1406376)
+texture = ExtResource("2_jy2ob")

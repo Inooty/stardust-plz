@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://c2a4oc02sgy57"]
+
+[ext_resource type="Shader" uid="uid://mjlcjonchl1y" path="res://Scenes/pixel_effect.gdshader" id="1_xhvn3"]
+[ext_resource type="Texture2D" uid="uid://bbvuy71tfwi5k" path="res://Assets/Objects/stoneblock.png" id="2_3yl0x"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vxn5h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_llwtm"]
+size = Vector2(34, 34)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qs4hv"]
+shader = ExtResource("1_xhvn3")
+
+[node name="StoneBlock" type="Node2D" unique_id=258961269]
+
+[node name="StoneBlock" type="RigidBody2D" parent="." unique_id=624726123]
+mass = 80.0
+physics_material_override = SubResource("PhysicsMaterial_vxn5h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StoneBlock" unique_id=160069049]
+scale = Vector2(0.34189713, 0.34189713)
+shape = SubResource("RectangleShape2D_llwtm")
+
+[node name="Sprite2D" type="Sprite2D" parent="StoneBlock" unique_id=1173746704]
+material = SubResource("ShaderMaterial_qs4hv")
+scale = Vector2(0.73862416, 0.73862416)
+texture = ExtResource("2_3yl0x")

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cbh5ldyfuuxax"]
+
+[ext_resource type="Shader" uid="uid://mjlcjonchl1y" path="res://Scenes/pixel_effect.gdshader" id="1_mdv8j"]
+[ext_resource type="Texture2D" uid="uid://gni1l8p3lcvu" path="res://Assets/Objects/spawner.png" id="1_yp5lu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_agl8r"]
+shader = ExtResource("1_mdv8j")
+
+[node name="Spawner" type="Node2D" unique_id=974921005]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1198723982]
+material = SubResource("ShaderMaterial_agl8r")
+texture = ExtResource("1_yp5lu")

@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://dlbeqgg06yiqu"]
+
+[ext_resource type="Script" uid="uid://d2db5a4onc1vr" path="res://Scenes/player.gd" id="1_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://dnqanr7c81hop" path="res://Assets/Player/cursor_bean.png" id="1_v0iea"]
+[ext_resource type="Shader" uid="uid://mjlcjonchl1y" path="res://Scenes/pixel_effect.gdshader" id="2_6t5aa"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0vibq"]
+shader = ExtResource("2_6t5aa")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ecn3p"]
+size = Vector2(4, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y2qpd"]
+size = Vector2(2.25, 9.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1hmd2"]
+size = Vector2(2.25, 1.875)
+
+[node name="Player" type="Node2D" unique_id=2092462778]
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=790403615]
+motion_mode = 1
+script = ExtResource("1_cvnsp")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1185226408]
+material = SubResource("ShaderMaterial_0vibq")
+position = Vector2(4.250061, -1.333313)
+texture = ExtResource("1_v0iea")
+
+[node name="HitBoxMain" type="CollisionShape2D" parent="Player" unique_id=1278946407]
+position = Vector2(3, 0)
+shape = SubResource("RectangleShape2D_ecn3p")
+
+[node name="HitboxSecondary" type="CollisionShape2D" parent="Player" unique_id=1660532927]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_y2qpd")
+
+[node name="HitBoxThirdiary" type="CollisionShape2D" parent="Player" unique_id=695694781]
+position = Vector2(2.125, -3.9375)
+shape = SubResource("RectangleShape2D_1hmd2")

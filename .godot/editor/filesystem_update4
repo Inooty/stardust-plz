@@ -1,0 +1,12 @@
+res://Scenes/player.gd
+res://Scenes/spawner.tscn
+res://addons/phantom_camera/themes/theme.tres
+res://Scenes/pixel_effect.gdshader
+res://Scenes/player.tscn
+res://Scenes/stardust_plz.tscn
+res://Scenes/stardust_plz.gdshader
+res://Scenes/boulder.tscn
+res://Scenes/stone-block.tscn
+res://Scenes/beach_ball.tscn
+res://Scenes/debug_level.tscn
+res://Scenes/plastic-block.tscn
