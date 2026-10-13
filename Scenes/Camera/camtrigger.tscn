@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dob4mcky5570l"]
+
+[ext_resource type="Script" uid="uid://cr5ipp4yejttk" path="res://Scenes/Camera/camtrigger.gd" id="1_nkowp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ecn3p"]
+
+[node name="Fixed Camera" type="Node2D" unique_id=449083944]
+physics_interpolation_mode = 2
+
+[node name="FixedCamera" type="Area2D" parent="." unique_id=1708394444]
+script = ExtResource("1_nkowp")
+
+[node name="FixedCameraShape" type="CollisionShape2D" parent="FixedCamera" unique_id=1029660767]
+shape = SubResource("RectangleShape2D_ecn3p")

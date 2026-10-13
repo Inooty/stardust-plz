@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://clciy402442pb"]
+
+[ext_resource type="Shader" uid="uid://dk0mym17ufua" path="res://Scenes/Effects/lighting.gdshader" id="1_a7ph3"]
+[ext_resource type="Texture2D" uid="uid://cko3kbxuj4xia" path="res://Assets/Objects/boulder.png" id="2_umxe1"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vxn5h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3vf2y"]
+radius = 16.492422
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qs4hv"]
+shader = ExtResource("1_a7ph3")
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_a7ph3"]
+polygon = PackedVector2Array(-3, -8, -3, -7, -4, -7, -4, -6, -5, -6, -5, -5, -6, -5, -6, -4, -7, -4, -7, -2, -8, -2, -8, 2, -7, 2, -7, 4, -6, 4, -6, 5, -5, 5, -5, 6, -4, 6, -4, 7, -3, 7, -3, 8, 2, 8, 2, 7, 4, 7, 4, 6, 5, 6, 5, 5, 6, 5, 6, 4, 7, 4, 7, 2, 8, 2, 8, -3, 7, -3, 7, -4, 6, -4, 6, -5, 5, -5, 5, -6, 4, -6, 4, -7, 2, -7, 2, -8)
+
+[node name="Boulder" type="Node2D" unique_id=258961269]
+
+[node name="Boulder" type="RigidBody2D" parent="." unique_id=624726123]
+mass = 200.0
+physics_material_override = SubResource("PhysicsMaterial_vxn5h")
+gravity_scale = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boulder" unique_id=160069049]
+shape = SubResource("CircleShape2D_3vf2y")
+
+[node name="Sprite2D" type="Sprite2D" parent="Boulder" unique_id=1173746704]
+material = SubResource("ShaderMaterial_qs4hv")
+scale = Vector2(2.1406376, 2.1406376)
+texture = ExtResource("2_umxe1")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Boulder" unique_id=26365254]
+scale = Vector2(2.1406376, 2.1406376)
+occluder = SubResource("OccluderPolygon2D_a7ph3")

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dmdpbdcl5yllb"]
+
+[sub_resource type="Gradient" id="Gradient_h305y"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6dqka"]
+gradient = SubResource("Gradient_h305y")
+
+[node name="Node2D" type="Node2D" unique_id=1217242466]
+
+[node name="PointLight2D4" type="PointLight2D" parent="." unique_id=1944663990]
+position = Vector2(-0.00024414063, 1.5258789e-05)
+rotation = -3.1415925
+scale = Vector2(2.5714808, 880.75854)
+blend_mode = 1
+texture = SubResource("GradientTexture1D_6dqka")

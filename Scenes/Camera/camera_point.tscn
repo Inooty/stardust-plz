@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dqpkfo1ap13ry"]
+
+[ext_resource type="Script" uid="uid://wtwi2shvqvdu" path="res://Scenes/Camera/cameranchor.gd" id="1_i13ky"]
+
+[node name="CameraPoint" type="Node2D" unique_id=1237286323]
+physics_interpolation_mode = 2
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1359102757]
+physics_interpolation_mode = 2
+visible = false
+script = ExtResource("1_i13ky")

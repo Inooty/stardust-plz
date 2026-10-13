@@ -1,0 +1,220 @@
+[gd_scene format=3 uid="uid://bguljbvxp4enw"]
+
+[ext_resource type="Shader" uid="uid://dk0mym17ufua" path="res://Scenes/Effects/lighting.gdshader" id="1_xql12"]
+[ext_resource type="Script" uid="uid://4ddi2vjff6go" path="res://Scenes/NPCs/buku_sleep.gd" id="2_xpiaj"]
+[ext_resource type="Shader" uid="uid://mjlcjonchl1y" path="res://Scenes/Effects/pixel_effect.gdshader" id="3_xpiaj"]
+[ext_resource type="Texture2D" uid="uid://dukdfvwcjdgkm" path="res://Assets/Particles/z.png" id="5_xpiaj"]
+[ext_resource type="Texture2D" uid="uid://bwdoc1cq7mrmc" path="res://Assets/NPCs/BukuSleep/bukusleep2.png" id="6_tce6v"]
+[ext_resource type="Texture2D" uid="uid://crxdg6ngvj77f" path="res://Assets/NPCs/BukuSleep/bukusleep.png" id="7_jlips"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ecn3p"]
+shader = ExtResource("1_xql12")
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_nw4co"]
+polygon = PackedVector2Array(-1.0999999, -7.1, -1.0999999, -6.1, -2.1, -6.1, -2.1, -5.1, -3.1, -5.1, -3.1, -4.1, -7.1, -4.1, -7.1, 0.10000038, -6.1, 0.10000038, -6.1, 1.1000004, -5.1, 1.1000004, -5.1, 1.8999996, -6.1, 1.8999996, -6.1, 6.1000004, -1.9000001, 6.1000004, -1.9000001, 5.1000004, 1.8999996, 5.1000004, 1.8999996, 6.1000004, 6.1000004, 6.1000004, 6.1000004, 1.8999996, 5.1000004, 1.8999996, 5.1000004, 1.1000004, 6.1000004, 1.1000004, 6.1000004, 0.10000038, 7.1000004, 0.10000038, 7.1000004, -4.1, 3.1000004, -4.1, 3.1000004, -5.1, 2.1000004, -5.1, 2.1000004, -6.1, 1.1000004, -6.1, 1.1000004, -7.1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_etyas"]
+shader = ExtResource("1_xql12")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ecn3p"]
+animations = [{
+"frames": [{
+"duration": 5.0,
+"texture": ExtResource("6_tce6v")
+}, {
+"duration": 5.0,
+"texture": ExtResource("7_jlips")
+}],
+"loop": 1,
+"name": &"sleep",
+"speed": 5.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xql12"]
+shader = ExtResource("3_xpiaj")
+
+[sub_resource type="Gradient" id="Gradient_bcewm"]
+offsets = PackedFloat32Array(0, 0.08490566, 0.24528302, 0.4245283, 0.7169811)
+colors = PackedColorArray(1, 0.9647059, 1, 1, 0.9647059, 0.49019608, 0.8627451, 0.7254902, 0.5058824, 0.15686275, 0.50980395, 0.5882353, 0.30588236, 0, 0.20784314, 0.3647059, 0, 0, 0, 0)
+metadata/_snap_count = 2
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_eaqhm"]
+gradient = SubResource("Gradient_bcewm")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tce6v"]
+shader = ExtResource("3_xpiaj")
+
+[sub_resource type="Gradient" id="Gradient_mtuoh"]
+offsets = PackedFloat32Array(0, 0.08490566, 0.24528302, 0.4245283, 0.7169811)
+colors = PackedColorArray(0.6862745, 0.9647059, 0, 1, 0, 0.5411765, 0, 0.7254902, 0, 0.27450982, 0, 0.5882353, 0, 0.13333334, 0, 0.3647059, 0, 0, 0, 0)
+metadata/_snap_count = 2
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jlips"]
+gradient = SubResource("Gradient_mtuoh")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ecn3p"]
+size = Vector2(14, 14)
+
+[sub_resource type="Animation" id="Animation_xql12"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LightOccluder2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LightOccluder2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LightOccluder2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_eaqhm"]
+resource_name = "sleep"
+length = 8.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LightOccluder2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LightOccluder2D:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(-6, 0, 3.9666667, 7.9333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.10471975511965978, -0.10471975511965978, 0.10471975511965978]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LightOccluder2D:scale")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3.9666667, 7.9333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1.3), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xpiaj"]
+_data = {
+&"RESET": SubResource("Animation_xql12"),
+&"sleep": SubResource("Animation_eaqhm")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1hmd2"]
+shader = ExtResource("1_xql12")
+
+[sub_resource type="Gradient" id="Gradient_etyas"]
+offsets = PackedFloat32Array(0, 0.5392157, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0.4627451, 0.4627451, 0.4627451, 0.47058824, 1, 1, 1, 0)
+
+[node name="bukusleep" type="Node2D" unique_id=1612656722]
+material = SubResource("ShaderMaterial_ecn3p")
+script = ExtResource("2_xpiaj")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=1876132606]
+occluder = SubResource("OccluderPolygon2D_nw4co")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="LightOccluder2D" unique_id=528447538]
+material = SubResource("ShaderMaterial_etyas")
+position = Vector2(-3.8146973e-06, 0)
+scale = Vector2(1.092, 1)
+skew = 0.013813734
+sprite_frames = SubResource("SpriteFrames_ecn3p")
+animation = &"sleep"
+autoplay = "sleep"
+frame_progress = 0.16654274
+
+[node name="Light2" type="PointLight2D" parent="." unique_id=25887331]
+visibility_layer = 2
+texture_filter = 1
+material = SubResource("ShaderMaterial_xql12")
+scale = Vector2(0.6259828, 0.6259828)
+energy = 1.04
+texture = SubResource("GradientTexture2D_eaqhm")
+
+[node name="Light" type="PointLight2D" parent="Light2" unique_id=330050082]
+visibility_layer = 2
+texture_filter = 1
+material = SubResource("ShaderMaterial_tce6v")
+position = Vector2(1.5974882, 3.1949759)
+scale = Vector2(0.07527471, 0.22503923)
+color = Color(0.9647059, 1, 1, 1)
+energy = 1.04
+texture = SubResource("GradientTexture2D_jlips")
+offset = Vector2(-10, 0)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=193425744]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1947048993]
+shape = SubResource("RectangleShape2D_ecn3p")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1624165976]
+libraries/ = SubResource("AnimationLibrary_xpiaj")
+
+[node name="Drolling" type="CPUParticles2D" parent="." unique_id=309553958]
+position = Vector2(1, 1)
+amount = 3
+lifetime = 20.0
+gravity = Vector2(0, -1)
+angular_velocity_min = 60.85
+angular_velocity_max = 60.85
+scale_amount_min = 0.5
+color = Color(0.24705882, 0.9607843, 0.34901962, 1)
+hue_variation_min = -0.1
+hue_variation_max = 0.55
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="." unique_id=915527239]
+material = SubResource("ShaderMaterial_1hmd2")
+position = Vector2(9, -4)
+amount = 2
+texture = ExtResource("5_xpiaj")
+lifetime = 10.24
+gravity = Vector2(0, -2)
+angular_velocity_min = -10.0
+scale_amount_min = 0.4
+color_ramp = SubResource("Gradient_etyas")

@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://do6ns8aier6ds"]
+
+[ext_resource type="Script" uid="uid://eckilgfc0rsu" path="res://Scenes/Dialogue/dialogue.gd" id="1_gmov8"]
+[ext_resource type="Shader" uid="uid://mjlcjonchl1y" path="res://Scenes/Effects/pixel_effect.gdshader" id="1_yf3mk"]
+[ext_resource type="Texture2D" uid="uid://baf23ts3hi8d8" path="res://Assets/Dialouge/textbox.png" id="2_otsy6"]
+[ext_resource type="FontFile" uid="uid://caykkcx7unpfe" path="res://Assets/Fonts/Ithaca-LVB75.ttf" id="4_gmov8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y2qpd"]
+shader = ExtResource("1_yf3mk")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bg8p8"]
+load_path = "res://.godot/imported/butcher_crack.png-37854bea0a607cc72484988aac1e8780.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ecn3p"]
+shader = ExtResource("1_yf3mk")
+
+[node name="Dialogue" type="Node2D" unique_id=784002875]
+visibility_layer = 524288
+z_index = 4096
+script = ExtResource("1_gmov8")
+
+[node name="Control" type="Control" parent="." unique_id=1822810282]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Control" unique_id=1922238174]
+material = SubResource("ShaderMaterial_y2qpd")
+position = Vector2(0, -67.00001)
+scale = Vector2(0.796875, 0.796875)
+texture = SubResource("CompressedTexture2D_bg8p8")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Control" unique_id=1944968938]
+material = SubResource("ShaderMaterial_ecn3p")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -281.0
+offset_top = -48.0
+offset_right = 281.0
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_otsy6")
+region_rect = Rect2(0, 0, 48, 48)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=2086444650]
+layout_mode = 0
+offset_left = -281.0
+offset_top = -48.0
+offset_right = 281.0
+offset_bottom = 46.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/VBoxContainer" unique_id=1685247911]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("4_gmov8")
+bbcode_enabled = true
+scroll_active = false
+visible_characters_behavior = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer" unique_id=1725288095]
+visible = false
+layout_mode = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2147227254]
+max_polyphony = 1000

@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://bnygc32dumwri"]
+
+[ext_resource type="Script" uid="uid://bgn5ts7cba4jr" path="res://Scenes/Items/stardust.gd" id="1_2xrk4"]
+[ext_resource type="Shader" uid="uid://dk0mym17ufua" path="res://Scenes/Effects/lighting.gdshader" id="2_d4rg5"]
+[ext_resource type="Texture2D" uid="uid://be40s0g5o2454" path="res://Assets/Items/stardust.png" id="3_61str"]
+[ext_resource type="Texture2D" uid="uid://ugsmqx48kgin" path="res://Assets/Particles/star.png" id="3_amfn8"]
+[ext_resource type="Texture2D" uid="uid://hc3lfrspy27s" path="res://Assets/Light/spotlight.png" id="4_jwrjv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ecn3p"]
+shader = ExtResource("2_d4rg5")
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_jwrjv"]
+polygon = PackedVector2Array(-6.5, -6.5, -6.5, -3.4, -5.6, -3.4, -5.6, -2.6, -6.5, -2.6, -6.5, 2.6000004, -5.6, 2.6000004, -5.6, 3.6000004, -4.6, 3.6000004, -4.6, 4.6000004, -3.6, 4.6000004, -3.6, 5.6000004, -2.6, 5.6000004, -2.6, 6.5, 2.6000004, 6.5, 2.6000004, 5.6000004, 3.6000004, 5.6000004, 3.6000004, 4.6000004, 4.6000004, 4.6000004, 4.6000004, 3.6000004, 5.6000004, 3.6000004, 5.6000004, 2.6000004, 6.5, 2.6000004, 6.5, -2.6, 5.6000004, -2.6, 5.6000004, -3.6, 4.6000004, -3.6, 4.6000004, -4.6, 3.6000004, -4.6, 3.6000004, -5.6, 2.6000004, -5.6, 2.6000004, -6.5, -2.6, -6.5, -2.6, -5.6, -3.4, -5.6, -3.4, -6.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yq7aw"]
+shader = ExtResource("2_d4rg5")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ecn3p"]
+size = Vector2(10, 10)
+
+[sub_resource type="Animation" id="Animation_jwrjv"]
+resource_name = "Float"
+length = 3.0333333
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Stardust/LightOccluder2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.4666667, 3.0333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 2), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_amfn8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Stardust/LightOccluder2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3tv7t"]
+_data = {
+&"Float": SubResource("Animation_jwrjv"),
+&"RESET": SubResource("Animation_amfn8")
+}
+
+[node name="Stardust" type="Node2D" unique_id=1165336236]
+
+[node name="Stardust" type="CharacterBody2D" parent="." unique_id=1741029458]
+input_pickable = true
+safe_margin = 3.607
+script = ExtResource("1_2xrk4")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Stardust" unique_id=1821632206]
+material = SubResource("ShaderMaterial_ecn3p")
+texture = ExtResource("3_amfn8")
+lifetime = 0.74
+emission_shape = 1
+emission_sphere_radius = 10.85
+direction = Vector2(0, 0)
+spread = 81.92
+gravity = Vector2(0, 0)
+angular_velocity_min = 258.76
+angular_velocity_max = 258.76
+orbit_velocity_min = 1.0
+orbit_velocity_max = 1.0
+linear_accel_min = 30.77
+linear_accel_max = 100.0
+radial_accel_min = 92.31
+radial_accel_max = 92.31
+scale_amount_min = 0.1
+scale_amount_max = 0.3
+hue_variation_min = 0.41
+hue_variation_max = 0.41
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Stardust" unique_id=195403555]
+scale = Vector2(1.0384616, 1)
+occluder = SubResource("OccluderPolygon2D_jwrjv")
+
+[node name="Sprite2D" type="Sprite2D" parent="Stardust/LightOccluder2D" unique_id=1964089477]
+material = SubResource("ShaderMaterial_yq7aw")
+texture = ExtResource("3_61str")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stardust" unique_id=1486001695]
+shape = SubResource("RectangleShape2D_ecn3p")
+
+[node name="PointLight2D" type="PointLight2D" parent="Stardust" unique_id=58914486]
+color = Color(1, 1, 0.5137255, 1)
+energy = 1.63
+texture = ExtResource("4_jwrjv")
+texture_scale = 2.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Stardust" unique_id=1200819536]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_3tv7t")
