@@ -15,9 +15,14 @@ run/main_scene="uid://blmfda1p42qa8"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
+[audio]
+
+driver/enable_input=true
+
 [autoload]
 
 CameraManager="*uid://clo5k4dhn2llb"
+RoomManager="*uid://dj2xrju0e3fb7"
 
 [display]
 

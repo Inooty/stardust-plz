@@ -1,0 +1,359 @@
+[gd_scene format=3 uid="uid://bclk64o0ij8fi"]
+
+[ext_resource type="Shader" uid="uid://dk0mym17ufua" path="res://Scenes/Effects/lighting.gdshader" id="1_55k0w"]
+[ext_resource type="Texture2D" uid="uid://u87mefse3bn6" path="res://Assets/Backgrounds/Sunset/sky.png" id="1_w4fmy"]
+[ext_resource type="Texture2D" uid="uid://1p8i21dsd84b" path="res://Assets/Backgrounds/Sunset/sun.png" id="2_55k0w"]
+[ext_resource type="Texture2D" uid="uid://dxhcc8p3tvxe" path="res://Assets/Backgrounds/Sunset/foreground.png" id="3_4ed8v"]
+[ext_resource type="Script" uid="uid://capcl7ljj3gqa" path="res://Scripts/parallax.gd" id="3_qupfo"]
+[ext_resource type="Texture2D" uid="uid://bo3qgp8a8qpi6" path="res://Assets/Backgrounds/Sunset/backhill.png" id="4_qupfo"]
+[ext_resource type="Texture2D" uid="uid://bq7xw4vutn5ga" path="res://Assets/Backgrounds/Sunset/skyfurther.png" id="4_wmesb"]
+[ext_resource type="Texture2D" uid="uid://dgomtmwca5kkf" path="res://Assets/Backgrounds/Sunset/skyhigher.png" id="5_061my"]
+[ext_resource type="Texture2D" uid="uid://cmqh1osmq5x7w" path="res://Assets/Backgrounds/Sunset/midhill.png" id="5_wmesb"]
+[ext_resource type="Texture2D" uid="uid://dooa1gyk47pd0" path="res://Assets/Backgrounds/Sunset/fronthill.png" id="6_061my"]
+[ext_resource type="Texture2D" uid="uid://cjia2xofixpnu" path="res://Assets/Backgrounds/Sunset/skyhigherhigher.png" id="6_a2bxt"]
+[ext_resource type="Texture2D" uid="uid://b8w0qimb7soue" path="res://Assets/Backgrounds/Sunset/skylower.png" id="6_rhroa"]
+[ext_resource type="PackedScene" uid="uid://dmdpbdcl5yllb" path="res://Scenes/Lights/shadow.tscn" id="8_r77ho"]
+[ext_resource type="Texture2D" uid="uid://b6l04qf4gyn1v" path="res://Assets/Backgrounds/Sunset/midhillreverse.png" id="11_rhroa"]
+[ext_resource type="Texture2D" uid="uid://dee8l7dneogof" path="res://Assets/Backgrounds/Sunset/fronthillreverse.png" id="13_061my"]
+[ext_resource type="PackedScene" uid="uid://bre8mns53776g" path="res://Scenes/Lights/light_shadow.tscn" id="15_j5mmr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j5mmr"]
+shader = ExtResource("1_55k0w")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4ed8v"]
+shader = ExtResource("1_55k0w")
+
+[sub_resource type="Animation" id="Animation_r77ho"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(30.04776, -2.8169785)]
+}
+
+[sub_resource type="Animation" id="Animation_5v04a"]
+resource_name = "sun"
+length = 32.133335
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 16.2, 31.833334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(30.04776, -2.8169785), Vector2(30.986757, -26.291798), Vector2(30.04776, -2.8169785)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m7c8y"]
+_data = {
+&"RESET": SubResource("Animation_r77ho"),
+&"sun": SubResource("Animation_5v04a")
+}
+
+[node name="Sunset" type="Node2D" unique_id=863714889]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=149296100]
+color = Color(0.12189671, 0.0003433407, 0.27796885, 1)
+
+[node name="BG" type="CanvasLayer" parent="." unique_id=472802905]
+layer = -1
+follow_viewport_enabled = true
+
+[node name="Background" type="Node2D" parent="BG" unique_id=154945431]
+
+[node name="Sky" type="Parallax2D" parent="BG/Background" unique_id=359419936]
+visibility_layer = 2
+repeat_size = Vector2(3059.2, 0)
+autoscroll = Vector2(10, 0)
+repeat_times = 10
+ignore_camera_scroll = true
+
+[node name="Sky" type="Sprite2D" parent="BG/Background/Sky" unique_id=1034128305]
+material = SubResource("ShaderMaterial_j5mmr")
+scale = Vector2(1.9116734, 1.9116734)
+texture = ExtResource("1_w4fmy")
+
+[node name="Sky2" type="Sprite2D" parent="BG/Background/Sky" unique_id=129854656]
+material = SubResource("ShaderMaterial_j5mmr")
+position = Vector2(-611, 0)
+scale = Vector2(1.9116734, 1.9116734)
+texture = ExtResource("4_wmesb")
+
+[node name="Sky14" type="Sprite2D" parent="BG/Background/Sky" unique_id=665847948]
+material = SubResource("ShaderMaterial_j5mmr")
+position = Vector2(-1222.0001, 0)
+scale = Vector2(1.9116734, 1.9116734)
+texture = ExtResource("4_wmesb")
+
+[node name="Sky3" type="Sprite2D" parent="BG/Background/Sky" unique_id=91538369]
+material = SubResource("ShaderMaterial_j5mmr")
+position = Vector2(611, 0)
+scale = Vector2(1.9116734, 1.9116734)
+texture = ExtResource("4_wmesb")
+
+[node name="Sky11" type="Sprite2D" parent="BG/Background/Sky" unique_id=147638830]
+material = SubResource("ShaderMaterial_j5mmr")
+position = Vector2(1222.0001, 2)
+scale = Vector2(1.9516636, 1.9116734)
+texture = ExtResource("4_wmesb")
+
+[node name="Sky4" type="Sprite2D" parent="BG/Background/Sky" unique_id=129334075]
+material = SubResource("ShaderMaterial_j5mmr")
+position = Vector2(0, -344.00003)
+scale = Vector2(1.9116734, 1.9116734)
+texture = ExtResource("5_061my")
+
+[node name="Sky5" type="Sprite2D" parent="BG/Background/Sky" unique_id=881485837]
+material = SubResource("ShaderMaterial_j5mmr")
+position = Vector2(-611, -344.00003)
+scale = Vector2(1.9116734, 1.9116734)
+texture = ExtResource("5_061my")
+
+[node name="Sky16" type="Sprite2D" parent="BG/Background/Sky" unique_id=1291786005]
+material = SubResource("ShaderMaterial_j5mmr")
+position = Vector2(66.00001, -1833.9999)
+scale = Vector2(14.320319, 15.568483)
+texture = ExtResource("6_a2bxt")
+
+[node name="Sky6" type="Sprite2D" parent="BG/Background/Sky" unique_id=2074759292]
+material = SubResource("ShaderMaterial_j5mmr")
+position = Vector2(611, -342.00003)
+scale = Vector2(1.9116734, 1.9116734)
+texture = ExtResource("5_061my")
+
+[node name="Sky10" type="Sprite2D" parent="BG/Background/Sky" unique_id=138488333]
+material = SubResource("ShaderMaterial_j5mmr")
+position = Vector2(1222.0001, -342.00003)
+scale = Vector2(1.9916832, 1.9116734)
+texture = ExtResource("5_061my")
+
+[node name="Sky13" type="Sprite2D" parent="BG/Background/Sky" unique_id=1736716258]
+material = SubResource("ShaderMaterial_j5mmr")
+position = Vector2(-1222.0001, -344.00003)
+scale = Vector2(1.9116734, 1.9116734)
+texture = ExtResource("5_061my")
+
+[node name="Sky7" type="Sprite2D" parent="BG/Background/Sky" unique_id=1213632898]
+material = SubResource("ShaderMaterial_j5mmr")
+position = Vector2(611, 344.00003)
+scale = Vector2(1.9116734, 1.9116734)
+texture = ExtResource("6_rhroa")
+
+[node name="Sky8" type="Sprite2D" parent="BG/Background/Sky" unique_id=1337355954]
+material = SubResource("ShaderMaterial_j5mmr")
+position = Vector2(0, 344.00003)
+scale = Vector2(1.9116734, 1.9116734)
+texture = ExtResource("6_rhroa")
+
+[node name="Sky12" type="Sprite2D" parent="BG/Background/Sky" unique_id=1294650564]
+material = SubResource("ShaderMaterial_j5mmr")
+position = Vector2(1222.0001, 344.00003)
+scale = Vector2(1.9933907, 1.9116734)
+texture = ExtResource("6_rhroa")
+
+[node name="Sky15" type="Sprite2D" parent="BG/Background/Sky" unique_id=827365571]
+material = SubResource("ShaderMaterial_j5mmr")
+position = Vector2(-1222.0001, 344.00003)
+scale = Vector2(1.9116734, 1.9116734)
+texture = ExtResource("6_rhroa")
+
+[node name="Sky9" type="Sprite2D" parent="BG/Background/Sky" unique_id=1734309885]
+material = SubResource("ShaderMaterial_j5mmr")
+position = Vector2(-611, 344.00003)
+scale = Vector2(1.9116734, 1.9116734)
+texture = ExtResource("6_rhroa")
+
+[node name="Sky17" type="Sprite2D" parent="BG/Background/Sky" unique_id=1626202625]
+material = SubResource("ShaderMaterial_j5mmr")
+position = Vector2(-344, 1982.9999)
+scale = Vector2(9.646065, 16.329529)
+texture = ExtResource("6_rhroa")
+
+[node name="Node2D" parent="BG/Background/Sky" unique_id=1217242466 instance=ExtResource("8_r77ho")]
+position = Vector2(570, 49)
+
+[node name="PointLight2D4" parent="BG/Background/Sky/Node2D" index="0" unique_id=1944663990]
+position = Vector2(-588, -140.99998)
+rotation = -1.5707964
+scale = Vector2(29.410366, 22653.752)
+range_layer_min = -1
+
+[node name="Node2D2" parent="BG/Background/Sky" unique_id=1727440684 instance=ExtResource("8_r77ho")]
+position = Vector2(570, 49)
+rotation = -3.1415927
+
+[node name="PointLight2D4" parent="BG/Background/Sky/Node2D2" index="0" unique_id=1944663990]
+position = Vector2(557.00024, -3368)
+rotation = -1.5707964
+scale = Vector2(29.410366, 22653.752)
+range_layer_min = -1
+
+[node name="Sun" type="Parallax2D" parent="BG/Background" unique_id=1098940874]
+scale = Vector2(1.064971, 1.064971)
+script = ExtResource("3_qupfo")
+
+[node name="Sun" type="Sprite2D" parent="BG/Background/Sun" unique_id=1956521428]
+material = SubResource("ShaderMaterial_4ed8v")
+position = Vector2(30.04776, -2.8169785)
+scale = Vector2(1.7950474, 1.7950474)
+texture = ExtResource("2_55k0w")
+
+[node name="Light" parent="BG/Background/Sun/Sun" unique_id=926057227 instance=ExtResource("15_j5mmr")]
+position = Vector2(34.524727, 28.7706)
+scale = Vector2(0.5231019, 0.5231019)
+
+[node name="Light" parent="BG/Background/Sun/Sun/Light" index="0" unique_id=1987148583]
+position = Vector2(7.6293945e-06, 0)
+scale = Vector2(2.7278287, 2.7278287)
+color = Color(1, 1, 0, 0.72156864)
+energy = 0.6
+range_layer_min = -1
+texture_scale = 11.74
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BG/Background/Sun/Sun" unique_id=1786821545]
+libraries/ = SubResource("AnimationLibrary_m7c8y")
+autoplay = &"sun"
+
+[node name="Backhill" type="Parallax2D" parent="BG/Background" unique_id=1314464987]
+scale = Vector2(1.0775396, 1.0775396)
+scroll_scale = Vector2(1.05, 1.05)
+repeat_size = Vector2(3059.2, 0)
+repeat_times = 8
+script = ExtResource("3_qupfo")
+
+[node name="Backhill" type="Sprite2D" parent="BG/Background/Backhill" unique_id=825003090]
+material = SubResource("ShaderMaterial_4ed8v")
+position = Vector2(-7.424321, 77.955376)
+scale = Vector2(1.1906185, 1.1906185)
+texture = ExtResource("4_qupfo")
+
+[node name="Backhill2" type="Sprite2D" parent="BG/Background/Backhill" unique_id=2089309351]
+material = SubResource("ShaderMaterial_4ed8v")
+position = Vector2(-414.83395, 63.106735)
+scale = Vector2(1.1906185, 1.1906185)
+texture = ExtResource("4_qupfo")
+
+[node name="Backhill3" type="Sprite2D" parent="BG/Background/Backhill" unique_id=162446528]
+material = SubResource("ShaderMaterial_4ed8v")
+position = Vector2(711.80676, 105.79657)
+scale = Vector2(1.1906185, 1.1906185)
+texture = ExtResource("4_qupfo")
+
+[node name="Backhill4" type="Sprite2D" parent="BG/Background/Backhill" unique_id=1632538335]
+material = SubResource("ShaderMaterial_4ed8v")
+position = Vector2(1387.42, 108.5807)
+scale = Vector2(1.1906185, 1.1906185)
+texture = ExtResource("4_qupfo")
+
+[node name="Backhill5" type="Sprite2D" parent="BG/Background/Backhill" unique_id=1271787385]
+material = SubResource("ShaderMaterial_4ed8v")
+position = Vector2(-998.5712, 83.52362)
+scale = Vector2(1.1906185, 1.1906185)
+texture = ExtResource("4_qupfo")
+
+[node name="Foreground" type="Parallax2D" parent="BG/Background" unique_id=1150056198]
+scale = Vector2(1.0750617, 1.0750617)
+scroll_scale = Vector2(1.03, 1.03)
+script = ExtResource("3_qupfo")
+
+[node name="Foreground" type="Sprite2D" parent="BG/Background/Foreground" unique_id=915771075]
+material = SubResource("ShaderMaterial_4ed8v")
+position = Vector2(5.5810757, 27.905376)
+scale = Vector2(1.4597306, 1.4597306)
+texture = ExtResource("3_4ed8v")
+
+[node name="MidHill" type="Parallax2D" parent="BG/Background" unique_id=993989803]
+scale = Vector2(1.0906955, 1.0878972)
+scroll_scale = Vector2(1.07, 1.07)
+scroll_offset = Vector2(0, 11)
+repeat_size = Vector2(3059.2, 0)
+repeat_times = 8
+script = ExtResource("3_qupfo")
+
+[node name="Midhill" type="Sprite2D" parent="BG/Background/MidHill" unique_id=1085513092]
+material = SubResource("ShaderMaterial_4ed8v")
+position = Vector2(-6.417923, 86.40523)
+scale = Vector2(1.5300351, 1.5300351)
+texture = ExtResource("5_wmesb")
+
+[node name="Midhill3" type="Sprite2D" parent="BG/Background/MidHill" unique_id=647771271]
+material = SubResource("ShaderMaterial_4ed8v")
+position = Vector2(1486.2078, 89.16283)
+scale = Vector2(1.5300351, 1.5300351)
+texture = ExtResource("5_wmesb")
+
+[node name="Midhill6" type="Sprite2D" parent="BG/Background/MidHill" unique_id=1348389574]
+material = SubResource("ShaderMaterial_4ed8v")
+position = Vector2(-1083.7122, 89.16284)
+scale = Vector2(1.5300351, 1.5300351)
+texture = ExtResource("11_rhroa")
+
+[node name="Midhill2" type="Sprite2D" parent="BG/Background/MidHill" unique_id=1582625258]
+material = SubResource("ShaderMaterial_4ed8v")
+position = Vector2(482.26108, 86.40521)
+scale = Vector2(1.5300351, 1.5300351)
+texture = ExtResource("11_rhroa")
+
+[node name="Midhill4" type="Sprite2D" parent="BG/Background/MidHill" unique_id=372091990]
+material = SubResource("ShaderMaterial_4ed8v")
+position = Vector2(-407.99658, 81.809204)
+scale = Vector2(1.5300351, 1.5300351)
+texture = ExtResource("11_rhroa")
+
+[node name="Midhill5" type="Sprite2D" parent="BG/Background/MidHill" unique_id=1696537239]
+material = SubResource("ShaderMaterial_4ed8v")
+position = Vector2(-890.25775, 81.809204)
+scale = Vector2(1.5300351, 1.5300351)
+texture = ExtResource("5_wmesb")
+
+[node name="FrontHill" type="Parallax2D" parent="BG/Background" unique_id=859965306]
+scale = Vector2(1.0707489, 1.0707489)
+scroll_scale = Vector2(1.1, 1.1)
+repeat_size = Vector2(3059.2, 0)
+repeat_times = 10
+script = ExtResource("3_qupfo")
+
+[node name="Fronthill" type="Sprite2D" parent="BG/Background/FrontHill" unique_id=1419313259]
+material = SubResource("ShaderMaterial_4ed8v")
+position = Vector2(55.56038, -24.140808)
+scale = Vector2(2.139222, 2.139222)
+texture = ExtResource("6_061my")
+
+[node name="Fronthill4" type="Sprite2D" parent="BG/Background/FrontHill" unique_id=1843007920]
+material = SubResource("ShaderMaterial_4ed8v")
+position = Vector2(1421.4349, -24.282074)
+scale = Vector2(2.139222, 2.139222)
+texture = ExtResource("6_061my")
+
+[node name="Fronthill2" type="Sprite2D" parent="BG/Background/FrontHill" unique_id=538515525]
+material = SubResource("ShaderMaterial_4ed8v")
+position = Vector2(-623.8624, -24.28207)
+scale = Vector2(2.139222, 2.139222)
+texture = ExtResource("13_061my")
+
+[node name="Fronthill3" type="Sprite2D" parent="BG/Background/FrontHill" unique_id=1551140508]
+material = SubResource("ShaderMaterial_4ed8v")
+position = Vector2(739.66925, -24.28207)
+scale = Vector2(2.139222, 2.139222)
+texture = ExtResource("13_061my")
+
+[node name="Sky17" type="Sprite2D" parent="BG/Background/FrontHill" unique_id=1485056533]
+material = SubResource("ShaderMaterial_j5mmr")
+position = Vector2(-1132.852, 174.4)
+scale = Vector2(1.1129323, 0.32952282)
+texture = ExtResource("6_rhroa")
+
+[editable path="BG/Background/Sky/Node2D"]
+[editable path="BG/Background/Sky/Node2D2"]
+[editable path="BG/Background/Sun/Sun/Light"]

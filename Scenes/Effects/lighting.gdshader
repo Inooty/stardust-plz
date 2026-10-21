@@ -1,7 +1,7 @@
 shader_type canvas_item;
 
 const float pixel_size = 3.0;   // grid size for light/shadow snapping
-const float light_steps = 64.0;  // brightness bands; lower = harsher, 0 disables (see below)
+const float light_steps = 128.0;  // brightness bands; lower = harsher, 0 disables (see below)
 
 vec4 texturePointSmooth(sampler2D smp, vec2 uv, vec2 px)
 {

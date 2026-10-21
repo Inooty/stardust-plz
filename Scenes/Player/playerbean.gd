@@ -14,7 +14,7 @@ extends CharacterBody2D
 # Mouse Leash (Yes it gets its own section)
 @export var mouseleash: float = 300
 
-# Texture Changes
+# Texture Changess
 @export var default: Texture2D
 @export var grab: Texture2D
 @export var ponder: Texture2D
@@ -28,6 +28,9 @@ var hold: RigidBody2D
 var holding: bool = false
 var pondering: bool = false
 
+# Movement Control
+var move: bool = true
+
 # Texture Control
 func _process (_delta: float) -> void:
 	if holding ==true:
@@ -39,6 +42,7 @@ func _process (_delta: float) -> void:
 
 # On Game Start
 func _ready() -> void:
+	add_to_group("player")
 	CameraManager.camera = get_viewport().get_camera_2d()
 	CameraManager.player = self
 	print("Camera Manager! ", CameraManager.camera)
@@ -47,6 +51,8 @@ func _ready() -> void:
 	
 # OS, am I moving the mouse?
 func _input(event: InputEvent) -> void:
+	if not move:
+		return
 	if event is InputEventMouseMotion:
 		vmousepos += event.relative
 
@@ -57,9 +63,15 @@ func _physics_process(delta: float) -> void:
 	if tomouse.length() > mouseleash:
 		vmousepos = global_position + tomouse.normalized() * mouseleash
 		tomouse = vmousepos - global_position
-	
 	var tarvel = tomouse.limit_length(maxspeed)
 	
+	# Evil Breaks
+	if not move:
+		velocity = Vector2.ZERO
+		chasevel = Vector2.ZERO
+		knockbackvel = Vector2.ZERO
+		vmousepos = global_position
+		return
 	
 	# Lovely Smoothing
 	var t = 1 - exp(-smoothspeed * delta)

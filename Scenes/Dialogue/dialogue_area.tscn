@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://nyrv141ekj27"]
+
+[ext_resource type="Script" uid="uid://b850fnykmxkhs" path="res://Scenes/Dialogue/dialogue-area.gd" id="1_wajxe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ecn3p"]
+
+[node name="Dialogue Area" type="Area2D" unique_id=1640859130]
+script = ExtResource("1_wajxe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=268028618]
+shape = SubResource("RectangleShape2D_ecn3p")

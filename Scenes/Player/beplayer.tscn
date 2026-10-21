@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dnqanr7c81hop" path="res://Assets/Player/cursor_bean.png" id="1_v0iea"]
 [ext_resource type="Shader" uid="uid://mjlcjonchl1y" path="res://Scenes/Effects/pixel_effect.gdshader" id="2_6t5aa"]
-[ext_resource type="Script" uid="uid://cr86ihd5t6d5w" path="res://Scenes/Player/player.gd" id="2_44tlo"]
+[ext_resource type="Script" uid="uid://dwd4d4bloxa4w" path="res://Scenes/Player/playerbean.gd" id="2_44tlo"]
 [ext_resource type="Shader" uid="uid://dk0mym17ufua" path="res://Scenes/Effects/lighting.gdshader" id="3_mtuoh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5hupk"]

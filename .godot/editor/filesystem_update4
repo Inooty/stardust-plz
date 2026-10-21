@@ -1,9 +1,4 @@
-res://Scenes/Levels/buku_test.tscn
+res://Scenes/NPCs/buku_sleep.tscn
 res://Scenes/Effects/lighting.gdshader
 res://Scenes/Effects/pixel_effect.gdshader
-res://Scenes/Dialogue/dialogue.tscn
-res://Scenes/Dialogue/button.tscn
-res://dialogue-choice.gd
-res://dialouge-function.gd
-res://dialouge-resource.gd
-res://dialogue-export-resource.gd
+res://Scenes/Dialogue/dialogue-area.gd

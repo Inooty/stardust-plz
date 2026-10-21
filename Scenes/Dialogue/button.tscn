@@ -2,30 +2,13 @@
 
 [ext_resource type="FontFile" uid="uid://caykkcx7unpfe" path="res://Assets/Fonts/Ithaca-LVB75.ttf" id="1_t5xjd"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ecn3p"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_etyas"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y2qpd"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4nve0"]
-
-[node name="Control" type="MarginContainer" unique_id=951457694]
+[node name="Button" type="Button" unique_id=823192413]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
-
-[node name="Button" type="Button" parent="." unique_id=1011868952]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
-theme_override_colors/font_focus_color = Color(0, 0.9490196, 0.9490196, 1)
-theme_override_colors/font_pressed_color = Color(0, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(0, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.9490196, 0.9490196, 0, 1)
 theme_override_fonts/font = ExtResource("1_t5xjd")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_ecn3p")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_etyas")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_y2qpd")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_4nve0")
+flat = true
