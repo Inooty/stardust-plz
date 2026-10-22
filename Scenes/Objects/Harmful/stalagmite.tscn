@@ -3,12 +3,16 @@
 [ext_resource type="Shader" uid="uid://dk0mym17ufua" path="res://Scenes/Effects/lighting.gdshader" id="1_wo6g6"]
 [ext_resource type="Texture2D" uid="uid://c582tyonlgcfu" path="res://Assets/Objects/Harmful/stalagmite.png" id="2_gsqfj"]
 [ext_resource type="Script" uid="uid://c2lhaoew6wulj" path="res://stalagmite.gd" id="3_m3vnu"]
+[ext_resource type="Script" uid="uid://n5ltolabbfpi" path="res://Scripts/fall.gd" id="4_gsqfj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ecn3p"]
 shader = ExtResource("1_wo6g6")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ecn3p"]
 size = Vector2(5, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y2qpd"]
+size = Vector2(54, 213)
 
 [sub_resource type="Animation" id="Animation_wo6g6"]
 length = 0.001
@@ -76,6 +80,14 @@ script = ExtResource("3_m3vnu")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Stalagmite" unique_id=391043683]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_ecn3p")
+
+[node name="Area" type="Area2D" parent="." unique_id=1697795552]
+script = ExtResource("4_gsqfj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area" unique_id=1950961640]
+position = Vector2(-1, 94.5)
+shape = SubResource("RectangleShape2D_y2qpd")
+disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2003807948]
 libraries/ = SubResource("AnimationLibrary_m3vnu")
