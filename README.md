@@ -37,5 +37,4 @@ This game probably won't getting any updates after the Stardance Competition is 
 #
 #
 #
-## Why is Solaris a Twist Villian?
-When I was thinking of a Villain for the game, I had the idea to make Arnold the twist villian, he would turn red and betray you, even on the buku route, he would go crazy and eventually become the final villian, but then I had the idea of a Black Hole Star, and you know, it makes perfect sense, what's the opposite of a bright, shining star? A Black Hole. And then I saw the Sticky Streak #1 Sticker, (I had long forgotten what it was by the point I started working on the game) And thought "Oh wait theyre actually IS a Black-Hole Star Character!" So, I came up with the idea of a villian that would pretend to help you, and slowly suck up everything and become bigger over time, and become the final boss at the end, that's how the idea of Solaris came to be.
+#  No Spoilers For Now...

@@ -1,4 +1,5 @@
-res://Scenes/NPCs/buku_sleep.tscn
+res://Scenes/Rooms/Backgrounds/skyhigh.tscn
 res://Scenes/Effects/lighting.gdshader
 res://Scenes/Effects/pixel_effect.gdshader
-res://Scenes/Dialogue/dialogue-area.gd
+res://Scenes/Objects/Harmful/stalagmite.tscn
+res://README.md

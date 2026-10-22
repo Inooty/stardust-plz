@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://d2db5a4onc1vr" path="res://Scenes/Player/playerbuku.gd" id="2_bcewm"]
 [ext_resource type="Shader" uid="uid://dk0mym17ufua" path="res://Scenes/Effects/lighting.gdshader" id="3_p03qk"]
 [ext_resource type="Texture2D" uid="uid://1sogyo2vqi4g" path="res://Assets/Player/cursor_buku.png" id="4_qxmoo"]
+[ext_resource type="Script" uid="uid://ddnrs0luocnev" path="res://Scenes/Player/health.gd" id="5_8d00j"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5hupk"]
 shader = ExtResource("1_bcewm")
@@ -100,3 +101,6 @@ texture_scale = 10.74
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1478961958]
 position = Vector2(2.5, -1.5)
 shape = SubResource("RectangleShape2D_etyas")
+
+[node name="Health" type="Node2D" parent="." unique_id=1013200883]
+script = ExtResource("5_8d00j")

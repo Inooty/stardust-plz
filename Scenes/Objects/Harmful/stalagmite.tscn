@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://cu4mejyqf41ap"]
+
+[ext_resource type="Shader" uid="uid://dk0mym17ufua" path="res://Scenes/Effects/lighting.gdshader" id="1_wo6g6"]
+[ext_resource type="Texture2D" uid="uid://c582tyonlgcfu" path="res://Assets/Objects/Harmful/stalagmite.png" id="2_gsqfj"]
+[ext_resource type="Script" uid="uid://c2lhaoew6wulj" path="res://stalagmite.gd" id="3_m3vnu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ecn3p"]
+shader = ExtResource("1_wo6g6")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ecn3p"]
+size = Vector2(5, 12)
+
+[sub_resource type="Animation" id="Animation_wo6g6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_m3vnu"]
+resource_name = "regrow"
+length = 3.2333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.1, 2.7, 2.8666666, 3.17),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(4.355, -11.26), Vector2(2.595, -11.305), Vector2(2.523, -11.145), Vector2(1.26, 0), Vector2(-1.53, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gsqfj"]
+resource_name = "trigger"
+length = 7.4333334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.18, 0.44, 0.6333333, 7.366667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1.0000008),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-1.295, 0), Vector2(3.16, 0), Vector2(0, 0), Vector2(0, 593.125)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m3vnu"]
+_data = {
+&"RESET": SubResource("Animation_wo6g6"),
+&"regrow": SubResource("Animation_m3vnu"),
+&"trigger": SubResource("Animation_gsqfj")
+}
+
+[node name="Stalagmite" type="Node2D" unique_id=1243292723]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1003059244]
+material = SubResource("ShaderMaterial_ecn3p")
+texture = ExtResource("2_gsqfj")
+
+[node name="Stalagmite" type="Area2D" parent="Sprite2D" unique_id=1499647059]
+script = ExtResource("3_m3vnu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Stalagmite" unique_id=391043683]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_ecn3p")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2003807948]
+libraries/ = SubResource("AnimationLibrary_m3vnu")

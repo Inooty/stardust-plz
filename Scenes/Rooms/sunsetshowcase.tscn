@@ -26,6 +26,7 @@
 [ext_resource type="AudioStream" uid="uid://ddb4aqyviyhb6" path="res://Assets/Dialogue/SFX/starling.wav" id="24_k12q8"]
 [ext_resource type="PackedScene" uid="uid://dmdpbdcl5yllb" path="res://Scenes/Lights/shadow.tscn" id="25_m418s"]
 [ext_resource type="PackedScene" uid="uid://d40bhx5r0pvv" path="res://Scenes/Utilities/roomexit.tscn" id="26_6ocjf"]
+[ext_resource type="PackedScene" uid="uid://cu4mejyqf41ap" path="res://Scenes/Objects/Harmful/stalagmite.tscn" id="27_32hwt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kjyvl"]
 shader = ExtResource("1_wgcdy")
@@ -981,6 +982,9 @@ range_layer_min = -1
 position = Vector2(-3, -5)
 scale = Vector2(2.2026966, 1)
 target_room = "uid://dmgnwisx0fc6g"
+
+[node name="Stalagmite" parent="." unique_id=1243292723 instance=ExtResource("27_32hwt")]
+position = Vector2(126, 60)
 
 [editable path="Player"]
 [editable path="Node2D"]
