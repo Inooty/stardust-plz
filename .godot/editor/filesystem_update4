@@ -1,3 +1,8 @@
-res://Scenes/Objects/Harmful/stalagmite.tscn
-res://Scenes/Effects/lighting.gdshader
+res://Scenes/Rooms/sunsetshowcase.tscn
 res://Scenes/Effects/pixel_effect.gdshader
+res://Scenes/Effects/lighting.gdshader
+res://addons/phantom_camera/themes/theme.tres
+res://Scenes/Objects/checkpoint.gd
+res://Scenes/Objects/boulder.tscn
+res://Scenes/Objects/Harmful/spikedboulder.tscn
+res://Scenes/Objects/Harmful/spiked-boulder.gd

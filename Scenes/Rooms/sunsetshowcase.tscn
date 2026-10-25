@@ -27,6 +27,8 @@
 [ext_resource type="PackedScene" uid="uid://dmdpbdcl5yllb" path="res://Scenes/Lights/shadow.tscn" id="25_m418s"]
 [ext_resource type="PackedScene" uid="uid://d40bhx5r0pvv" path="res://Scenes/Utilities/roomexit.tscn" id="26_6ocjf"]
 [ext_resource type="PackedScene" uid="uid://cu4mejyqf41ap" path="res://Scenes/Objects/Harmful/stalagmite.tscn" id="27_32hwt"]
+[ext_resource type="PackedScene" uid="uid://brs4jq7yset8s" path="res://Scenes/Objects/Harmful/spikedboulder.tscn" id="29_2vc6c"]
+[ext_resource type="PackedScene" uid="uid://bi6ava4n1jji1" path="res://Scenes/Objects/checkpoint.tscn" id="29_i0q5e"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kjyvl"]
 shader = ExtResource("1_wgcdy")
@@ -48,6 +50,9 @@ texture = ExtResource("2_xua7v")
 
 [sub_resource type="TileSet" id="TileSet_ecn3p"]
 sources/0 = SubResource("TileSetAtlasSource_gpou4")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oibas"]
+shader = ExtResource("1_wgcdy")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t5jks"]
 shader = ExtResource("1_wgcdy")
@@ -900,6 +905,12 @@ material = SubResource("ShaderMaterial_y2qpd")
 tile_map_data = PackedByteArray("AAD8/wYAAAAAAAAAAAD9/wYAAAABAAAAAAD+/wYAAAABAAAAAAD//wYAAAABAAAAAAAAAAYAAAABAAAAAAABAAYAAAACAAAAAAD8/wcAAAAAAAEAAAABAAcAAAACAAEAAAD9/wcAAAABAAEAAAD+/wcAAAABAAEAAAD//wcAAAABAAEAAAAAAAcAAAABAAEAAAAQAAgAAAABAAEAAAARAAgAAAABAAEAAAASAAgAAAABAAEAAAATAAgAAAABAAEAAAAUAAgAAAACAAEAAAAVAAgAAAABAAEAAAAWAAgAAAABAAEAAAAXAAgAAAABAAEAAAAYAAgAAAABAAEAAAAZAAgAAAABAAEAAAAaAAgAAAABAAEAAAAbAAgAAAABAAEAAAD1/wQAAAACAAEAAAD1/wYAAAACAAEAAAD0/wMAAAAAAAAAAAD1/wMAAAACAAAAAADz/wQAAAAAAAAAAAD0/wQAAAABAAEAAADz/wUAAAAAAAEAAADz/wYAAAABAAEAAAD0/wUAAAABAAEAAAD0/wYAAAABAAEAAAD2/wUAAAABAAAAAAD3/wUAAAABAAAAAAD4/wUAAAABAAAAAAD5/wUAAAABAAAAAAD1/wUAAAABAAEAAAD2/wYAAAABAAEAAAD3/wYAAAABAAEAAAD4/wYAAAABAAEAAAD5/wYAAAABAAEAAADy/wYAAAAAAAEAAAD6/wMAAAAAAAAAAAD7/wMAAAACAAAAAAD6/wQAAAAAAAEAAAANAAUAAAAAAAEAAAANAAQAAAAAAAAAAAAOAAQAAAABAAAAAAAPAAQAAAABAAAAAAAQAAMAAAAAAAAAAAARAAMAAAACAAAAAAARAAQAAAACAAEAAAARAAUAAAACAAEAAAASAAYAAAABAAAAAAATAAYAAAABAAAAAAAUAAYAAAABAAAAAAAMAAYAAAABAAAAAAALAAYAAAABAAAAAAAKAAYAAAAAAAAAAAAKAAcAAAAAAAEAAAAUAAcAAAACAAEAAAARAAcAAAABAAEAAAASAAcAAAABAAEAAAATAAcAAAABAAEAAAARAAYAAAABAAEAAAAQAAQAAAABAAEAAAAQAAUAAAABAAEAAAAQAAYAAAABAAEAAAAQAAcAAAABAAEAAAAPAAUAAAABAAEAAAAPAAYAAAABAAEAAAAPAAcAAAABAAEAAAAOAAUAAAABAAEAAAALAAcAAAABAAEAAAAMAAcAAAABAAEAAAANAAYAAAABAAEAAAANAAcAAAABAAEAAAAOAAYAAAABAAEAAAAOAAcAAAABAAEAAAAWAAkAAAABAAEAAAAWAAoAAAABAAEAAAAWAAsAAAABAAEAAAAWAAwAAAABAAEAAAAWAA0AAAABAAEAAAAWAA4AAAABAAEAAAAWAA8AAAABAAEAAAAWABAAAAABAAEAAAAWABEAAAABAAEAAAAXAAkAAAABAAEAAAAXAAoAAAABAAEAAAAXAAsAAAABAAEAAAAXAAwAAAABAAEAAAAXAA0AAAABAAEAAAAXAA4AAAABAAEAAAAXAA8AAAABAAEAAAAXABAAAAABAAEAAAAXABEAAAABAAEAAAAYAAkAAAABAAEAAAAYAAoAAAABAAEAAAAYAAsAAAABAAEAAAAYAAwAAAABAAEAAAAYAA0AAAABAAEAAAAYAA4AAAABAAEAAAAYAA8AAAABAAEAAAAYABAAAAABAAEAAAAYABEAAAABAAEAAAAWABIAAAABAAEAAAAWABMAAAABAAEAAAAWABQAAAABAAEAAAAWABUAAAABAAEAAAAWABYAAAABAAEAAAAWABcAAAABAAEAAAAWABgAAAABAAEAAAAWABkAAAABAAEAAAAWABoAAAABAAEAAAAWABsAAAABAAIAAAAXABIAAAABAAEAAAAXABMAAAABAAEAAAAXABQAAAABAAEAAAAXABUAAAABAAEAAAAXABYAAAABAAEAAAAXABcAAAABAAEAAAAXABgAAAABAAEAAAAXABkAAAABAAEAAAAXABoAAAABAAEAAAAXABsAAAABAAIAAAAYABIAAAABAAEAAAAYABMAAAABAAEAAAAYABQAAAABAAEAAAAYABUAAAABAAEAAAAYABYAAAABAAEAAAAYABcAAAABAAEAAAAYABgAAAABAAEAAAAYABkAAAABAAEAAAAYABoAAAABAAEAAAAYABsAAAABAAIAAAAnAAQAAAABAAEAAAAnAAUAAAABAAEAAAAnAAYAAAABAAEAAAAoAAQAAAABAAEAAAAoAAUAAAABAAEAAAAoAAYAAAABAAEAAAApAAQAAAABAAEAAAApAAUAAAABAAEAAAApAAYAAAABAAEAAAAnAAcAAAABAAEAAAAoAAcAAAABAAEAAAApAAcAAAABAAEAAAAmAAQAAAAAAAEAAAAmAAUAAAABAAEAAAAmAAYAAAABAAEAAAAnAAMAAAABAAAAAAAoAAMAAAABAAAAAAApAAMAAAABAAAAAAAqAAQAAAACAAEAAAAqAAUAAAACAAEAAAAqAAYAAAACAAEAAAAqAAcAAAACAAEAAAAmAAMAAAAAAAAAAAAqAAMAAAACAAAAAAAkAAUAAAAAAAAAAAAkAAYAAAABAAEAAAAlAAUAAAABAAAAAAAlAAYAAAABAAEAAAA=")
 tile_set = SubResource("TileSet_ecn3p")
 
+[node name="Grass2" type="Sprite2D" parent="." unique_id=1757863856]
+material = SubResource("ShaderMaterial_oibas")
+position = Vector2(534.00006, 92)
+scale = Vector2(1.2142857, 1.2142857)
+texture = ExtResource("13_3emkd")
+
 [node name="Tiles" type="TileMapLayer" parent="." unique_id=462203659]
 material = SubResource("ShaderMaterial_t5jks")
 use_parent_material = true
@@ -916,12 +927,12 @@ process_callback = 0
 position_smoothing_enabled = true
 
 [node name="Player" parent="." unique_id=2092462778 instance=ExtResource("11_6m4br")]
-position = Vector2(558, -377)
+position = Vector2(374, 66)
 
-[node name="Light" parent="Player/Player" parent_id_path=PackedInt32Array(2092462778, 790403615) index="5" unique_id=881803897]
+[node name="Light" parent="Player/Player" parent_id_path=PackedInt32Array(2092462778, 790403615) index="4" unique_id=881803897]
 visible = false
 
-[node name="GeneralLight" parent="Player/Player" parent_id_path=PackedInt32Array(2092462778, 790403615) index="6" unique_id=963373310]
+[node name="GeneralLight" parent="Player/Player" parent_id_path=PackedInt32Array(2092462778, 790403615) index="5" unique_id=963373310]
 visible = false
 
 [node name="Grass" type="Sprite2D" parent="." unique_id=1023596691]
@@ -960,7 +971,7 @@ position = Vector2(52, 116)
 texture = ExtResource("14_cieul")
 
 [node name="Boulder" parent="." unique_id=258961269 instance=ExtResource("20_t5jks")]
-position = Vector2(559, -105)
+position = Vector2(515, -160)
 
 [node name="Dialogue Area" parent="." unique_id=1640859130 instance=ExtResource("21_nhjeb")]
 position = Vector2(323, 112)
@@ -984,7 +995,58 @@ scale = Vector2(2.2026966, 1)
 target_room = "uid://dmgnwisx0fc6g"
 
 [node name="Stalagmite" parent="." unique_id=1243292723 instance=ExtResource("27_32hwt")]
-position = Vector2(126, 60)
+position = Vector2(475, -149)
+
+[node name="Stalagmite2" parent="." unique_id=2107022686 instance=ExtResource("27_32hwt")]
+position = Vector2(450, -172)
+
+[node name="Stalagmite3" parent="." unique_id=1722847157 instance=ExtResource("27_32hwt")]
+position = Vector2(517, -177)
+
+[node name="Stalagmite4" parent="." unique_id=241808475 instance=ExtResource("27_32hwt")]
+position = Vector2(492, -200)
+
+[node name="Stalagmite5" parent="." unique_id=1123295250 instance=ExtResource("27_32hwt")]
+position = Vector2(478, -231)
+
+[node name="Stalagmite6" parent="." unique_id=1816571203 instance=ExtResource("27_32hwt")]
+position = Vector2(453, -254)
+
+[node name="Stalagmite7" parent="." unique_id=1035746200 instance=ExtResource("27_32hwt")]
+position = Vector2(520, -259)
+
+[node name="Stalagmite8" parent="." unique_id=1584946300 instance=ExtResource("27_32hwt")]
+position = Vector2(495, -282)
+
+[node name="Stalagmite9" parent="." unique_id=807138970 instance=ExtResource("27_32hwt")]
+position = Vector2(484, -167)
+
+[node name="Stalagmite10" parent="." unique_id=680947554 instance=ExtResource("27_32hwt")]
+position = Vector2(459, -190)
+
+[node name="Stalagmite11" parent="." unique_id=1543916802 instance=ExtResource("27_32hwt")]
+position = Vector2(526, -195)
+
+[node name="Stalagmite12" parent="." unique_id=68046587 instance=ExtResource("27_32hwt")]
+position = Vector2(501, -218)
+
+[node name="Stalagmite13" parent="." unique_id=1534401158 instance=ExtResource("27_32hwt")]
+position = Vector2(487, -249)
+
+[node name="Stalagmite14" parent="." unique_id=607211331 instance=ExtResource("27_32hwt")]
+position = Vector2(462, -272)
+
+[node name="Stalagmite15" parent="." unique_id=665445525 instance=ExtResource("27_32hwt")]
+position = Vector2(529, -277)
+
+[node name="Stalagmite16" parent="." unique_id=844968615 instance=ExtResource("27_32hwt")]
+position = Vector2(504, -300)
+
+[node name="Node2D2" parent="." unique_id=687580857 instance=ExtResource("29_i0q5e")]
+position = Vector2(533, 81)
+
+[node name="Boulder2" parent="." unique_id=1016981313 instance=ExtResource("29_2vc6c")]
+position = Vector2(606, -173)
 
 [editable path="Player"]
 [editable path="Node2D"]

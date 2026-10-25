@@ -19,6 +19,17 @@ extends CharacterBody2D
 @export var grab: Texture2D
 @export var ponder: Texture2D
 
+# Death.
+func die() -> void:
+	move = false
+	$Buku.hide()
+	for shape in [$HitBoxMain, $HitboxSecondary, $HitBoxThirdiary]:
+		shape.set_deferred("disabled", true)
+	$Buku/Death.show()
+	$Buku/AnimationPlayer.play("death")
+	await $Buku/AnimationPlayer.animation_finished
+	get_tree().reload_current_scene()
+
 var knockbackvel: Vector2 = Vector2.ZERO
 var chasevel: Vector2 = Vector2.ZERO
 var vmousepos: Vector2 = Vector2.ZERO
@@ -34,11 +45,11 @@ var move: bool = true
 # Texture Control
 func _process (_delta: float) -> void:
 	if holding ==true:
-		$Sprite2D.texture= load("res://Assets/Player/cursor_buku_hold.png")
+		$Buku.texture= load("res://Assets/Player/cursor_buku_hold.png")
 	elif pondering == true:
-		$Sprite2D.texture= load("res://Assets/Player/cursor_buku_ponder.png")
+		$Buku.texture= load("res://Assets/Player/cursor_buku_ponder.png")
 	else:
-		$Sprite2D.texture= load("res://Assets/Player/cursor_buku.png")
+		$Buku.texture= load("res://Assets/Player/cursor_buku.png")
 
 # On Game Start
 func _ready() -> void:

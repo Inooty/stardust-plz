@@ -4,16 +4,123 @@
 [ext_resource type="Script" uid="uid://d2db5a4onc1vr" path="res://Scenes/Player/playerbuku.gd" id="2_bcewm"]
 [ext_resource type="Shader" uid="uid://dk0mym17ufua" path="res://Scenes/Effects/lighting.gdshader" id="3_p03qk"]
 [ext_resource type="Texture2D" uid="uid://1sogyo2vqi4g" path="res://Assets/Player/cursor_buku.png" id="4_qxmoo"]
+[ext_resource type="Texture2D" uid="uid://dw6uc75r5n3un" path="res://Assets/Player/cursor_death2.png" id="5_3jfwa"]
 [ext_resource type="Script" uid="uid://ddnrs0luocnev" path="res://Scenes/Player/health.gd" id="5_8d00j"]
+[ext_resource type="Texture2D" uid="uid://ks373dm77e8o" path="res://Assets/Player/cursor_death1.png" id="5_bx123"]
+[ext_resource type="Texture2D" uid="uid://c7ac8tq3khkfn" path="res://Assets/Particles/playerbit1.png" id="6_bx123"]
+[ext_resource type="Texture2D" uid="uid://c7aij84hhdels" path="res://Assets/Particles/playerbit2.png" id="7_ns8l0"]
+[ext_resource type="Texture2D" uid="uid://djjvp0ew61u01" path="res://Assets/Particles/playerbit3.png" id="8_wytxt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5hupk"]
 shader = ExtResource("1_bcewm")
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_mtuoh"]
-polygon = PackedVector2Array(-6, -6, -6, 4.1000004, -5.1, 4.1000004, -5.1, 5.1000004, -2.1, 5.1000004, -2.1, 6, 0.099999905, 6, 0.099999905, 5.1000004, 1.0999999, 5.1000004, 1.0999999, 4.1000004, 2.1000004, 4.1000004, 2.1000004, 2.1000004, 3.1000004, 2.1000004, 3.1000004, -0.099999905, 2.1000004, -0.099999905, 2.1000004, -1.0999999, 1.0999999, -1.0999999, 1.0999999, -2.1, 0.099999905, -2.1, 0.099999905, -3.1, -0.9000001, -3.1, -0.9000001, -4.1, -1.9000001, -4.1, -1.9000001, -5.1, -2.9, -5.1, -2.9, -6)
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0vibq"]
 shader = ExtResource("3_p03qk")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ecn3p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_bx123")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3jfwa")
+}],
+"loop": 0,
+"name": &"death",
+"speed": 1.0
+}]
+
+[sub_resource type="Animation" id="Animation_3jfwa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../ParticlesBit1:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../ParticlesBit2:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../ParticlesBit3:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_bx123"]
+resource_name = "death"
+length = 3.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath("../ParticlesBit1:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("../ParticlesBit2:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath("../ParticlesBit3:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ns8l0"]
+_data = {
+&"RESET": SubResource("Animation_3jfwa"),
+&"death": SubResource("Animation_bx123")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0r7ju"]
+shader = ExtResource("3_p03qk")
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_mtuoh"]
+polygon = PackedVector2Array(-6, -6, -6, 4.1000004, -5.1, 4.1000004, -5.1, 5.1000004, -2.1, 5.1000004, -2.1, 6, 0.099999905, 6, 0.099999905, 5.1000004, 1.0999999, 5.1000004, 1.0999999, 4.1000004, 2.1000004, 4.1000004, 2.1000004, 2.1000004, 3.1000004, 2.1000004, 3.1000004, -0.099999905, 2.1000004, -0.099999905, 2.1000004, -1.0999999, 1.0999999, -1.0999999, 1.0999999, -2.1, 0.099999905, -2.1, 0.099999905, -3.1, -0.9000001, -3.1, -0.9000001, -4.1, -1.9000001, -4.1, -1.9000001, -5.1, -2.9, -5.1, -2.9, -6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ecn3p"]
 size = Vector2(4, 5.4)
@@ -57,24 +164,86 @@ motion_mode = 1
 script = ExtResource("2_bcewm")
 metadata/player = false
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="Player" unique_id=185907041]
-position = Vector2(4.250061, -1.333313)
-occluder = SubResource("OccluderPolygon2D_mtuoh")
-
-[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1185226408]
+[node name="Buku" type="Sprite2D" parent="Player" unique_id=1185226408]
 material = SubResource("ShaderMaterial_0vibq")
 position = Vector2(4.250061, -1.333313)
 texture = ExtResource("4_qxmoo")
 
+[node name="Death" type="AnimatedSprite2D" parent="Player/Buku" unique_id=858905663]
+visible = false
+material = SubResource("ShaderMaterial_0vibq")
+position = Vector2(-2.250061, 0.333313)
+sprite_frames = SubResource("SpriteFrames_ecn3p")
+animation = &"death"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player/Buku" unique_id=236776014]
+root_node = NodePath("../Death")
+libraries/ = SubResource("AnimationLibrary_ns8l0")
+
+[node name="ParticlesBit1" type="CPUParticles2D" parent="Player/Buku" unique_id=194755109]
+material = SubResource("ShaderMaterial_0r7ju")
+scale = Vector2(35, 35)
+emitting = false
+amount = 1
+texture = ExtResource("6_bx123")
+one_shot = true
+explosiveness = 0.69
+direction = Vector2(1, 2)
+spread = 180.0
+initial_velocity_min = 428.95
+initial_velocity_max = 428.95
+angular_velocity_min = 208.19
+angular_velocity_max = 225.54
+angle_max = 572.5
+
+[node name="ParticlesBit2" type="CPUParticles2D" parent="Player/Buku" unique_id=1813540079]
+material = SubResource("ShaderMaterial_0r7ju")
+scale = Vector2(35, 35)
+emitting = false
+amount = 1
+texture = ExtResource("7_ns8l0")
+one_shot = true
+explosiveness = 0.69
+direction = Vector2(1, 2)
+spread = 180.0
+initial_velocity_min = 428.95
+initial_velocity_max = 428.95
+angular_velocity_min = 208.19
+angular_velocity_max = 225.54
+angle_max = 572.5
+
+[node name="ParticlesBit3" type="CPUParticles2D" parent="Player/Buku" unique_id=241829452]
+material = SubResource("ShaderMaterial_0r7ju")
+scale = Vector2(35, 35)
+emitting = false
+amount = 1
+texture = ExtResource("8_wytxt")
+one_shot = true
+explosiveness = 0.69
+direction = Vector2(1, 2)
+spread = 180.0
+initial_velocity_min = 428.95
+initial_velocity_max = 428.95
+angular_velocity_min = 208.19
+angular_velocity_max = 225.54
+angle_max = 572.5
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Player/Buku" unique_id=185907041]
+show_behind_parent = true
+occluder = SubResource("OccluderPolygon2D_mtuoh")
+
 [node name="HitBoxMain" type="CollisionShape2D" parent="Player" unique_id=1278946407]
+visible = false
 position = Vector2(3, -0.6999999)
 shape = SubResource("RectangleShape2D_ecn3p")
 
 [node name="HitboxSecondary" type="CollisionShape2D" parent="Player" unique_id=1660532927]
+visible = false
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_y2qpd")
 
 [node name="HitBoxThirdiary" type="CollisionShape2D" parent="Player" unique_id=695694781]
+visible = false
 position = Vector2(2.125, -3.9375)
 shape = SubResource("RectangleShape2D_1hmd2")
 
@@ -96,11 +265,12 @@ energy = 0.04
 texture = SubResource("GradientTexture2D_mtuoh")
 texture_scale = 10.74
 
+[node name="Health" type="Node2D" parent="Player" unique_id=1013200883]
+script = ExtResource("5_8d00j")
+
 [node name="Hitbox" type="Area2D" parent="." unique_id=1578257849]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1478961958]
 position = Vector2(2.5, -1.5)
 shape = SubResource("RectangleShape2D_etyas")
-
-[node name="Health" type="Node2D" parent="." unique_id=1013200883]
-script = ExtResource("5_8d00j")

@@ -1,0 +1,225 @@
+[gd_scene format=3 uid="uid://chf8wqal7f8rn"]
+
+[ext_resource type="Shader" uid="uid://dk0mym17ufua" path="res://Scenes/Effects/lighting.gdshader" id="1_3hfxb"]
+[ext_resource type="Script" uid="uid://fkdym07b2u5f" path="res://Scenes/Player/Death/death.gd" id="1_urcwl"]
+[ext_resource type="Texture2D" uid="uid://ks373dm77e8o" path="res://Assets/Player/cursor_death1.png" id="2_urcwl"]
+[ext_resource type="Texture2D" uid="uid://c7ac8tq3khkfn" path="res://Assets/Particles/playerbit1.png" id="4_xuwhf"]
+[ext_resource type="Texture2D" uid="uid://c7aij84hhdels" path="res://Assets/Particles/playerbit2.png" id="5_ulj4w"]
+[ext_resource type="Texture2D" uid="uid://djjvp0ew61u01" path="res://Assets/Particles/playerbit3.png" id="6_f6ucm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y2qpd"]
+shader = ExtResource("1_3hfxb")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ecn3p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_urcwl")
+}],
+"loop": 1,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_ne1qr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../ParticlesBit1:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../ParticlesBit2:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../ParticlesBit3:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_x8upo"]
+resource_name = "death"
+length = 9.733334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033332974, 0.099999994, 0.16666666, 0.23333332),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-0.52, 0), Vector2(0.445, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../ParticlesBit1:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.32, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../ParticlesBit2:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.36666667, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../ParticlesBit3:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.33333334, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jgie6"]
+_data = {
+&"RESET": SubResource("Animation_ne1qr"),
+&"death": SubResource("Animation_x8upo")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ecn3p"]
+shader = ExtResource("1_3hfxb")
+
+[node name="Death" type="Node2D" unique_id=2042368162]
+scale = Vector2(35, 35)
+script = ExtResource("1_urcwl")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1405852265]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=732750574]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=860231195]
+layer = 2
+
+[node name="Pivot" type="Node2D" parent="CanvasLayer2" unique_id=716767128]
+
+[node name="Player" type="AnimatedSprite2D" parent="CanvasLayer2/Pivot" unique_id=974720901]
+visibility_layer = 2
+material = SubResource("ShaderMaterial_y2qpd")
+scale = Vector2(0.991, 1)
+sprite_frames = SubResource("SpriteFrames_ecn3p")
+animation = &""
+
+[node name="Player2" type="AnimatedSprite2D" parent="CanvasLayer2/Pivot" unique_id=1877776385]
+visibility_layer = 2
+material = SubResource("ShaderMaterial_y2qpd")
+scale = Vector2(0.991, 1)
+sprite_frames = SubResource("SpriteFrames_ecn3p")
+animation = &"new_animation"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer2/Pivot" unique_id=214919386]
+root_node = NodePath("../Player")
+libraries/ = SubResource("AnimationLibrary_jgie6")
+autoplay = &"death"
+
+[node name="ParticlesBit1" type="CPUParticles2D" parent="CanvasLayer2/Pivot" unique_id=248307390]
+material = SubResource("ShaderMaterial_ecn3p")
+scale = Vector2(35, 35)
+emitting = false
+amount = 1
+texture = ExtResource("4_xuwhf")
+lifetime = 5.82
+one_shot = true
+explosiveness = 0.69
+direction = Vector2(1, 2)
+spread = 180.0
+initial_velocity_min = 428.95
+initial_velocity_max = 428.95
+angular_velocity_min = 208.19
+angular_velocity_max = 225.54
+angle_max = 572.5
+
+[node name="ParticlesBit2" type="CPUParticles2D" parent="CanvasLayer2/Pivot" unique_id=1526388373]
+material = SubResource("ShaderMaterial_ecn3p")
+scale = Vector2(35, 35)
+emitting = false
+amount = 1
+texture = ExtResource("5_ulj4w")
+lifetime = 12.89
+one_shot = true
+explosiveness = 0.69
+direction = Vector2(1, 2)
+spread = 180.0
+initial_velocity_min = 428.95
+initial_velocity_max = 428.95
+angular_velocity_min = 208.19
+angular_velocity_max = 225.54
+angle_max = 572.5
+
+[node name="ParticlesBit3" type="CPUParticles2D" parent="CanvasLayer2/Pivot" unique_id=2053248125]
+material = SubResource("ShaderMaterial_ecn3p")
+scale = Vector2(35, 35)
+emitting = false
+amount = 1
+texture = ExtResource("6_f6ucm")
+lifetime = 5.82
+one_shot = true
+explosiveness = 0.69
+direction = Vector2(1, 2)
+spread = 180.0
+initial_velocity_min = 428.95
+initial_velocity_max = 428.95
+angular_velocity_min = 208.19
+angular_velocity_max = 225.54
+angle_max = 572.5

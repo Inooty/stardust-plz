@@ -13,4 +13,4 @@ func _on_hit(thing):
 		if health:
 			health.damage(damage)
 			return
-	node = node.get_parent()
+		node = node.get_parent()
