@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://b0htfxb3lni6t" path="res://Scenes/Objects/plastic-block.tscn" id="16_ieq7e"]
 [ext_resource type="PackedScene" uid="uid://clciy402442pb" path="res://Scenes/Objects/boulder.tscn" id="17_e5hjy"]
 [ext_resource type="Script" uid="uid://yxrumwgsxgxw" path="res://Scenes/Rooms/point_light_2d_5.gd" id="19_5hupk"]
+[ext_resource type="PackedScene" uid="uid://brs4jq7yset8s" path="res://Scenes/Objects/Harmful/spikedboulder.tscn" id="21_o0kly"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1yeil"]
 shader = ExtResource("1_5hupk")
@@ -908,6 +909,9 @@ script = ExtResource("19_5hupk")
 
 [node name="Node2D" parent="." unique_id=1886678652 instance=ExtResource("9_dffts")]
 position = Vector2(-690, 133)
+
+[node name="Boulder2" parent="." unique_id=693805164 instance=ExtResource("21_o0kly")]
+position = Vector2(-561, 126)
 
 [editable path="Zoom2"]
 [editable path="Zoom3"]

@@ -14,10 +14,9 @@ shader = ExtResource("1_tkhaj")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ecn3p"]
 shader = ExtResource("1_tkhaj")
 
-[node name="Sunset" type="Node2D" unique_id=863714889]
+[node name="SkyHigh" type="Node2D" unique_id=863714889]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=149296100]
-color = Color(0.12189671, 0.0003433407, 0.27796885, 1)
 
 [node name="BG" type="CanvasLayer" parent="." unique_id=472802905]
 layer = -1
@@ -45,8 +44,8 @@ texture = ExtResource("2_rlqbv")
 
 [node name="Sky14" type="Sprite2D" parent="BG/Background/Sky" unique_id=665847948]
 material = SubResource("ShaderMaterial_j5mmr")
-position = Vector2(-1222.0001, 0)
-scale = Vector2(1.9116734, 1.9116734)
+position = Vector2(-1222, 4.7683716e-07)
+scale = Vector2(1.9916784, 1.9116734)
 texture = ExtResource("2_rlqbv")
 
 [node name="Sky3" type="Sprite2D" parent="BG/Background/Sky" unique_id=91538369]
@@ -154,7 +153,7 @@ range_layer_min = -1
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="BG/Background/Sky" unique_id=1490624014]
 material = SubResource("ShaderMaterial_ecn3p")
-amount = 30
+amount = 120
 texture = ExtResource("7_cdyps")
 lifetime = 25.860000000000003
 lifetime_randomness = 0.26

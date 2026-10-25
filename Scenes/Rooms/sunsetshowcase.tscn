@@ -26,7 +26,7 @@
 [ext_resource type="AudioStream" uid="uid://ddb4aqyviyhb6" path="res://Assets/Dialogue/SFX/starling.wav" id="24_k12q8"]
 [ext_resource type="PackedScene" uid="uid://dmdpbdcl5yllb" path="res://Scenes/Lights/shadow.tscn" id="25_m418s"]
 [ext_resource type="PackedScene" uid="uid://d40bhx5r0pvv" path="res://Scenes/Utilities/roomexit.tscn" id="26_6ocjf"]
-[ext_resource type="PackedScene" uid="uid://cu4mejyqf41ap" path="res://Scenes/Objects/Harmful/stalagmite.tscn" id="27_32hwt"]
+[ext_resource type="PackedScene" uid="uid://cu4mejyqf41ap" path="res://Scenes/Objects/Harmful/unstable-stalagmite.tscn" id="27_32hwt"]
 [ext_resource type="PackedScene" uid="uid://brs4jq7yset8s" path="res://Scenes/Objects/Harmful/spikedboulder.tscn" id="29_2vc6c"]
 [ext_resource type="PackedScene" uid="uid://bi6ava4n1jji1" path="res://Scenes/Objects/checkpoint.tscn" id="29_i0q5e"]
 
@@ -57,7 +57,7 @@ shader = ExtResource("1_wgcdy")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t5jks"]
 shader = ExtResource("1_wgcdy")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4ynml"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i0q5e"]
 resource_name = "Debug Tiles"
 texture = ExtResource("2_6m4br")
 texture_region_size = Vector2i(8, 8)
@@ -110,7 +110,7 @@ polygon = PackedVector2Array(-4, -2.9764218, 4, -3.0031328, 4, 4, -4, 4)
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_i5qno"]
 load_path = "res://.godot/imported/grass.png-9cfce2a6a4d4ee6dfa8bec79d5aca04c.ctex"
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nhjeb"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2vc6c"]
 resource_name = "Grass"
 texture = SubResource("CompressedTexture2D_i5qno")
 texture_region_size = Vector2i(8, 8)
@@ -196,7 +196,7 @@ texture_region_size = Vector2i(8, 8)
 4:2/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_nn3pk")
 4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m418s"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p4p2i"]
 texture = ExtResource("3_xua7v")
 texture_region_size = Vector2i(8, 8)
 0:0/0 = 0
@@ -246,7 +246,7 @@ texture_region_size = Vector2i(8, 8)
 7:2/0 = 0
 7:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6ocjf"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dmkgk"]
 texture = ExtResource("4_gpou4")
 texture_region_size = Vector2i(8, 8)
 0:0/0 = 0
@@ -296,7 +296,7 @@ texture_region_size = Vector2i(8, 8)
 7:2/0 = 0
 7:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k12q8"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hwvc8"]
 texture = ExtResource("5_0mq1v")
 texture_region_size = Vector2i(8, 8)
 0:0/0 = 0
@@ -358,7 +358,7 @@ polygon = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_5hupk"]
 polygon = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fde35"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vgsta"]
 texture = ExtResource("6_kjyvl")
 texture_region_size = Vector2i(8, 8)
 0:0/0 = 0
@@ -596,7 +596,7 @@ texture_region_size = Vector2i(8, 8)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ka64u"]
 polygon = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fcd2v"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m5xya"]
 texture = ExtResource("7_crjin")
 texture_region_size = Vector2i(8, 8)
 0:0/0 = 0
@@ -684,7 +684,10 @@ texture_region_size = Vector2i(8, 8)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_wkpc1"]
 polygon = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fcsfe"]
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_3d1jb"]
+polygon = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7mvb0"]
 texture = ExtResource("8_nromc")
 texture_region_size = Vector2i(8, 8)
 0:0/0 = 0
@@ -765,11 +768,13 @@ texture_region_size = Vector2i(8, 8)
 8:2/0 = 0
 8:2/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_wkpc1")
 8:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+5:2/0 = 0
+5:2/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_3d1jb")
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_gv5bb"]
 polygon = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ha8q3"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kkxia"]
 texture = ExtResource("9_3emkd")
 texture_region_size = Vector2i(8, 8)
 0:0/0 = 0
@@ -858,15 +863,15 @@ physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Lab"
 terrain_set_0/terrain_0/color = Color(0.1254902, 0.44313726, 1, 1)
-sources/0 = SubResource("TileSetAtlasSource_4ynml")
-sources/1 = SubResource("TileSetAtlasSource_nhjeb")
-sources/2 = SubResource("TileSetAtlasSource_m418s")
-sources/3 = SubResource("TileSetAtlasSource_6ocjf")
-sources/4 = SubResource("TileSetAtlasSource_k12q8")
-sources/5 = SubResource("TileSetAtlasSource_fde35")
-sources/6 = SubResource("TileSetAtlasSource_fcd2v")
-sources/8 = SubResource("TileSetAtlasSource_fcsfe")
-sources/9 = SubResource("TileSetAtlasSource_ha8q3")
+sources/0 = SubResource("TileSetAtlasSource_i0q5e")
+sources/1 = SubResource("TileSetAtlasSource_2vc6c")
+sources/2 = SubResource("TileSetAtlasSource_p4p2i")
+sources/3 = SubResource("TileSetAtlasSource_dmkgk")
+sources/4 = SubResource("TileSetAtlasSource_hwvc8")
+sources/5 = SubResource("TileSetAtlasSource_vgsta")
+sources/6 = SubResource("TileSetAtlasSource_m5xya")
+sources/8 = SubResource("TileSetAtlasSource_7mvb0")
+sources/9 = SubResource("TileSetAtlasSource_kkxia")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7pmp3"]
 shader = ExtResource("1_wgcdy")
@@ -925,15 +930,6 @@ position = Vector2(0, 1)
 position = Vector2(-18, -19)
 process_callback = 0
 position_smoothing_enabled = true
-
-[node name="Player" parent="." unique_id=2092462778 instance=ExtResource("11_6m4br")]
-position = Vector2(374, 66)
-
-[node name="Light" parent="Player/Player" parent_id_path=PackedInt32Array(2092462778, 790403615) index="4" unique_id=881803897]
-visible = false
-
-[node name="GeneralLight" parent="Player/Player" parent_id_path=PackedInt32Array(2092462778, 790403615) index="5" unique_id=963373310]
-visible = false
 
 [node name="Grass" type="Sprite2D" parent="." unique_id=1023596691]
 material = SubResource("ShaderMaterial_7pmp3")
@@ -1048,5 +1044,11 @@ position = Vector2(533, 81)
 [node name="Boulder2" parent="." unique_id=1016981313 instance=ExtResource("29_2vc6c")]
 position = Vector2(606, -173)
 
-[editable path="Player"]
+[node name="Player" parent="." unique_id=2092462778 instance=ExtResource("11_6m4br")]
+position = Vector2(9, 0)
+
+[node name="Light" parent="Player/Player" parent_id_path=PackedInt32Array(2092462778, 790403615) index="4" unique_id=881803897]
+visible = false
+
 [editable path="Node2D"]
+[editable path="Player"]

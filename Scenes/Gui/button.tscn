@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://cufods8ihl5pf"]
+
+[ext_resource type="Script" uid="uid://d36nah18xbjmw" path="res://Scenes/Gui/button.gd" id="1_7mear"]
+[ext_resource type="Shader" uid="uid://mjlcjonchl1y" path="res://Scenes/Effects/pixel_effect.gdshader" id="2_f8t2p"]
+[ext_resource type="Texture2D" uid="uid://baf23ts3hi8d8" path="res://Assets/Dialogue/textbox.png" id="3_wguws"]
+[ext_resource type="FontFile" uid="uid://caykkcx7unpfe" path="res://Assets/Fonts/Ithaca-LVB75.ttf" id="4_n1p2e"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6t51k"]
+shader = ExtResource("2_f8t2p")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ecn3p"]
+
+[node name="Button" type="Node2D" unique_id=1571099341]
+script = ExtResource("1_7mear")
+
+[node name="Button" type="NinePatchRect" parent="." unique_id=880717422]
+material = SubResource("ShaderMaterial_6t51k")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -30.0
+offset_top = -14.0
+offset_right = 36.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+texture = ExtResource("3_wguws")
+region_rect = Rect2(0, 0, 48, 48)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=378143867]
+offset_left = -38.0
+offset_top = -19.0
+offset_right = 44.0
+offset_bottom = 21.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/selection_color = Color(1, 1, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_n1p2e")
+text = "Button"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Area2D" type="Area2D" parent="." unique_id=230736895]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2042587661]
+shape = SubResource("RectangleShape2D_ecn3p")

@@ -17,6 +17,40 @@ shader = ExtResource("1_bcewm")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0vibq"]
 shader = ExtResource("3_p03qk")
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_mtuoh"]
+polygon = PackedVector2Array(-6, -6, -6, 4.1000004, -5.1, 4.1000004, -5.1, 5.1000004, -2.1, 5.1000004, -2.1, 6, 0.099999905, 6, 0.099999905, 5.1000004, 1.0999999, 5.1000004, 1.0999999, 4.1000004, 2.1000004, 4.1000004, 2.1000004, 2.1000004, 3.1000004, 2.1000004, 3.1000004, -0.099999905, 2.1000004, -0.099999905, 2.1000004, -1.0999999, 1.0999999, -1.0999999, 1.0999999, -2.1, 0.099999905, -2.1, 0.099999905, -3.1, -0.9000001, -3.1, -0.9000001, -4.1, -1.9000001, -4.1, -1.9000001, -5.1, -2.9, -5.1, -2.9, -6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ecn3p"]
+size = Vector2(4, 5.4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y2qpd"]
+size = Vector2(2.25, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1hmd2"]
+size = Vector2(2.25, 1.875)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0u5uq"]
+shader = ExtResource("1_bcewm")
+
+[sub_resource type="Gradient" id="Gradient_bcewm"]
+offsets = PackedFloat32Array(0, 0.08490566, 0.24528302, 0.4245283, 0.7169811)
+colors = PackedColorArray(1, 0.9647059, 1, 1, 0.9647059, 0.49019608, 0.8627451, 0.7254902, 0.5058824, 0.15686275, 0.50980395, 0.5882353, 0.30588236, 0, 0.20784314, 0.3647059, 0, 0, 0, 0)
+metadata/_snap_count = 2
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ieq7e"]
+gradient = SubResource("Gradient_bcewm")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_xpcdj"]
+offsets = PackedFloat32Array(0, 0.5660377)
+colors = PackedColorArray(0.54509807, 0.48235294, 0.83137256, 0.45882353, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mtuoh"]
+gradient = SubResource("Gradient_xpcdj")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_ecn3p"]
 animations = [{
 "frames": [{
@@ -31,7 +65,10 @@ animations = [{
 "speed": 1.0
 }]
 
-[sub_resource type="Animation" id="Animation_3jfwa"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0r7ju"]
+shader = ExtResource("3_p03qk")
+
+[sub_resource type="Animation" id="Animation_bx123"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -70,41 +107,41 @@ tracks/2/keys = {
 "values": [false]
 }
 
-[sub_resource type="Animation" id="Animation_bx123"]
+[sub_resource type="Animation" id="Animation_ns8l0"]
 resource_name = "death"
-length = 3.0333333
+length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("../ParticlesBit1:emitting")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(2),
+"times": PackedFloat32Array(1),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
-tracks/1/enabled = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("../ParticlesBit2:emitting")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(2),
+"times": PackedFloat32Array(1),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
-tracks/2/enabled = false
+tracks/2/enabled = true
 tracks/2/path = NodePath("../ParticlesBit3:emitting")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(2),
+"times": PackedFloat32Array(1),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -112,46 +149,9 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ns8l0"]
 _data = {
-&"RESET": SubResource("Animation_3jfwa"),
-&"death": SubResource("Animation_bx123")
+&"RESET": SubResource("Animation_bx123"),
+&"death": SubResource("Animation_ns8l0")
 }
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0r7ju"]
-shader = ExtResource("3_p03qk")
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_mtuoh"]
-polygon = PackedVector2Array(-6, -6, -6, 4.1000004, -5.1, 4.1000004, -5.1, 5.1000004, -2.1, 5.1000004, -2.1, 6, 0.099999905, 6, 0.099999905, 5.1000004, 1.0999999, 5.1000004, 1.0999999, 4.1000004, 2.1000004, 4.1000004, 2.1000004, 2.1000004, 3.1000004, 2.1000004, 3.1000004, -0.099999905, 2.1000004, -0.099999905, 2.1000004, -1.0999999, 1.0999999, -1.0999999, 1.0999999, -2.1, 0.099999905, -2.1, 0.099999905, -3.1, -0.9000001, -3.1, -0.9000001, -4.1, -1.9000001, -4.1, -1.9000001, -5.1, -2.9, -5.1, -2.9, -6)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ecn3p"]
-size = Vector2(4, 5.4)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_y2qpd"]
-size = Vector2(2.25, 8)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1hmd2"]
-size = Vector2(2.25, 1.875)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0u5uq"]
-shader = ExtResource("1_bcewm")
-
-[sub_resource type="Gradient" id="Gradient_bcewm"]
-offsets = PackedFloat32Array(0, 0.08490566, 0.24528302, 0.4245283, 0.7169811)
-colors = PackedColorArray(1, 0.9647059, 1, 1, 0.9647059, 0.49019608, 0.8627451, 0.7254902, 0.5058824, 0.15686275, 0.50980395, 0.5882353, 0.30588236, 0, 0.20784314, 0.3647059, 0, 0, 0, 0)
-metadata/_snap_count = 2
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ieq7e"]
-gradient = SubResource("Gradient_bcewm")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-
-[sub_resource type="Gradient" id="Gradient_xpcdj"]
-offsets = PackedFloat32Array(0, 0.5660377)
-colors = PackedColorArray(0.54509807, 0.48235294, 0.83137256, 0.45882353, 0, 0, 0, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_mtuoh"]
-gradient = SubResource("Gradient_xpcdj")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_etyas"]
 size = Vector2(11, 13)
@@ -168,65 +168,6 @@ metadata/player = false
 material = SubResource("ShaderMaterial_0vibq")
 position = Vector2(4.250061, -1.333313)
 texture = ExtResource("4_qxmoo")
-
-[node name="Death" type="AnimatedSprite2D" parent="Player/Buku" unique_id=858905663]
-visible = false
-material = SubResource("ShaderMaterial_0vibq")
-position = Vector2(-2.250061, 0.333313)
-sprite_frames = SubResource("SpriteFrames_ecn3p")
-animation = &"death"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Player/Buku" unique_id=236776014]
-root_node = NodePath("../Death")
-libraries/ = SubResource("AnimationLibrary_ns8l0")
-
-[node name="ParticlesBit1" type="CPUParticles2D" parent="Player/Buku" unique_id=194755109]
-material = SubResource("ShaderMaterial_0r7ju")
-scale = Vector2(35, 35)
-emitting = false
-amount = 1
-texture = ExtResource("6_bx123")
-one_shot = true
-explosiveness = 0.69
-direction = Vector2(1, 2)
-spread = 180.0
-initial_velocity_min = 428.95
-initial_velocity_max = 428.95
-angular_velocity_min = 208.19
-angular_velocity_max = 225.54
-angle_max = 572.5
-
-[node name="ParticlesBit2" type="CPUParticles2D" parent="Player/Buku" unique_id=1813540079]
-material = SubResource("ShaderMaterial_0r7ju")
-scale = Vector2(35, 35)
-emitting = false
-amount = 1
-texture = ExtResource("7_ns8l0")
-one_shot = true
-explosiveness = 0.69
-direction = Vector2(1, 2)
-spread = 180.0
-initial_velocity_min = 428.95
-initial_velocity_max = 428.95
-angular_velocity_min = 208.19
-angular_velocity_max = 225.54
-angle_max = 572.5
-
-[node name="ParticlesBit3" type="CPUParticles2D" parent="Player/Buku" unique_id=241829452]
-material = SubResource("ShaderMaterial_0r7ju")
-scale = Vector2(35, 35)
-emitting = false
-amount = 1
-texture = ExtResource("8_wytxt")
-one_shot = true
-explosiveness = 0.69
-direction = Vector2(1, 2)
-spread = 180.0
-initial_velocity_min = 428.95
-initial_velocity_max = 428.95
-angular_velocity_min = 208.19
-angular_velocity_max = 225.54
-angle_max = 572.5
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Player/Buku" unique_id=185907041]
 show_behind_parent = true
@@ -267,6 +208,70 @@ texture_scale = 10.74
 
 [node name="Health" type="Node2D" parent="Player" unique_id=1013200883]
 script = ExtResource("5_8d00j")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Player" unique_id=715545407]
+layer = 2
+follow_viewport_enabled = true
+
+[node name="Death" type="AnimatedSprite2D" parent="Player/CanvasLayer" unique_id=858905663]
+material = SubResource("ShaderMaterial_0vibq")
+position = Vector2(2, -1)
+sprite_frames = SubResource("SpriteFrames_ecn3p")
+animation = &"death"
+
+[node name="ParticlesBit1" type="CPUParticles2D" parent="Player/CanvasLayer" unique_id=194755109]
+top_level = true
+visibility_layer = 512
+material = SubResource("ShaderMaterial_0r7ju")
+emitting = false
+amount = 1
+texture = ExtResource("6_bx123")
+one_shot = true
+explosiveness = 0.06
+local_coords = true
+direction = Vector2(1, 2)
+spread = 180.0
+initial_velocity_min = 428.95
+initial_velocity_max = 428.95
+angular_velocity_min = 208.19
+angular_velocity_max = 225.54
+angle_max = 572.5
+
+[node name="ParticlesBit2" type="CPUParticles2D" parent="Player/CanvasLayer" unique_id=1813540079]
+material = SubResource("ShaderMaterial_0r7ju")
+emitting = false
+amount = 1
+texture = ExtResource("7_ns8l0")
+one_shot = true
+explosiveness = 0.69
+local_coords = true
+direction = Vector2(1, 2)
+spread = 180.0
+initial_velocity_min = 428.95
+initial_velocity_max = 428.95
+angular_velocity_min = 208.19
+angular_velocity_max = 225.54
+angle_max = 572.5
+
+[node name="ParticlesBit3" type="CPUParticles2D" parent="Player/CanvasLayer" unique_id=241829452]
+material = SubResource("ShaderMaterial_0r7ju")
+emitting = false
+amount = 1
+texture = ExtResource("8_wytxt")
+one_shot = true
+explosiveness = 0.69
+local_coords = true
+direction = Vector2(1, 2)
+spread = 180.0
+initial_velocity_min = 428.95
+initial_velocity_max = 428.95
+angular_velocity_min = 208.19
+angular_velocity_max = 225.54
+angle_max = 572.5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player" unique_id=236776014]
+root_node = NodePath("../CanvasLayer/Death")
+libraries/ = SubResource("AnimationLibrary_ns8l0")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1578257849]
 visible = false

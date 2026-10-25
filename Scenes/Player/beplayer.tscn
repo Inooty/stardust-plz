@@ -4,6 +4,12 @@
 [ext_resource type="Shader" uid="uid://mjlcjonchl1y" path="res://Scenes/Effects/pixel_effect.gdshader" id="2_6t5aa"]
 [ext_resource type="Script" uid="uid://dwd4d4bloxa4w" path="res://Scenes/Player/playerbean.gd" id="2_44tlo"]
 [ext_resource type="Shader" uid="uid://dk0mym17ufua" path="res://Scenes/Effects/lighting.gdshader" id="3_mtuoh"]
+[ext_resource type="Script" uid="uid://ddnrs0luocnev" path="res://Scenes/Player/health.gd" id="5_gcvon"]
+[ext_resource type="Texture2D" uid="uid://ks373dm77e8o" path="res://Assets/Player/cursor_death1.png" id="6_lfswh"]
+[ext_resource type="Texture2D" uid="uid://dw6uc75r5n3un" path="res://Assets/Player/cursor_death2.png" id="7_vo4yf"]
+[ext_resource type="Texture2D" uid="uid://c7ac8tq3khkfn" path="res://Assets/Particles/playerbit1.png" id="8_p40wc"]
+[ext_resource type="Texture2D" uid="uid://c7aij84hhdels" path="res://Assets/Particles/playerbit2.png" id="9_3i4fh"]
+[ext_resource type="Texture2D" uid="uid://djjvp0ew61u01" path="res://Assets/Particles/playerbit3.png" id="10_xio6a"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5hupk"]
 shader = ExtResource("2_6t5aa")
@@ -45,6 +51,26 @@ gradient = SubResource("Gradient_xpcdj")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8ubx7"]
+shader = ExtResource("3_mtuoh")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tghwg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_lfswh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_vo4yf")
+}],
+"loop": 0,
+"name": &"death",
+"speed": 1.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2skl2"]
+shader = ExtResource("3_mtuoh")
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_etyas"]
 size = Vector2(11, 13)
 
@@ -54,13 +80,21 @@ material = SubResource("ShaderMaterial_5hupk")
 [node name="Player" type="CharacterBody2D" parent="." unique_id=790403615 groups=["player"]]
 motion_mode = 1
 script = ExtResource("2_44tlo")
+smoothspeed = null
+maxspeed = null
+pushstrength = null
+knockbackdecay = null
+minbounce = null
+maxbounce = null
+maxbouncestrength = null
+mouseleash = null
 metadata/player = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Player" unique_id=185907041]
 position = Vector2(4.250061, -1.333313)
 occluder = SubResource("OccluderPolygon2D_mtuoh")
 
-[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1185226408]
+[node name="Bean" type="Sprite2D" parent="Player" unique_id=1185226408]
 material = SubResource("ShaderMaterial_0vibq")
 position = Vector2(4.250061, -1.333313)
 texture = ExtResource("1_v0iea")
@@ -95,6 +129,69 @@ color = Color(0.096204735, 0.09620475, 0.096204735, 1)
 energy = 0.04
 texture = SubResource("GradientTexture2D_mtuoh")
 texture_scale = 10.74
+
+[node name="Health" type="Node2D" parent="Player" unique_id=830902513]
+script = ExtResource("5_gcvon")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Player" unique_id=1650392807]
+layer = 2
+follow_viewport_enabled = true
+
+[node name="Death" type="AnimatedSprite2D" parent="Player/CanvasLayer" unique_id=912871788]
+material = SubResource("ShaderMaterial_8ubx7")
+position = Vector2(2, -1)
+sprite_frames = SubResource("SpriteFrames_tghwg")
+animation = &"death"
+
+[node name="ParticlesBit1" type="CPUParticles2D" parent="Player/CanvasLayer" unique_id=2096556452]
+top_level = true
+visibility_layer = 512
+material = SubResource("ShaderMaterial_2skl2")
+emitting = false
+amount = 1
+texture = ExtResource("8_p40wc")
+one_shot = true
+explosiveness = 0.06
+local_coords = true
+direction = Vector2(1, 2)
+spread = 180.0
+initial_velocity_min = 428.95
+initial_velocity_max = 428.95
+angular_velocity_min = 208.19
+angular_velocity_max = 225.54
+angle_max = 572.5
+
+[node name="ParticlesBit2" type="CPUParticles2D" parent="Player/CanvasLayer" unique_id=114889550]
+material = SubResource("ShaderMaterial_2skl2")
+emitting = false
+amount = 1
+texture = ExtResource("9_3i4fh")
+one_shot = true
+explosiveness = 0.69
+local_coords = true
+direction = Vector2(1, 2)
+spread = 180.0
+initial_velocity_min = 428.95
+initial_velocity_max = 428.95
+angular_velocity_min = 208.19
+angular_velocity_max = 225.54
+angle_max = 572.5
+
+[node name="ParticlesBit3" type="CPUParticles2D" parent="Player/CanvasLayer" unique_id=1974637519]
+material = SubResource("ShaderMaterial_2skl2")
+emitting = false
+amount = 1
+texture = ExtResource("10_xio6a")
+one_shot = true
+explosiveness = 0.69
+local_coords = true
+direction = Vector2(1, 2)
+spread = 180.0
+initial_velocity_min = 428.95
+initial_velocity_max = 428.95
+angular_velocity_min = 208.19
+angular_velocity_max = 225.54
+angle_max = 572.5
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1578257849]
 

@@ -6,6 +6,7 @@
 
 [node name="Dialogue Area" type="Area2D" unique_id=1640859130]
 script = ExtResource("1_wajxe")
+activate_instant = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=268028618]
 shape = SubResource("RectangleShape2D_ecn3p")

@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://dd0ad0j4gi6kp"]
+
+[ext_resource type="PackedScene" uid="uid://dk57bkk7gcttr" path="res://Scenes/Player/neplayer.tscn" id="1_seu4g"]
+[ext_resource type="PackedScene" uid="uid://dqpkfo1ap13ry" path="res://Scenes/Camera/camera_point.tscn" id="2_b7hnm"]
+[ext_resource type="PackedScene" uid="uid://dob4mcky5570l" path="res://Scenes/Camera/camtrigger.tscn" id="3_hhune"]
+[ext_resource type="PackedScene" uid="uid://w2rlotxebhxo" path="res://Scenes/Rooms/Backgrounds/skyhigh.tscn" id="4_hhune"]
+[ext_resource type="Shader" uid="uid://dk0mym17ufua" path="res://Scenes/Effects/lighting.gdshader" id="5_6vkxh"]
+[ext_resource type="Texture2D" uid="uid://loqboggrqqxm" path="res://Assets/GUI/logo.png" id="6_rd46c"]
+[ext_resource type="PackedScene" uid="uid://bnx353fexsf6x" path="res://Scenes/Lights/light.tscn" id="9_i73qt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hhune"]
+shader = ExtResource("5_6vkxh")
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_i73qt"]
+polygon = PackedVector2Array(-11.5, -12, -11.5, -11, -12.5, -11, -12.5, -10, -13.5, -10, -13.5, -9, -14.5, -9, -14.5, -8, -15.5, -8, -15.5, -7, -16.5, -7, -16.5, -6, -17.5, -6, -17.5, -5, -18.5, -5, -18.5, -4, -19.5, -4, -19.5, -3, -20.5, -3, -20.5, -2, -21.5, -2, -21.5, -1, -22.5, -1, -22.5, 4, -21.5, 4, -21.5, 5, -22.5, 5, -22.5, 6, -23.5, 6, -23.5, 7, -24.5, 7, -24.5, 8, -25.5, 8, -25.5, 12, -20.5, 12, -20.5, 11, -18.5, 11, -18.5, 10, -17.5, 10, -17.5, 9, -15.5, 9, -15.5, 8, -14.5, 8, -14.5, 7, -12.5, 7, -12.5, 6, 10.5, 6, 10.5, 7, 11.5, 7, 11.5, 8, 12.5, 8, 12.5, 9, 13.5, 9, 13.5, 10, 15.5, 10, 15.5, 11, 19.5, 11, 19.5, 10, 21.5, 10, 21.5, 9, 22.5, 9, 22.5, 8, 23.5, 8, 23.5, 7, 24.5, 7, 24.5, 5, 25.5, 5, 25.5, 1, 24.5, 1, 24.5, 0, 25.5, 0, 25.5, -2, 24.5, -2, 24.5, -3, 23.5, -3, 23.5, -4, 22.5, -4, 22.5, -5, 20.5, -5, 20.5, -10, -1.5, -10, -1.5, -8, -5.5, -8, -5.5, -12)
+
+[sub_resource type="Animation" id="Animation_6vkxh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Logo:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-203, -111)]
+}
+
+[sub_resource type="Animation" id="Animation_rd46c"]
+resource_name = "main"
+length = 3.0333333
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Logo:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 2.9333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-203, -99.075), Vector2(-203, -113.375), Vector2(-203, -99.075)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s1nfg"]
+_data = {
+&"RESET": SubResource("Animation_6vkxh"),
+&"main": SubResource("Animation_rd46c")
+}
+
+[node name="MainMenu" type="Node2D" unique_id=2059105808]
+
+[node name="Player" type="Node" parent="." unique_id=1338796185]
+
+[node name="Player" parent="Player" unique_id=2092462778 instance=ExtResource("1_seu4g")]
+
+[node name="Camera2D" type="Camera2D" parent="Player/Player" unique_id=457126703]
+zoom = Vector2(2, 2)
+process_callback = 0
+position_smoothing_enabled = true
+
+[node name="CameraPoint" parent="Player/Player" unique_id=1237286323 instance=ExtResource("2_b7hnm")]
+
+[node name="Marker2D" parent="Player/Player/CameraPoint" index="0" unique_id=1359102757]
+id = 3
+
+[node name="Fixed Camera" parent="Player/Player/CameraPoint" unique_id=449083944 instance=ExtResource("3_hhune")]
+visible = false
+scale = Vector2(-57.65264, -32.69546)
+
+[node name="FixedCamera" parent="Player/Player/CameraPoint/Fixed Camera" index="0" unique_id=1708394444]
+anchorid = 3
+sticky = true
+anchor = true
+zoom = Vector2(2, 2)
+
+[node name="Sunset" parent="." unique_id=863714889 instance=ExtResource("4_hhune")]
+position = Vector2(-686, -267)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1864163333]
+layer = 3
+follow_viewport_enabled = true
+
+[node name="Logo" type="Sprite2D" parent="." unique_id=185053397]
+material = SubResource("ShaderMaterial_hhune")
+position = Vector2(-203, -111)
+scale = Vector2(2.8924637, 2.8924637)
+texture = ExtResource("6_rd46c")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Logo" unique_id=1685111041]
+show_behind_parent = true
+occluder = SubResource("OccluderPolygon2D_i73qt")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1215253811]
+libraries/ = SubResource("AnimationLibrary_s1nfg")
+autoplay = &"main"
+
+[node name="Light" parent="." unique_id=346560384 instance=ExtResource("9_i73qt")]
+position = Vector2(0, -161)
+texture_scale = 9.68
+
+[editable path="Player/Player/CameraPoint"]
+[editable path="Player/Player/CameraPoint/Fixed Camera"]

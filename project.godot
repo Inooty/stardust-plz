@@ -40,6 +40,7 @@ folder_colors={
 "res://Assets/GUI/": "teal",
 "res://Assets/Objects/Harmful/": "red",
 "res://Assets/Props/": "yellow",
+"res://Assets/Tiles/Backgrounds/": "purple",
 "res://Scenes/": "yellow",
 "res://Scenes/Items/": "teal",
 "res://Scenes/Objects/": "orange",
@@ -47,6 +48,7 @@ folder_colors={
 "res://Scenes/Player/": "gray",
 "res://Scenes/Rooms/": "green",
 "res://Scenes/Rooms/Backgrounds/": "purple",
+"res://Scenes/Rooms/Tiles/": "yellow",
 "res://Scripts/": "pink"
 }
 

@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://cjki44c6hnicm" path="res://Assets/Props/Background/buku_painting.png" id="22_gv5bb"]
 [ext_resource type="Texture2D" uid="uid://dqcy36l1hahek" path="res://Assets/Props/book-stack.png" id="28_lf7xs"]
 [ext_resource type="PackedScene" uid="uid://d40bhx5r0pvv" path="res://Scenes/Utilities/roomexit.tscn" id="29_6mfpx"]
+[ext_resource type="PackedScene" uid="uid://brs4jq7yset8s" path="res://Scenes/Objects/Harmful/spikedboulder.tscn" id="30_12p02"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2cdge"]
 shader = ExtResource("1_4hxog")
@@ -1072,6 +1073,9 @@ texture = ExtResource("28_lf7xs")
 position = Vector2(1, -567)
 scale = Vector2(2.1304498, 0.3151647)
 target_room = "uid://blmfda1p42qa8"
+
+[node name="Boulder" parent="." unique_id=169933366 instance=ExtResource("30_12p02")]
+position = Vector2(0, -524)
 
 [editable path="Node2D"]
 [editable path="Light"]

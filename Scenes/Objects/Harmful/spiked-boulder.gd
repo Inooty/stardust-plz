@@ -7,6 +7,7 @@ func _ready():
 	body_entered.connect(_on_hit)
 
 func _on_hit(thing):
+	print("hit: ", thing.get_path())
 	var node = thing
 	while node:
 		var health = node.get_node_or_null("Health")

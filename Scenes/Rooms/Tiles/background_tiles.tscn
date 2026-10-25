@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://bykx5x4l1uq5g"]
+
+[ext_resource type="Shader" uid="uid://dk0mym17ufua" path="res://Scenes/Effects/lighting.gdshader" id="1_ifode"]
+[ext_resource type="Texture2D" uid="uid://bkbowiaio16np" path="res://Assets/Tiles/Backgrounds/labbg.png" id="2_ql613"]
+[ext_resource type="Texture2D" uid="uid://77o7ibx6jwbg" path="res://Assets/Tiles/Backgrounds/leaf.png" id="3_cy8xb"]
+[ext_resource type="Texture2D" uid="uid://br3y3vncycimv" path="res://Assets/Tiles/Backgrounds/caverocks.png" id="4_u878e"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y2qpd"]
+shader = ExtResource("1_ifode")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_knmtw"]
+texture = ExtResource("2_ql613")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h55ia"]
+texture = ExtResource("3_cy8xb")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3lva1"]
+texture = ExtResource("4_u878e")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ecn3p"]
+sources/0 = SubResource("TileSetAtlasSource_knmtw")
+sources/1 = SubResource("TileSetAtlasSource_h55ia")
+sources/2 = SubResource("TileSetAtlasSource_3lva1")
+
+[node name="Background Tiles" type="TileMapLayer" unique_id=967418695]
+material = SubResource("ShaderMaterial_y2qpd")
+tile_set = SubResource("TileSet_ecn3p")
