@@ -17,10 +17,7 @@ func _ready() -> void:
 	add_child(_fade)
 
 
-# path:  the room scene, e.g. "res://Scenes/Levels/cave.tscn"
-# spawn: name of a Marker2D in the NEW room where the player appears
-#        (empty = the player stays wherever it is saved in that scene)
-func change_room(path: String, spawn: StringName = &"", fade_time := 0.3) -> void:
+func change_room(path: String, spawn: StringName = &"", fade_time := 0.3, spawn_pos = null) -> void:
 	if transitioning:
 		return
 	if not ResourceLoader.exists(path):
@@ -30,6 +27,8 @@ func change_room(path: String, spawn: StringName = &"", fade_time := 0.3) -> voi
 	transitioning = true
 	_set_players_move(false)
 	await _fade_to(1.0, fade_time)
+
+	RoomState.capture()   # remember how this room looks before it is freed
 
 	var err := get_tree().change_scene_to_file(path)
 	if err != OK:
@@ -43,10 +42,14 @@ func change_room(path: String, spawn: StringName = &"", fade_time := 0.3) -> voi
 	await get_tree().process_frame
 	await get_tree().process_frame
 
+	RoomState.restore()   # put the new room back the way it was left
 	_set_players_move(false)   # the new player starts frozen too
-	_place_player(spawn)
+	_place_player(spawn, spawn_pos)
 	await get_tree().process_frame
 	_snap_camera()
+	if spawn_pos is Vector2:
+		await get_tree().process_frame
+		Input.warp_mouse(get_viewport().get_canvas_transform() * spawn_pos)
 
 	await _fade_to(0.0, fade_time)
 	_set_players_move(true)
@@ -63,7 +66,11 @@ func _fade_to(alpha: float, time: float) -> void:
 	await t.finished
 
 
-func _place_player(spawn: StringName) -> void:
+func _place_player(spawn: StringName, spawn_pos = null) -> void:
+	if spawn_pos is Vector2:
+		for p in get_tree().get_nodes_in_group("player"):
+			p.global_position = spawn_pos
+		return
 	if spawn == &"":
 		return
 	var marker := get_tree().current_scene.find_child(String(spawn), true, false) as Node2D
@@ -74,7 +81,6 @@ func _place_player(spawn: StringName) -> void:
 		p.global_position = marker.global_position
 
 
-# Stops the camera from smoothly gliding across the new room
 func _snap_camera() -> void:
 	var cam := get_viewport().get_camera_2d()
 	if cam:

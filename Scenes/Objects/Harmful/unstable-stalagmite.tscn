@@ -15,7 +15,7 @@ polygon = PackedVector2Array(2.1, -8, -3.1, -8, -3.1, -7.1, -5, -7.1, -5, -2.9, 
 size = Vector2(5, 12)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y2qpd"]
-size = Vector2(54, 213)
+size = Vector2(37, 96)
 
 [sub_resource type="Animation" id="Animation_wo6g6"]
 length = 0.001
@@ -82,7 +82,7 @@ tracks/0/path = NodePath("Sprite2D:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.18, 0.44, 0.7495, 3.8048),
+"times": PackedFloat32Array(0, 0.18, 0.44, 1.2, 3.8048),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1.0000008),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(-1.295, 0), Vector2(3.16, 0), Vector2(0, 0), Vector2(0, 593.125)]
@@ -129,7 +129,7 @@ script = ExtResource("4_gsqfj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area" unique_id=1950961640]
 visible = false
-position = Vector2(1, 94.5)
+position = Vector2(-0.5, 36)
 shape = SubResource("RectangleShape2D_y2qpd")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2003807948]

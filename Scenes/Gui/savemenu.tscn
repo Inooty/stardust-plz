@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://dsmnw00bhdlr3"]
+
+[ext_resource type="Script" uid="uid://cwgfpl7gkqfpa" path="res://Scripts/savemenu.gd" id="1_dm6dq"]
+[ext_resource type="Shader" uid="uid://mjlcjonchl1y" path="res://Scenes/Effects/pixel_effect.gdshader" id="2_ggbnw"]
+[ext_resource type="Texture2D" uid="uid://baf23ts3hi8d8" path="res://Assets/Dialogue/textbox.png" id="3_rq077"]
+[ext_resource type="FontFile" uid="uid://caykkcx7unpfe" path="res://Assets/Fonts/Ithaca-LVB75.ttf" id="4_ggbnw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oqrqm"]
+shader = ExtResource("2_ggbnw")
+
+[node name="SaveMenu" type="Control" unique_id=1511017182]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_dm6dq")
+
+[node name="DialogueBG" type="NinePatchRect" parent="." unique_id=1015503992]
+material = SubResource("ShaderMaterial_oqrqm")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -126.0
+offset_top = -136.0
+offset_right = 127.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+texture = ExtResource("3_rq077")
+region_rect = Rect2(0, 0, 48, 48)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DialogueBG" unique_id=993735681]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Slot1" type="Button" parent="DialogueBG/VBoxContainer" unique_id=543426874]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_ggbnw")
+
+[node name="Slot2" type="Button" parent="DialogueBG/VBoxContainer" unique_id=717153227]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_ggbnw")
+
+[node name="Slot3" type="Button" parent="DialogueBG/VBoxContainer" unique_id=2036263755]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_ggbnw")
+
+[node name="Save" type="Button" parent="DialogueBG/VBoxContainer" unique_id=991926122]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_ggbnw")
+
+[node name="Load" type="Button" parent="DialogueBG/VBoxContainer" unique_id=1057833860]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_ggbnw")

@@ -8,9 +8,14 @@ enum BoxSide { AUTO, TOP, BOTTOM }
 
 @export var dialogue: Array[DE] = []   # default conversation
 
+@export_group("Click Mode")
+@export var click_activate := false              # ON = ponder icon + click to talk (like Stardust)
+@export var pick_range := 10.0                   # distance from this node to the player
+@export var click_action: StringName = &"use"
+
 @export_group("Named Sets")
-@export var sets: Array[DialogueSet] = []   # "hi", "bye", choice answers...
-@export var start_set: StringName = &""     # set played on interact (empty = use Dialogue / stages)
+@export var sets: Array[DialogueSet] = []
+@export var start_set: StringName = &""
 
 @export_group("Stages")
 @export var later_dialogues: Array[DialogueSet] = []
@@ -20,6 +25,7 @@ enum BoxSide { AUTO, TOP, BOTTOM }
 @export var activate_instant := false
 @export var only_activate_once := true
 @export var interact_action: StringName = &"interact"
+@export var once_id: StringName = &"" 
 
 @export_group("Player")
 @export var lock_player := true
@@ -37,25 +43,77 @@ var stage := 0
 var activated := false
 var dialogue_active := false
 var players_inside: Array[Node2D] = []
+var _ponder_set := false
 
 
 func _ready() -> void:
+	add_to_group("persist_state")
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
 
 
+func save_state() -> Dictionary:
+	return {
+		"activated": activated,
+		"stage": stage,
+		"start_set": String(start_set),
+	}
+
+
+func load_state(d: Dictionary) -> void:
+	activated = d.get("activated", activated)
+	stage = d.get("stage", stage)
+	start_set = StringName(d.get("start_set", String(start_set)))
+	
+func _exit_tree() -> void:
+	_set_ponder(null, false)
+
+
 func _process(_delta: float) -> void:
+	if click_activate:
+		_process_click()
+		return
 	if activate_instant or players_inside.is_empty():
 		return
 	if InputMap.has_action(interact_action) and Input.is_action_just_pressed(interact_action):
 		activate(players_inside[0])
 
 
+# Same idea as Stardust: close enough -> ponder sprite, click -> talk
+func _process_click() -> void:
+	var player := get_tree().get_first_node_in_group("player") as Node2D
+	if player == null:
+		return
+
+	var available := not dialogue_active and not (only_activate_once and activated)
+	var holding: bool = player.get("holding") == true
+	var in_range := available and not holding \
+		and global_position.distance_to(player.global_position) < pick_range
+
+	_set_ponder(player, in_range)
+
+	if in_range and Input.is_action_just_pressed(click_action):
+		_set_ponder(player, false)
+		activate(player)
+
+
+# Only touches player.pondering when this object was the one that set it,
+# so several clickable things (or Stardust) don't fight each other.
+func _set_ponder(player: Node, value: bool) -> void:
+	if value == _ponder_set:
+		return
+	_ponder_set = value
+	if player == null:
+		player = get_tree().get_first_node_in_group("player") if is_inside_tree() else null
+	if player and "pondering" in player:
+		player.pondering = value
+
+
 func _on_body_entered(body: Node2D) -> void:
 	if not body.is_in_group("player"):
 		return
 	players_inside.append(body)
-	if activate_instant:
+	if activate_instant and not click_activate:
 		activate(body)
 
 
@@ -74,7 +132,10 @@ func set_stage(n: int) -> void:
 func activate(body: Node2D) -> void:
 	if only_activate_once and activated:
 		return
-	_start(body, &"")
+	if once_id != &"" and GameState.has_flag(once_id):
+		return
+	if _start(body, &"") and once_id != &"":
+		GameState.set_flag(once_id)
 
 
 func play(set_id: StringName = &"") -> void:
@@ -124,6 +185,16 @@ func _start(body: Node2D, set_id: StringName) -> bool:
 		return false
 
 	activated = true
+	var replaced := false
+	for old in get_tree().get_nodes_in_group("dialogue"):
+		if old.has_method("dismiss"):
+			old.dismiss()
+			replaced = true
+	if replaced and not lock_player:
+		# The old box may have frozen the player, and this one doesn't want that
+		for p in get_tree().get_nodes_in_group("player"):
+			if "move" in p:
+				p.move = true
 	dialogue_active = true
 
 	if lock_player:

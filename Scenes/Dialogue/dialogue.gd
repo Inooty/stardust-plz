@@ -271,6 +271,8 @@ func _reveal(text: String, i) -> bool:
 	var parsed_markup := _parse_markup(text)
 	var speeds: Array[float] = parsed_markup["speeds"]
 	var pauses: Dictionary = parsed_markup["pauses"]
+
+
  
 	label.visible_characters = 0
 	label.text = parsed_markup["text"]
@@ -354,6 +356,14 @@ func _run_function(f: DialogueFunction) -> void:
 		else:
 			push_warning("Dialogue: target has no signal '%s'" % f.waitsignal)
  
+func dismiss() -> void:
+	set_process(false)
+	remove_from_group("dialogue")
+	hide()
+	if not _finished_emitted:
+		_finished_emitted = true
+		finished.emit()   # anyone awaiting this one's play() carries on
+	queue_free()
  
 # =====================================================================
 # Choice block

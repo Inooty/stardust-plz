@@ -23,6 +23,9 @@ driver/enable_input=true
 
 CameraManager="*uid://clo5k4dhn2llb"
 RoomManager="*uid://dj2xrju0e3fb7"
+SaveManager="*uid://dtym4ekthbvn5"
+GameState="*uid://dokorf3udn5j"
+RoomState="*uid://68gxwbhf4ke7"
 
 [display]
 

@@ -115,7 +115,8 @@ func die() -> void:
  
 	await get_tree().create_timer(BURST_LENGTH).timeout
 	get_tree().paused = false
-	get_tree().reload_current_scene()
+	if not SaveManager.respawn():
+		RoomManager.change_room(get_tree().current_scene.scene_file_path)
  
 # OS, am I moving the mouse?
 func _input(event: InputEvent) -> void:

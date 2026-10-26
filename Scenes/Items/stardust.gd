@@ -1,7 +1,7 @@
 class_name Stardust
 extends CharacterBody2D
 
-@export var pickrange: float = 20
+@export var pickrange: float = 10
 @export var followspeed: float = 20
 
 var player: CharacterBody2D
