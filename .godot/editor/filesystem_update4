@@ -23,3 +23,6 @@ res://Scenes/Objects/Harmful/gelatinous-stalagmite.tscn
 res://Scenes/Rooms/caverns1.tscn
 res://Scripts/Animations/kevinrun.gd
 res://Scenes/Rooms/caverns2.tscn
+res://addons/phantom_camera/themes/theme.tres
+res://Scripts/start.gd
+res://Scenes/Utilities/control.tscn
