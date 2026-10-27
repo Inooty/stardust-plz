@@ -1,6 +1,6 @@
+Node
 CollisionShape2D
 Area2D
-Node
 AnimationPlayer
 Sprite2D
 AnimatedSprite2D

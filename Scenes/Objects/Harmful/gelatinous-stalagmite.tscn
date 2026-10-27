@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://jqkuyyd2vgjq" path="res://Assets/Objects/Harmful/gelatinous-stalagmite.png" id="2_isy84"]
 [ext_resource type="Script" uid="uid://c2lhaoew6wulj" path="res://Scenes/Objects/Harmful/stalagmite.gd" id="3_dx2tv"]
 [ext_resource type="Script" uid="uid://n5ltolabbfpi" path="res://Scripts/fall.gd" id="4_2dpp5"]
+[ext_resource type="PackedScene" uid="uid://bnx353fexsf6x" path="res://Scenes/Lights/light.tscn" id="5_vuugn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ecn3p"]
 shader = ExtResource("1_isy84")
@@ -54,16 +55,16 @@ tracks/0/path = NodePath("Sprite2D:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1.1, 2.7, 2.8666666, 3.17),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(4.355, -11.26), Vector2(2.595, -11.305), Vector2(2.523, -11.145), Vector2(1.26, 0), Vector2(-1.53, 0), Vector2(0, 0)]
+"values": [Vector2(4.355, -11.26)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/path = NodePath("Sprite2D:scale")
-tracks/1/interp = 1
+tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.2),
@@ -107,7 +108,7 @@ _data = {
 &"trigger": SubResource("Animation_gsqfj")
 }
 
-[node name="UnstableStalagmite" type="Node2D" unique_id=1243292723]
+[node name="GelatinousStalagmite" type="Node2D" unique_id=1243292723]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1003059244]
 material = SubResource("ShaderMaterial_ecn3p")
@@ -124,7 +125,12 @@ script = ExtResource("3_dx2tv")
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_ecn3p")
 
+[node name="Light" parent="Sprite2D" unique_id=346560384 instance=ExtResource("5_vuugn")]
+color = Color(0.7884957, 0.7571682, 1, 1)
+shadow_enabled = true
+
 [node name="Area" type="Area2D" parent="." unique_id=1697795552]
+visible = false
 script = ExtResource("4_2dpp5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area" unique_id=1950961640]
