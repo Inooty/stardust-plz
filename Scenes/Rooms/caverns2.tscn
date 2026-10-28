@@ -94,7 +94,6 @@ song = ExtResource("2_8xhj7")
 volume_db = -13.984000000000002
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=7056079]
-visible = false
 color = Color(0.00040411518, 1.821354e-10, 0.00014027474, 1)
 
 [node name="Tiles" type="Node" parent="." unique_id=1669000861]

@@ -8,11 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://nyrv141ekj27" path="res://Scenes/Dialogue/dialogue_area.tscn" id="7_74nnx"]
 [ext_resource type="Texture2D" uid="uid://crxdg6ngvj77f" path="res://Assets/NPCs/BukuSleep/bukusleep.png" id="7_jlips"]
 [ext_resource type="Script" uid="uid://c4ea0oqakiyw1" path="res://Scenes/Dialogue/dialogue-export-resource.gd" id="8_opi24"]
-[ext_resource type="Script" uid="uid://bj5yboncew625" path="res://Scenes/Dialogue/dialouge-function.gd" id="9_ca7jj"]
+[ext_resource type="Script" uid="uid://bj5yboncew625" path="res://Scenes/Dialogue/dialogue-function.gd" id="9_ca7jj"]
 [ext_resource type="Script" uid="uid://b43ae1tpwhx7w" path="res://Scenes/Dialogue/dialogue-choice.gd" id="10_eryv4"]
 [ext_resource type="AudioStream" uid="uid://ddb4aqyviyhb6" path="res://Assets/Dialogue/SFX/starling.wav" id="11_ca7jj"]
 [ext_resource type="Script" uid="uid://blolnx482xv36" path="res://Scenes/Dialogue/dialogue-set.gd" id="12_uvvfv"]
-[ext_resource type="Script" uid="uid://mucl34xgjg7u" path="res://Scenes/Dialogue/dialouge-resource.gd" id="13_8b0tw"]
+[ext_resource type="Script" uid="uid://mucl34xgjg7u" path="res://Scenes/Dialogue/dialogue-resource.gd" id="13_8b0tw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ecn3p"]
 shader = ExtResource("1_xql12")
@@ -167,12 +167,12 @@ metadata/_custom_type_script = "uid://b43ae1tpwhx7w"
 
 [sub_resource type="Resource" id="Resource_8b0tw"]
 script = ExtResource("13_8b0tw")
+speaker = "Ricing Buku"
 text = "[shake rate=25 level=8]Hahahahaha... Rice."
 textspeed = 1.3
 textsound = ExtResource("11_ca7jj")
 textpitchmin = 0.35
 textpitchmax = 0.85
-speaker = "Ricing Buku"
 metadata/_custom_type_script = "uid://mucl34xgjg7u"
 
 [sub_resource type="Resource" id="Resource_uvvfv"]
@@ -183,10 +183,10 @@ metadata/_custom_type_script = "uid://blolnx482xv36"
 
 [sub_resource type="Resource" id="Resource_cotlo"]
 script = ExtResource("13_8b0tw")
+speaker = "Crying Buku"
 text = "I'm crying!"
 textspeed = 9.0
 textsound = ExtResource("11_ca7jj")
-speaker = "Crying Buku"
 metadata/_custom_type_script = "uid://mucl34xgjg7u"
 
 [sub_resource type="Resource" id="Resource_8ys8x"]
@@ -260,5 +260,4 @@ color_ramp = SubResource("Gradient_etyas")
 [node name="Dialogue Area" parent="." unique_id=1640859130 instance=ExtResource("7_74nnx")]
 dialogue = Array[ExtResource("8_opi24")]([SubResource("Resource_k12q8")])
 sets = Array[ExtResource("12_uvvfv")]([SubResource("Resource_uvvfv"), SubResource("Resource_8ys8x")])
-activate_instant = true
 only_activate_once = false

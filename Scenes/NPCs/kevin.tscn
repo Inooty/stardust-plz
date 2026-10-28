@@ -2,6 +2,14 @@
 
 [ext_resource type="Shader" uid="uid://dk0mym17ufua" path="res://Scenes/Effects/lighting.gdshader" id="1_nooxs"]
 [ext_resource type="Texture2D" uid="uid://bkhcwx2i8q640" path="res://Assets/NPCs/Kevin/kevin.png" id="2_2cdh6"]
+[ext_resource type="Texture2D" uid="uid://cb7pg8si2i71p" path="res://Assets/NPCs/Kevin/kevinblink.png" id="3_2cdh6"]
+[ext_resource type="Texture2D" uid="uid://dl0gfjijtagwn" path="res://Assets/NPCs/Kevin/kevinlook.png" id="4_air5w"]
+[ext_resource type="Texture2D" uid="uid://bapnk2e7uheat" path="res://Assets/NPCs/Kevin/kevin-side-angle-shocked.png" id="4_swks6"]
+[ext_resource type="Texture2D" uid="uid://bar77rg75kvmq" path="res://Assets/NPCs/Kevin/kevin-walk-right1.png" id="5_6l1q0"]
+[ext_resource type="Texture2D" uid="uid://cdwr25gxnhway" path="res://Assets/NPCs/Kevin/kevin-side-angle-shocked-sparkles.png" id="5_dsmfa"]
+[ext_resource type="Texture2D" uid="uid://g3qssprdxuht" path="res://Assets/NPCs/Kevin/kevin-walk-right2.png" id="6_0yges"]
+[ext_resource type="Texture2D" uid="uid://d24irn5oni304" path="res://Assets/NPCs/Kevin/kevin-side-angle.png" id="6_mfic3"]
+[ext_resource type="Texture2D" uid="uid://tyjgy3f484xb" path="res://Assets/NPCs/Kevin/kevin-side-angle-shocked-sparkles2.png" id="6_swks6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y2qpd"]
 shader = ExtResource("1_nooxs")
@@ -11,10 +19,62 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_2cdh6")
+}, {
+"duration": 0.06,
+"texture": ExtResource("3_2cdh6")
 }],
 "loop": 1,
-"name": &"default",
+"name": &"blinking",
+"speed": 0.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_swks6")
+}],
+"loop": 1,
+"name": &"shock",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 0.06,
+"texture": ExtResource("3_2cdh6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_air5w")
+}],
+"loop": 0,
+"name": &"sideeye",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_mfic3")
+}],
+"loop": 1,
+"name": &"sideright",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_dsmfa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_swks6")
+}],
+"loop": 1,
+"name": &"starstruck",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_6l1q0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_0yges")
+}],
+"loop": 1,
+"name": &"walkright",
+"speed": 10.0
 }]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_air5w"]
@@ -26,25 +86,113 @@ polygon = PackedVector2Array(-5.9, 1.8999996, -7.1, 1.8999996, -7.1, 2.8999996, 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6l1q0"]
 polygon = PackedVector2Array(7.1000004, 1.8999996, 5.8999996, 1.8999996, 5.8999996, 5.1000004, 8, 5.1000004, 8, 2.8999996, 7.1000004, 2.8999996)
 
+[sub_resource type="Gradient" id="Gradient_nooxs"]
+offsets = PackedFloat32Array(0, 0.10769231, 0.20512821, 0.2974359, 0.42051283, 0.6666667)
+colors = PackedColorArray(1, 1, 1, 1, 0.9372549, 0.9372549, 0.5058824, 0.8117647, 0.26033866, 0.84679145, 0.45597148, 0.66827095, 0.0627451, 0.4117647, 0.3137255, 0.7411765, 0.047058824, 0.29803923, 0.22745098, 0.56078434, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_air5w"]
+gradient = SubResource("Gradient_nooxs")
+width = 32
+height = 32
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Animation" id="Animation_nooxs"]
+resource_name = "Idle"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.72), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 2.29), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2cdh6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_air5w"]
+_data = {
+&"Idle": SubResource("Animation_nooxs"),
+&"RESET": SubResource("Animation_2cdh6")
+}
+
 [node name="Kevin" type="Node2D" unique_id=2135527663]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1547993258]
 material = SubResource("ShaderMaterial_y2qpd")
 sprite_frames = SubResource("SpriteFrames_ecn3p")
+animation = &"walkright"
+autoplay = "blinking"
+frame_progress = 0.4986392
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="AnimatedSprite2D" unique_id=1871447655]
 unique_name_in_owner = true
+visible = false
 show_behind_parent = true
 occluder = SubResource("OccluderPolygon2D_air5w")
 
 [node name="LightOccluder2D2" type="LightOccluder2D" parent="AnimatedSprite2D" unique_id=564903603]
 unique_name_in_owner = true
+visible = false
 show_behind_parent = true
 occluder = SubResource("OccluderPolygon2D_foe3m")
 
 [node name="LightOccluder2D3" type="LightOccluder2D" parent="AnimatedSprite2D" unique_id=892403069]
 unique_name_in_owner = true
+visible = false
 show_behind_parent = true
 occluder = SubResource("OccluderPolygon2D_6l1q0")
 
+[node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D" unique_id=485390064]
+position = Vector2(0, 1.0000001)
+scale = Vector2(0.6455372, 0.64553726)
+energy = 1.23
+texture = SubResource("GradientTexture2D_air5w")
+texture_scale = 2.0
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=650035217]
+libraries/ = SubResource("AnimationLibrary_air5w")
+autoplay = &"Idle"

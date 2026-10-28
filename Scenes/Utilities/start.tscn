@@ -1,6 +1,12 @@
 [gd_scene format=3 uid="uid://chbp8tc1qtwpf"]
 
 [ext_resource type="Script" uid="uid://c8roakj2w3bh8" path="res://Scripts/start.gd" id="1_pe4hy"]
+[ext_resource type="PackedScene" uid="uid://bclk64o0ij8fi" path="res://Scenes/Rooms/Backgrounds/sunset.tscn" id="2_8u6tv"]
+[ext_resource type="FontFile" uid="uid://caykkcx7unpfe" path="res://Assets/Fonts/Ithaca-LVB75.ttf" id="2_b07ha"]
+[ext_resource type="Shader" uid="uid://mjlcjonchl1y" path="res://Scenes/Effects/pixel_effect.gdshader" id="2_tl3pp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tl3pp"]
+shader = ExtResource("2_tl3pp")
 
 [node name="start" type="Control" unique_id=1654112686]
 layout_mode = 3
@@ -10,3 +16,23 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pe4hy")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=159792545]
+follow_viewport_enabled = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer" unique_id=1125659576]
+material = SubResource("ShaderMaterial_tl3pp")
+offset_left = -702.0
+offset_top = -81.0
+offset_right = -342.0
+offset_bottom = -41.0
+scale = Vector2(4.011664, 4.011664)
+theme_override_fonts/normal_font = ExtResource("2_b07ha")
+bbcode_enabled = true
+text = "[wave amp=40 freq=5]Click Here To Start The Game (Please)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1555142836]
+
+[node name="Sunset" parent="." unique_id=863714889 instance=ExtResource("2_8u6tv")]

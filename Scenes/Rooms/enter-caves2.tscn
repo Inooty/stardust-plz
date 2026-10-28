@@ -25,7 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://nyrv141ekj27" path="res://Scenes/Dialogue/dialogue_area.tscn" id="18_wcxem"]
 [ext_resource type="Script" uid="uid://c4ea0oqakiyw1" path="res://Scenes/Dialogue/dialogue-export-resource.gd" id="19_hwap6"]
 [ext_resource type="PackedScene" uid="uid://d40bhx5r0pvv" path="res://Scenes/Utilities/roomexit.tscn" id="20_ih8s2"]
-[ext_resource type="Script" uid="uid://mucl34xgjg7u" path="res://Scenes/Dialogue/dialouge-resource.gd" id="20_t06tm"]
+[ext_resource type="Script" uid="uid://mucl34xgjg7u" path="res://Scenes/Dialogue/dialogue-resource.gd" id="20_t06tm"]
 [ext_resource type="Script" uid="uid://dpvvvlgkqh8pv" path="res://Scripts/flicker.gd" id="22_5ts0o"]
 [ext_resource type="Script" uid="uid://bdgjmrdblsypp" path="res://Scenes/Utilities/VentStuffIdkWhereToPutThis/vent.gd" id="23_640wu"]
 [ext_resource type="AudioStream" uid="uid://beybhfp4g7mle" path="res://Assets/SFX/starling-echo.wav" id="24_pmnev"]
@@ -67,33 +67,32 @@ shader = ExtResource("5_l8oyr")
 
 [sub_resource type="Resource" id="Resource_r3tq4"]
 script = ExtResource("20_t06tm")
+speaker = "Kevin"
 text = "I think going in these vents may have not been that great of an idea..."
 textspeed = 21.0
 textsound = ExtResource("24_pmnev")
 textpitchmin = 1.0
 textpitchmax = 2.0
-speaker = "Kevin"
 metadata/_custom_type_script = "uid://mucl34xgjg7u"
 
 [sub_resource type="Resource" id="Resource_ecn3p"]
 script = ExtResource("20_t06tm")
+speaker = "Kevin"
 text = "[shake rate=25 level=8]I think theres a rat in here..."
 textspeed = 21.0
 textsound = ExtResource("24_pmnev")
 textpitchmin = 0.5
 textpitchmax = 2.0
-speaker = "Kevin"
 metadata/_custom_type_script = "uid://mucl34xgjg7u"
 
 [sub_resource type="Resource" id="Resource_5ts0o"]
 script = ExtResource("20_t06tm")
+speaker = "Kevin"
 text = "Maybe... Maybe this adventure stuff isn't for me..."
 textspeed = 13.5
 textsound = ExtResource("24_pmnev")
-textvolume = -8
 textpitchmin = 1.0
 textpitchmax = 2.0
-speaker = "Kevin"
 metadata/_custom_type_script = "uid://mucl34xgjg7u"
 
 [node name="EnterCaves2" type="Node2D" unique_id=1374072587]

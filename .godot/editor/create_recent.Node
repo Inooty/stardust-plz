@@ -1,3 +1,6 @@
+CanvasLayer
+Camera2D
+RichTextLabel
 Node
 CollisionShape2D
 Area2D
@@ -6,9 +9,6 @@ Sprite2D
 AnimatedSprite2D
 Parallax2D
 Control
-CanvasLayer
 Button
 VBoxContainer
 Panel
-CPUParticles2D
-CanvasModulate

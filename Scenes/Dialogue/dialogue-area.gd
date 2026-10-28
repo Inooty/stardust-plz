@@ -13,6 +13,9 @@ enum BoxSide { AUTO, TOP, BOTTOM }
 @export var pick_range := 10.0                   # distance from this node to the player
 @export var click_action: StringName = &"use"
 
+@export_group("Animations")
+@export var stop_animations := true
+
 @export_group("Named Sets")
 @export var sets: Array[DialogueSet] = []
 @export var start_set: StringName = &""
@@ -221,6 +224,7 @@ func _start(body: Node2D, set_id: StringName) -> bool:
 	d.layer = 100
 	d.tree_exited.connect(func(): dialogue_active = false)
 	d.finished.connect(func(): dialogue_finished.emit())
+	d.origin = self
 	get_tree().current_scene.add_child(d)
 
 	if anchor_bottom:

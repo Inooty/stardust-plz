@@ -22,7 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://clciy402442pb" path="res://Scenes/Objects/boulder.tscn" id="20_t5jks"]
 [ext_resource type="PackedScene" uid="uid://nyrv141ekj27" path="res://Scenes/Dialogue/dialogue_area.tscn" id="21_nhjeb"]
 [ext_resource type="Script" uid="uid://c4ea0oqakiyw1" path="res://Scenes/Dialogue/dialogue-export-resource.gd" id="22_m418s"]
-[ext_resource type="Script" uid="uid://mucl34xgjg7u" path="res://Scenes/Dialogue/dialouge-resource.gd" id="23_6ocjf"]
+[ext_resource type="Script" uid="uid://mucl34xgjg7u" path="res://Scenes/Dialogue/dialogue-resource.gd" id="23_6ocjf"]
 [ext_resource type="AudioStream" uid="uid://ddb4aqyviyhb6" path="res://Assets/Dialogue/SFX/starling.wav" id="24_k12q8"]
 [ext_resource type="PackedScene" uid="uid://dmdpbdcl5yllb" path="res://Scenes/Lights/shadow.tscn" id="25_m418s"]
 [ext_resource type="PackedScene" uid="uid://d40bhx5r0pvv" path="res://Scenes/Utilities/roomexit.tscn" id="26_6ocjf"]

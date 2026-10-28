@@ -1,4 +1,5 @@
 res://Assets/GUI/
+res://Scenes/Dialogue/
 /home/inoty/GitHub/stardust-plz/
 /home/inoty/GitHub/stardust-plz/Exports/Windows/
 /home/inoty/GitHub/stardust-plz/Exports/Linux/
@@ -18,7 +19,6 @@ res://Scenes/Objects/Harmful/
 res://Scenes/Objects/
 res://Scenes/Player/Death/
 /home/inoty/GitHub/stardust-plz/Scenes/Player/
-res://Scenes/Dialogue/
 res://Scenes/Lights/
 res://Scenes/Camera/
 res://Scenes/

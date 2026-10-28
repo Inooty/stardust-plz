@@ -27,7 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://nyrv141ekj27" path="res://Scenes/Dialogue/dialogue_area.tscn" id="19_0nio1"]
 [ext_resource type="Script" uid="uid://c4ea0oqakiyw1" path="res://Scenes/Dialogue/dialogue-export-resource.gd" id="20_0gxu2"]
 [ext_resource type="PackedScene" uid="uid://d40bhx5r0pvv" path="res://Scenes/Utilities/roomexit.tscn" id="20_17hyr"]
-[ext_resource type="Script" uid="uid://mucl34xgjg7u" path="res://Scenes/Dialogue/dialouge-resource.gd" id="21_v55cm"]
+[ext_resource type="Script" uid="uid://mucl34xgjg7u" path="res://Scenes/Dialogue/dialogue-resource.gd" id="21_v55cm"]
 [ext_resource type="AudioStream" uid="uid://ddb4aqyviyhb6" path="res://Assets/Dialogue/SFX/starling.wav" id="22_lqneo"]
 [ext_resource type="AudioStream" uid="uid://dfl8d2foiuobv" path="res://Assets/Dialogue/SFX/bubblewebm.wav" id="26_fhtr5"]
 [ext_resource type="Script" uid="uid://ca38cwofmwi4a" path="res://Scripts/Animations/ventanim.gd" id="31_gdg2c"]
@@ -74,12 +74,20 @@ metadata/_custom_type_script = "uid://mucl34xgjg7u"
 
 [sub_resource type="Resource" id="Resource_ju5fh"]
 script = ExtResource("21_v55cm")
+speaker = "Kevin"
 text = "Listen, I don't really want to have to deal with the whole \"Stalagmite\" Situation we have going on in the next room... So I think I'm going through the vents."
-textspeed = 13.6
+textspeed = 18.795
 textsound = ExtResource("22_lqneo")
 textpitchmin = 1.0
 textpitchmax = 2.0
-speaker = "Kevin"
+spritenode = NodePath("../../Kevin/AnimatedSprite2D")
+spriteanimation = &"sideeye"
+cameratranstime = 0.0
+camerazoom = 3.0
+camerazoomtime = 2.0
+camerazoomuntilend = true
+animationplayer = NodePath("../../../AnimationPlayer")
+animationname = &"kevinjump"
 metadata/_custom_type_script = "uid://mucl34xgjg7u"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ecn3p"]
@@ -163,10 +171,39 @@ tracks/2/keys = {
 "values": [Vector2(1, 1), Vector2(0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_gdg2c"]
+resource_name = "kevinjump"
+length = 3.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dialogue/Kevin:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.3333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1.415), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Dialogue/Kevin:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.3333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(31, 32), Vector2(31, 28.67), Vector2(31, 32)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gdg2c"]
 _data = {
 &"RESET": SubResource("Animation_4kpyj"),
-&"jumpinthecaac": SubResource("Animation_17hyr")
+&"jumpinthecaac": SubResource("Animation_17hyr"),
+&"kevinjump": SubResource("Animation_gdg2c")
 }
 
 [node name="EnterCaves2" type="Node2D" unique_id=1374072587]
@@ -423,3 +460,4 @@ shape = SubResource("RectangleShape2D_ecn3p")
 libraries/ = SubResource("AnimationLibrary_gdg2c")
 
 [editable path="Player/Player/Node2D2"]
+[editable path="Dialogue/Kevin"]

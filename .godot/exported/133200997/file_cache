@@ -45,7 +45,7 @@ res://addons/phantom_camera/themes/theme.tres::23e4783277e8d699cd836177cf7f282d:
 res://Scenes/Camera/camera_point.tscn::40a5847ef3aa3029de0c9b3e0a884fa5::1791227427::res://.godot/exported/133200997/export-ef7b35e1c64a65a1d50e0eba6802155a-camera_point.scn
 res://Scenes/Camera/camtrigger.tscn::d40c49a0847d0b32be1c14a1aa60f560::1791087768::res://.godot/exported/133200997/export-16a0ad70f9affea5f0d70929df2c0b6d-camtrigger.scn
 res://Scenes/Dialogue/button.tscn::54325f91a37f828a46d538323a82955c::1792551024::res://.godot/exported/133200997/export-d2bf63c3592c4f18a7bcacd878f6feaf-button.scn
-res://Scenes/Dialogue/dialogue.tscn::de9eaa1c21bde5fbc3b9de747c191aad::1792548774::res://.godot/exported/133200997/export-529df280fe50cda5f02d2ce882224f58-dialogue.scn
+res://Scenes/Dialogue/dialogue.tscn::de9eaa1c21bde5fbc3b9de747c191aad::1793149298::res://.godot/exported/133200997/export-529df280fe50cda5f02d2ce882224f58-dialogue.scn
 res://Scenes/Dialogue/dialogue_area.tscn::586a00ca4e4d6390db97bdc343d3c877::1792967606::res://.godot/exported/133200997/export-df2e4266c22213ac7643ef3e48c881a1-dialogue_area.scn
 res://Scenes/Gui/button.tscn::37955181069533068bff8d686880d3b1::1792957927::res://.godot/exported/133200997/export-62642e1005f03af864cf1da099044076-button.scn
 res://Scenes/Gui/main_menu.tscn::6d0d525c24c9103a6bba1c7897708f1a::1792957927::res://.godot/exported/133200997/export-8d5cecb5232a81a5106911f412197e90-main_menu.scn
@@ -56,8 +56,8 @@ res://Scenes/Lights/light_beam.tscn::9f53bb764b9febbbb54735db8cb80e5f::179150728
 res://Scenes/Lights/light_beam_shadow.tscn::9f6727258ab7a1b1e9742f82749f77b1::1791507000::res://.godot/exported/133200997/export-52feeff231182233341836d25d6f35c8-light_beam_shadow.scn
 res://Scenes/Lights/light_shadow.tscn::c6ab39e6d032fa034c107b836bb90a59::1791506496::res://.godot/exported/133200997/export-66927c611eb4f00e14caf82798ae221b-light_shadow.scn
 res://Scenes/Lights/shadow.tscn::b3ab643ace9710ff5f1490d81444c453::1792968803::res://.godot/exported/133200997/export-17f4d2c8113027c8c564de1f133fb31f-shadow.scn
-res://Scenes/NPCs/buku_sleep.tscn::1f221a139324792520b35f5c4328107c::1792551903::res://.godot/exported/133200997/export-6ec6366abdd09d8cd53510e78d110420-buku_sleep.scn
-res://Scenes/NPCs/kevin.tscn::9f08878871cd503bc79f071f60b4c23e::1793045107::res://.godot/exported/133200997/export-3fd20911d7d8f0117f93a1b23ccc86b9-kevin.scn
+res://Scenes/NPCs/buku_sleep.tscn::02b97ae9e92df584c930c1f58e358fc4::1793149234::res://.godot/exported/133200997/export-6ec6366abdd09d8cd53510e78d110420-buku_sleep.scn
+res://Scenes/NPCs/kevin.tscn::b77087b4d9e477938885688d923bcd9e::1793154513::res://.godot/exported/133200997/export-3fd20911d7d8f0117f93a1b23ccc86b9-kevin.scn
 res://Scenes/Objects/Harmful/gelatinous-stalagmite.tscn::b1aab4cd81eac5f413d073e27b60d819::1793063107::res://.godot/exported/133200997/export-814494b2e15bfb8745c5eb3e01303276-gelatinous-stalagmite.scn
 res://Scenes/Objects/Harmful/spikedboulder.tscn::9b15365340a1fdc222808a91c6d504b4::1792951825::res://.godot/exported/133200997/export-fa5d381e361206119b077b35758d722a-spikedboulder.scn
 res://Scenes/Objects/Harmful/stalagmite.tscn::4e6096ee018213e1944bf4c5899a1fc0::1792966369::res://.godot/exported/133200997/export-13a4c0950c7cfcfb1c075061737fe15d-stalagmite.scn
@@ -78,11 +78,11 @@ res://Scenes/Rooms/Tiles/background_tiles.tscn::1c2bef16e06d30f8eb457162ad5435ad
 res://Scenes/Rooms/Tiles/tiles.tscn::3866ac8ed1d27f714b7b4032ee706117::1793057233::res://.godot/exported/133200997/export-14df2aee4851688a82188e954f4a3e18-tiles.scn
 res://Scenes/Rooms/buku_test.tscn::1a5e4ca7957f02925d561c6d6c0080d2::1792952026::res://.godot/exported/133200997/export-ac128694c4f7e82dfa638ac233ff9ae7-buku_test.scn
 res://Scenes/Rooms/debug_level.tscn::997f8c1633ac954b25f5398a046164fc::1792952268::res://.godot/exported/133200997/export-72f7a3114bd9335c4cf7010422c0fd46-debug_level.scn
-res://Scenes/Rooms/enter-caves1.tscn::632febd6f82f539be999137e0d60c4da::1793052906::res://.godot/exported/133200997/export-748860565c1944a75f183830474fbc1b-enter-caves1.scn
-res://Scenes/Rooms/enter-caves2.tscn::67a07431401589d7f446a153b0192486::1793060597::res://.godot/exported/133200997/export-16ce429b41cad87b41574f4b5bf3ed08-enter-caves2.scn
-res://Scenes/Rooms/caverns1.tscn::d8cee4e51b983ee01380eff83871da47::1793062271::res://.godot/exported/133200997/export-42a081d419602bca48f380515a2030f5-caverns1.scn
-res://Scenes/Rooms/caverns2.tscn::e8fa9250fac10acd3ba0f9cae6bc55f7::1793063562::res://.godot/exported/133200997/export-5b4ef28446054216adf80bd2744f3848-caverns2.scn
-res://Scenes/Rooms/sunsetshowcase.tscn::3a6d4f4f527f99f895400e8201431aed::1792966314::res://.godot/exported/133200997/export-a5ac5fc91ca21f0999563e69d17df3a9-sunsetshowcase.scn
+res://Scenes/Rooms/enter-caves1.tscn::2f3dcf56ea60eb8a7be6b3b4f4e521c7::1793151687::res://.godot/exported/133200997/export-748860565c1944a75f183830474fbc1b-enter-caves1.scn
+res://Scenes/Rooms/enter-caves2.tscn::c5a4ef8f0e7030c467b559a1d9679690::1793149226::res://.godot/exported/133200997/export-16ce429b41cad87b41574f4b5bf3ed08-enter-caves2.scn
+res://Scenes/Rooms/caverns1.tscn::1ac031ddcab3378494250d398f069e6f::1793155417::res://.godot/exported/133200997/export-42a081d419602bca48f380515a2030f5-caverns1.scn
+res://Scenes/Rooms/caverns2.tscn::b9a5475b83c1530e4180e47b3e21eb88::1793147570::res://.godot/exported/133200997/export-5b4ef28446054216adf80bd2744f3848-caverns2.scn
+res://Scenes/Rooms/sunsetshowcase.tscn::4c5aa9cda2e44ca9efdfff7f9b115865::1793149226::res://.godot/exported/133200997/export-a5ac5fc91ca21f0999563e69d17df3a9-sunsetshowcase.scn
 res://Scenes/Utilities/music.tscn::9a5b0ec03ef00ea1ddb1c1649f87416d::1792970744::res://.godot/exported/133200997/export-2a1c64b209671533f621e2d487688c5a-music.scn
 res://Scenes/Utilities/roomexit.tscn::7ff60306829da293ded96dade14dbd95::1792377416::res://.godot/exported/133200997/export-c45b551a638fcab590df2d997d08d0e8-roomexit.scn
-res://Scenes/Utilities/start.tscn::35434bbeb4a7619e7f2a1f3fc49525b6::1793066620::res://.godot/exported/133200997/export-ba632f97708fdb8358d1209d643f7795-start.scn
+res://Scenes/Utilities/start.tscn::a1a7b4c6defddf041e7a8a22963e743c::1793155323::res://.godot/exported/133200997/export-ba632f97708fdb8358d1209d643f7795-start.scn
