@@ -2,6 +2,7 @@
 
 [ext_resource type="Shader" uid="uid://dk0mym17ufua" path="res://Scenes/Effects/lighting.gdshader" id="1_nooxs"]
 [ext_resource type="Texture2D" uid="uid://bkhcwx2i8q640" path="res://Assets/NPCs/Kevin/kevin.png" id="2_2cdh6"]
+[ext_resource type="Texture2D" uid="uid://bpr6b5007kyce" path="res://Assets/NPCs/Kevin/AHHHH.png" id="2_ioc0t"]
 [ext_resource type="Texture2D" uid="uid://cb7pg8si2i71p" path="res://Assets/NPCs/Kevin/kevinblink.png" id="3_2cdh6"]
 [ext_resource type="Texture2D" uid="uid://dl0gfjijtagwn" path="res://Assets/NPCs/Kevin/kevinlook.png" id="4_air5w"]
 [ext_resource type="Texture2D" uid="uid://bapnk2e7uheat" path="res://Assets/NPCs/Kevin/kevin-side-angle-shocked.png" id="4_swks6"]
@@ -16,6 +17,17 @@ shader = ExtResource("1_nooxs")
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ecn3p"]
 animations = [{
+"frames": [{
+"duration": 0.7,
+"texture": ExtResource("2_2cdh6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ioc0t")
+}],
+"loop": 0,
+"name": &"AAAH",
+"speed": 1.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_2cdh6")
@@ -164,9 +176,10 @@ _data = {
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1547993258]
 material = SubResource("ShaderMaterial_y2qpd")
 sprite_frames = SubResource("SpriteFrames_ecn3p")
-animation = &"walkright"
+animation = &"AAAH"
 autoplay = "blinking"
-frame_progress = 0.4986392
+frame = 1
+frame_progress = 1.0
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="AnimatedSprite2D" unique_id=1871447655]
 unique_name_in_owner = true

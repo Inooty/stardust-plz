@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://bg3jhq3y0rmif" path="res://Assets/Objects/Checkpoint/checkpoint4.png" id="5_y0ooj"]
 [ext_resource type="Texture2D" uid="uid://cifstl6kmi3k5" path="res://Assets/Objects/Checkpoint/checkpoint5.png" id="6_64ine"]
 [ext_resource type="Script" uid="uid://c74wo0p243lex" path="res://Scenes/Objects/checkpoint.gd" id="7_235xe"]
-[ext_resource type="Texture2D" uid="uid://hc3lfrspy27s" path="res://Assets/Light/spotlight.png" id="8_3yo75"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y2qpd"]
 shader = ExtResource("1_oibas")
@@ -36,6 +35,15 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ecn3p"]
+
+[sub_resource type="Gradient" id="Gradient_oibas"]
+offsets = PackedFloat32Array(0.0058139535, 0.50581396)
+colors = PackedColorArray(0.8895349, 0.8895349, 0.8895349, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rlqbv"]
+gradient = SubResource("Gradient_oibas")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="Animation" id="Animation_yrxgr"]
 length = 0.001
@@ -93,9 +101,10 @@ shape = SubResource("RectangleShape2D_ecn3p")
 
 [node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D/CharacterBody2D" unique_id=650574521]
 position = Vector2(0, -1.6605281)
+color = Color(1, 0.85882354, 1, 1)
 energy = 1.63
-texture = ExtResource("8_3yo75")
-texture_scale = 2.0
+texture = SubResource("GradientTexture2D_rlqbv")
+texture_scale = 1.09
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=717091261]
 libraries/ = SubResource("AnimationLibrary_6fek6")

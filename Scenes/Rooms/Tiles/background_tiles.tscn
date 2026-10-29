@@ -52,3 +52,4 @@ sources/2 = SubResource("TileSetAtlasSource_3lva1")
 [node name="Background Tiles" type="TileMapLayer" unique_id=967418695]
 material = SubResource("ShaderMaterial_y2qpd")
 tile_set = SubResource("TileSet_ecn3p")
+rendering_quadrant_size = 2

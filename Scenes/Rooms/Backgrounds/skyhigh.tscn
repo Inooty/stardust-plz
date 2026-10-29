@@ -26,7 +26,6 @@ follow_viewport_enabled = true
 
 [node name="Sky" type="Parallax2D" parent="BG/Background" unique_id=359419936]
 visibility_layer = 2
-repeat_size = Vector2(3059.2, 0)
 autoscroll = Vector2(10, 0)
 repeat_times = 10
 ignore_camera_scroll = true
@@ -36,39 +35,9 @@ material = SubResource("ShaderMaterial_j5mmr")
 scale = Vector2(1.9116734, 1.9116734)
 texture = ExtResource("2_rlqbv")
 
-[node name="Sky2" type="Sprite2D" parent="BG/Background/Sky" unique_id=129854656]
-material = SubResource("ShaderMaterial_j5mmr")
-position = Vector2(-611, 0)
-scale = Vector2(1.9116734, 1.9116734)
-texture = ExtResource("2_rlqbv")
-
-[node name="Sky14" type="Sprite2D" parent="BG/Background/Sky" unique_id=665847948]
-material = SubResource("ShaderMaterial_j5mmr")
-position = Vector2(-1222, 4.7683716e-07)
-scale = Vector2(1.9916784, 1.9116734)
-texture = ExtResource("2_rlqbv")
-
-[node name="Sky3" type="Sprite2D" parent="BG/Background/Sky" unique_id=91538369]
-material = SubResource("ShaderMaterial_j5mmr")
-position = Vector2(611, 0)
-scale = Vector2(1.9116734, 1.9116734)
-texture = ExtResource("2_rlqbv")
-
-[node name="Sky11" type="Sprite2D" parent="BG/Background/Sky" unique_id=147638830]
-material = SubResource("ShaderMaterial_j5mmr")
-position = Vector2(1222.0001, 2)
-scale = Vector2(1.9516636, 1.9116734)
-texture = ExtResource("2_rlqbv")
-
 [node name="Sky4" type="Sprite2D" parent="BG/Background/Sky" unique_id=129334075]
 material = SubResource("ShaderMaterial_j5mmr")
 position = Vector2(0, -344.00003)
-scale = Vector2(1.9116734, 1.9116734)
-texture = ExtResource("3_ivik8")
-
-[node name="Sky5" type="Sprite2D" parent="BG/Background/Sky" unique_id=881485837]
-material = SubResource("ShaderMaterial_j5mmr")
-position = Vector2(-611, -344.00003)
 scale = Vector2(1.9116734, 1.9116734)
 texture = ExtResource("3_ivik8")
 
@@ -78,51 +47,9 @@ position = Vector2(66.00001, -1833.9999)
 scale = Vector2(14.320319, 15.568483)
 texture = ExtResource("3_ivik8")
 
-[node name="Sky6" type="Sprite2D" parent="BG/Background/Sky" unique_id=2074759292]
-material = SubResource("ShaderMaterial_j5mmr")
-position = Vector2(611, -342.00003)
-scale = Vector2(1.9116734, 1.9116734)
-texture = ExtResource("3_ivik8")
-
-[node name="Sky10" type="Sprite2D" parent="BG/Background/Sky" unique_id=138488333]
-material = SubResource("ShaderMaterial_j5mmr")
-position = Vector2(1222.0001, -342.00003)
-scale = Vector2(1.9916832, 1.9116734)
-texture = ExtResource("3_ivik8")
-
-[node name="Sky13" type="Sprite2D" parent="BG/Background/Sky" unique_id=1736716258]
-material = SubResource("ShaderMaterial_j5mmr")
-position = Vector2(-1222.0001, -344.00003)
-scale = Vector2(1.9116734, 1.9116734)
-texture = ExtResource("3_ivik8")
-
-[node name="Sky7" type="Sprite2D" parent="BG/Background/Sky" unique_id=1213632898]
-material = SubResource("ShaderMaterial_j5mmr")
-position = Vector2(611, 344.00003)
-scale = Vector2(1.9116734, 1.9116734)
-texture = ExtResource("4_2wg02")
-
 [node name="Sky8" type="Sprite2D" parent="BG/Background/Sky" unique_id=1337355954]
 material = SubResource("ShaderMaterial_j5mmr")
 position = Vector2(0, 344.00003)
-scale = Vector2(1.9116734, 1.9116734)
-texture = ExtResource("4_2wg02")
-
-[node name="Sky12" type="Sprite2D" parent="BG/Background/Sky" unique_id=1294650564]
-material = SubResource("ShaderMaterial_j5mmr")
-position = Vector2(1222.0001, 344.00003)
-scale = Vector2(1.9933907, 1.9116734)
-texture = ExtResource("4_2wg02")
-
-[node name="Sky15" type="Sprite2D" parent="BG/Background/Sky" unique_id=827365571]
-material = SubResource("ShaderMaterial_j5mmr")
-position = Vector2(-1222.0001, 344.00003)
-scale = Vector2(1.9116734, 1.9116734)
-texture = ExtResource("4_2wg02")
-
-[node name="Sky9" type="Sprite2D" parent="BG/Background/Sky" unique_id=1734309885]
-material = SubResource("ShaderMaterial_j5mmr")
-position = Vector2(-611, 344.00003)
 scale = Vector2(1.9116734, 1.9116734)
 texture = ExtResource("4_2wg02")
 
