@@ -1,6 +1,8 @@
 extends DE
 class_name DialogueText
 
+enum FunctionTiming { LINE_START, AFTER_TYPING, AFTER_ENTER }
+
 @export var speaker: String
 @export_multiline var text: String
 
@@ -12,6 +14,7 @@ class_name DialogueText
 @export var textpitchmax := 1.15
 @export var spritenode: NodePath        # AnimatedSprite2D in the room, path from the scene root (e.g. "Kevin/AnimatedSprite2D")
 @export var spriteanimation: StringName # SpriteFrames animation to play when this line starts
+@export var persist_end := false
 
 
 @export var camerapos := Vector2(999.999, 999.999)   # 999.999 = don't move the camera
@@ -25,3 +28,12 @@ class_name DialogueText
 @export_group("Animation")
 @export var animationplayer: NodePath  # AnimationPlayer in the room, path from the scene root (e.g. "AnimationPlayer")
 @export var animationname: StringName
+
+@export_group("Function")
+@export var use_function := false      # master toggle, the function below is ignored when OFF
+@export var function_call: DialogueFunction
+@export var function_timing: FunctionTiming = FunctionTiming.AFTER_ENTER
+@export var function_blocks := false   # ON = dialogue waits for the function (and its waitsignal) before moving on
+
+func persist_key(ap: Node) -> StringName:
+	return StringName("anim_end:%s:%s" % [ap.get_path(), animationname])

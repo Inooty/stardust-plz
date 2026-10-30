@@ -57,8 +57,8 @@ res://Scenes/Lights/light_beam_shadow.tscn::9f6727258ab7a1b1e9742f82749f77b1::17
 res://Scenes/Lights/light_shadow.tscn::c6ab39e6d032fa034c107b836bb90a59::1791506496::res://.godot/exported/133200997/export-66927c611eb4f00e14caf82798ae221b-light_shadow.scn
 res://Scenes/Lights/shadow.tscn::b3ab643ace9710ff5f1490d81444c453::1792968803::res://.godot/exported/133200997/export-17f4d2c8113027c8c564de1f133fb31f-shadow.scn
 res://Scenes/NPCs/buku_sleep.tscn::02b97ae9e92df584c930c1f58e358fc4::1793156652::res://.godot/exported/133200997/export-6ec6366abdd09d8cd53510e78d110420-buku_sleep.scn
-res://Scenes/NPCs/kevin.tscn::041e8f1b63aa69c35e12d77158b07228::1793243114::res://.godot/exported/133200997/export-3fd20911d7d8f0117f93a1b23ccc86b9-kevin.scn
-res://Scenes/Objects/Harmful/gelatinous-stalagmite.tscn::0cbadee3ea54064b88127566781e7d9d::1793237428::res://.godot/exported/133200997/export-814494b2e15bfb8745c5eb3e01303276-gelatinous-stalagmite.scn
+res://Scenes/NPCs/kevin.tscn::d1efd924d1927808a4eaa70a7d5b7ba2::1793328464::res://.godot/exported/133200997/export-3fd20911d7d8f0117f93a1b23ccc86b9-kevin.scn
+res://Scenes/Objects/Harmful/gelatinous-stalagmite.tscn::b6f803dc91de3c6f0491857654509f92::1793316875::res://.godot/exported/133200997/export-814494b2e15bfb8745c5eb3e01303276-gelatinous-stalagmite.scn
 res://Scenes/Objects/Harmful/spikedboulder.tscn::9b15365340a1fdc222808a91c6d504b4::1792951825::res://.godot/exported/133200997/export-fa5d381e361206119b077b35758d722a-spikedboulder.scn
 res://Scenes/Objects/Harmful/stalagmite.tscn::4e6096ee018213e1944bf4c5899a1fc0::1792966369::res://.godot/exported/133200997/export-13a4c0950c7cfcfb1c075061737fe15d-stalagmite.scn
 res://Scenes/Objects/Harmful/unstable-stalagmite.tscn::5c3cf817e71d969d93d5da34331b4c69::1793056711::res://.godot/exported/133200997/export-6d5661611345b5ec3e9455e14d08a220-unstable-stalagmite.scn
@@ -68,7 +68,7 @@ res://Scenes/Objects/checkpoint.tscn::0aa554f706a37412063c1738cfc258bf::17932329
 res://Scenes/Objects/plastic-block.tscn::af6a1a41a3b2c4affdbfda28c616ded5::1791383785::res://.godot/exported/133200997/export-d7f61e4d570aeca78c764b3ac2d1ba9c-plastic-block.scn
 res://Scenes/Objects/stone-block.tscn::3b61c119d6c8c0792ae7707fb56f6c2d::1791383890::res://.godot/exported/133200997/export-e637570daeb0db74efbfc32b9b3d94e0-stone-block.scn
 res://Scenes/Player/Death/death.tscn::8cfb0befc0b413e056b4c86ef602d7c6::1792948749::res://.godot/exported/133200997/export-5448d2df9fe7711af5768a453fcec5a4-death.scn
-res://Scenes/Player/beplayer.tscn::c77e52eb8b53d57c70bc0ee23de9fe9b::1792971023::res://.godot/exported/133200997/export-ae3e90145e54a99d6940d0a03da50856-beplayer.scn
+res://Scenes/Player/beplayer.tscn::b1080fe31537677c6447ae34d7549c48::1793324274::res://.godot/exported/133200997/export-ae3e90145e54a99d6940d0a03da50856-beplayer.scn
 res://Scenes/Player/buplayer.tscn::0d3637b29f854559fb939c80bf656b80::1792948805::res://.godot/exported/133200997/export-b6c3e0b9453ec17d727290385b29c1ff-buplayer.scn
 res://Scenes/Player/neplayer.tscn::c7dffc8969cb11c74308f8c0bfa48d68::1792954001::res://.godot/exported/133200997/export-c8bc59ba7d1dc51a87a13d6f89907455-neplayer.scn
 res://Scenes/Player/spawner.tscn::0de1e2943e5bd01ef726ce789a4a96c8::1790463514::res://.godot/exported/133200997/export-87f96a3cd09c51f9f2152167df41df1a-spawner.scn
@@ -80,9 +80,9 @@ res://Scenes/Rooms/buku_test.tscn::1a5e4ca7957f02925d561c6d6c0080d2::1792952026:
 res://Scenes/Rooms/debug_level.tscn::997f8c1633ac954b25f5398a046164fc::1792952268::res://.godot/exported/133200997/export-72f7a3114bd9335c4cf7010422c0fd46-debug_level.scn
 res://Scenes/Rooms/enter-caves1.tscn::2f3dcf56ea60eb8a7be6b3b4f4e521c7::1793237794::res://.godot/exported/133200997/export-748860565c1944a75f183830474fbc1b-enter-caves1.scn
 res://Scenes/Rooms/enter-caves2.tscn::c5a4ef8f0e7030c467b559a1d9679690::1793156652::res://.godot/exported/133200997/export-16ce429b41cad87b41574f4b5bf3ed08-enter-caves2.scn
-res://Scenes/Rooms/caverns1.tscn::97d15d9d88679b08374c9ac67cba3cbc::1793242645::res://.godot/exported/133200997/export-42a081d419602bca48f380515a2030f5-caverns1.scn
-res://Scenes/Rooms/caverns2.tscn::894672b4457e005282933c38d8d2f6e9::1793243284::res://.godot/exported/133200997/export-5b4ef28446054216adf80bd2744f3848-caverns2.scn
-res://Scenes/Rooms/sunsetshowcase.tscn::4c5aa9cda2e44ca9efdfff7f9b115865::1793156652::res://.godot/exported/133200997/export-a5ac5fc91ca21f0999563e69d17df3a9-sunsetshowcase.scn
-res://Scenes/Utilities/music.tscn::9a5b0ec03ef00ea1ddb1c1649f87416d::1792970744::res://.godot/exported/133200997/export-2a1c64b209671533f621e2d487688c5a-music.scn
+res://Scenes/Rooms/caverns1.tscn::3e027303ecea7b1a41cb5283d5c4dde4::1793329660::res://.godot/exported/133200997/export-42a081d419602bca48f380515a2030f5-caverns1.scn
+res://Scenes/Rooms/caverns2.tscn::91b8c0d95ccc4c64029e45de4e3ffe30::1793329640::res://.godot/exported/133200997/export-5b4ef28446054216adf80bd2744f3848-caverns2.scn
+res://Scenes/Utilities/music.tscn::9a5b0ec03ef00ea1ddb1c1649f87416d::1793330544::res://.godot/exported/133200997/export-2a1c64b209671533f621e2d487688c5a-music.scn
 res://Scenes/Utilities/roomexit.tscn::7ff60306829da293ded96dade14dbd95::1792377416::res://.godot/exported/133200997/export-c45b551a638fcab590df2d997d08d0e8-roomexit.scn
 res://Scenes/Utilities/start.tscn::a1a7b4c6defddf041e7a8a22963e743c::1793156652::res://.godot/exported/133200997/export-ba632f97708fdb8358d1209d643f7795-start.scn
+res://Scenes/Rooms/end.tscn::e62aadae2001190bcf3166a2289eef40::1793330579::res://.godot/exported/133200997/export-42801cdd571c820d709585bf48895f63-end.scn

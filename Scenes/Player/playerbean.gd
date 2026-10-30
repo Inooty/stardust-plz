@@ -38,6 +38,10 @@ var pondering: bool = false
 # Movement Control
 var move: bool = true
 var dying: bool = false
+
+# Misc Variables
+var kevin: bool = false
+var dingus: bool = false
  
 # Texture Control
 func _process(_delta: float) -> void:
@@ -47,9 +51,18 @@ func _process(_delta: float) -> void:
 		$Bean.texture = load("res://Assets/Player/cursor_bean_ponder.png")
 	else:
 		$Bean.texture = load("res://Assets/Player/cursor_bean.png")
+
+func _kevin() -> void:
+	if kevin == true:
+		$Kevin.show()
+		$Hand.show()
+		$Kevin/PointLight2D.show()
  
 # On Game Start
 func _ready() -> void:
+	$Hand.hide()
+	$Kevin.hide()
+	$Kevin/PointLight2D.hide()
 	$CanvasLayer/Death.hide()
 	add_to_group("player")
 	CameraManager.camera = get_viewport().get_camera_2d()
@@ -57,6 +70,9 @@ func _ready() -> void:
 	print("Camera Manager! ", CameraManager.camera)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	vmousepos = get_global_mouse_position()
+	if GameState.has_flag(&"kevin"):
+		kevin = true
+		_kevin()
  
 func play_sfx(stream: AudioStream) -> void:
 	var p := AudioStreamPlayer.new()

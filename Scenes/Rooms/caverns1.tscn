@@ -57,6 +57,7 @@ textpitchmin = 1.0
 textpitchmax = 2.5
 spritenode = NodePath("../Kevin/AnimatedSprite2D")
 spriteanimation = &"shock"
+persist_end = true
 animationplayer = NodePath("../../AnimationPlayer")
 animationname = &"kevinjump"
 metadata/_custom_type_script = "uid://mucl34xgjg7u"

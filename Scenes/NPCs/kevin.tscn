@@ -176,10 +176,8 @@ _data = {
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1547993258]
 material = SubResource("ShaderMaterial_y2qpd")
 sprite_frames = SubResource("SpriteFrames_ecn3p")
-animation = &"AAAH"
+animation = &"blinking"
 autoplay = "blinking"
-frame = 1
-frame_progress = 1.0
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="AnimatedSprite2D" unique_id=1871447655]
 unique_name_in_owner = true

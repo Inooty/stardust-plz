@@ -251,6 +251,8 @@ func _play_line_animation(i: DialogueText) -> Array:
 				_played_players.append(ap)
 			if ap.get_animation(i.animationname).loop_mode == Animation.LOOP_NONE:
 				waitable.append(ap)
+				if i.persist_end:
+					_persist_anim_end(ap, i)
  
 	# AnimatedSprite2D
 	if i.spriteanimation != &"":
@@ -268,6 +270,17 @@ func _play_line_animation(i: DialogueText) -> Array:
 				waitable.append(sprite)
  
 	return waitable
+ 
+ 
+# Remembers a finished animation so the area can restore its last frame after a reload
+func _persist_anim_end(ap: AnimationPlayer, i: DialogueText) -> void:
+	var key: StringName = i.persist_key(ap)
+	var anim_name: StringName = i.animationname
+	while is_instance_valid(ap):
+		var finished_name: StringName = await ap.animation_finished
+		if finished_name == anim_name:
+			GameState.set_flag(key)
+			return
  
  
 # Waits until every given animation has finished. Uses the animation_finished
@@ -526,6 +539,20 @@ func _run_function(f: DialogueFunction) -> void:
 			push_warning("Dialogue: target has no signal '%s'" % f.waitsignal)
  
  
+# Runs the function embedded in a DialogueText, if it's enabled and set to this timing
+func _run_text_function(i: DialogueText, timing: int) -> void:
+	if not i.use_function or i.function_call == null:
+		return
+	if i.function_timing != timing:
+		return
+	if i.function_call.hidebox:
+		hide()
+	if i.function_blocks:
+		await _run_function(i.function_call)
+	else:
+		_run_function(i.function_call)   # fire and forget
+ 
+ 
 # =====================================================================
 # Choice block
 # =====================================================================
@@ -601,9 +628,18 @@ func _text_resource(i: DialogueText) -> void:
 	_apply_camera_zoom(i)
 	var started := _play_line_animation(i)
  
+	await _run_text_function(i, DialogueText.FunctionTiming.LINE_START)
+	if not is_inside_tree():
+		return
+ 
 	# Empty text = animation-only line: no typing, no waiting for Enter
 	if not _has_text(i):
 		await _wait_line_animations(started)
+		if not is_inside_tree():
+			return
+		# No typing or Enter on this line, so run the later timings here
+		await _run_text_function(i, DialogueText.FunctionTiming.AFTER_TYPING)
+		await _run_text_function(i, DialogueText.FunctionTiming.AFTER_ENTER)
 		if not is_inside_tree():
 			return
 		if zoomed_here and not i.camerazoomuntilend:
@@ -615,6 +651,10 @@ func _text_resource(i: DialogueText) -> void:
 	if not await _reveal(i.text, i):
 		return
  
+	await _run_text_function(i, DialogueText.FunctionTiming.AFTER_TYPING)
+	if not is_inside_tree():
+		return
+ 
 	_show_arrow()
 	while true:
 		if not await _next_frame():
@@ -622,6 +662,10 @@ func _text_resource(i: DialogueText) -> void:
 		if Input.is_action_just_pressed("ui_accept"):
 			break
 	_hide_arrow()
+ 
+	await _run_text_function(i, DialogueText.FunctionTiming.AFTER_ENTER)
+	if not is_inside_tree():
+		return
  
 	if zoomed_here and not i.camerazoomuntilend:
 		_restore_camera_zoom(true)   # this line's zoom ends with the line

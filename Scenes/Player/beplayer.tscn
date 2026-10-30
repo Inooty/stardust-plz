@@ -4,8 +4,13 @@
 [ext_resource type="Shader" uid="uid://mjlcjonchl1y" path="res://Scenes/Effects/pixel_effect.gdshader" id="2_6t5aa"]
 [ext_resource type="Script" uid="uid://dwd4d4bloxa4w" path="res://Scenes/Player/playerbean.gd" id="2_44tlo"]
 [ext_resource type="Shader" uid="uid://dk0mym17ufua" path="res://Scenes/Effects/lighting.gdshader" id="3_mtuoh"]
+[ext_resource type="Texture2D" uid="uid://dysiaaavhuxoj" path="res://Assets/NPCs/Kevin/medical-emergency.png" id="4_vo4yf"]
 [ext_resource type="Script" uid="uid://ddnrs0luocnev" path="res://Scenes/Player/health.gd" id="5_gcvon"]
+[ext_resource type="Texture2D" uid="uid://dfh5nvud4tjj5" path="res://Assets/NPCs/Kevin/medical-emergency-blink.png" id="5_p40wc"]
 [ext_resource type="Texture2D" uid="uid://ks373dm77e8o" path="res://Assets/Player/cursor_death1.png" id="6_lfswh"]
+[ext_resource type="Texture2D" uid="uid://d2jc3mo5fqsqt" path="res://Assets/NPCs/Kevin/medical-emergency-arm.png" id="6_p40wc"]
+[ext_resource type="Texture2D" uid="uid://bxdq3w86rhxtx" path="res://Assets/NPCs/Kevin/medical-emergency-look2.png" id="6_xio6a"]
+[ext_resource type="Texture2D" uid="uid://dwvnp07vpgsbl" path="res://Assets/NPCs/Kevin/medical-emergency-look1.png" id="7_8ubx7"]
 [ext_resource type="Texture2D" uid="uid://dw6uc75r5n3un" path="res://Assets/Player/cursor_death2.png" id="7_vo4yf"]
 [ext_resource type="Texture2D" uid="uid://c7ac8tq3khkfn" path="res://Assets/Particles/playerbit1.png" id="8_p40wc"]
 [ext_resource type="Texture2D" uid="uid://c7aij84hhdels" path="res://Assets/Particles/playerbit2.png" id="9_3i4fh"]
@@ -19,6 +24,143 @@ polygon = PackedVector2Array(-6, -6, -6, 4.1000004, -5.1, 4.1000004, -5.1, 5.100
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0vibq"]
 shader = ExtResource("3_mtuoh")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ecn3p"]
+animations = [{
+"frames": [{
+"duration": 6.0,
+"texture": ExtResource("4_vo4yf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_p40wc")
+}, {
+"duration": 6.0,
+"texture": ExtResource("4_vo4yf")
+}, {
+"duration": 0.7,
+"texture": ExtResource("5_p40wc")
+}, {
+"duration": 6.0,
+"texture": ExtResource("4_vo4yf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_p40wc")
+}, {
+"duration": 3.0,
+"texture": ExtResource("6_xio6a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_p40wc")
+}, {
+"duration": 3.0,
+"texture": ExtResource("7_8ubx7")
+}],
+"loop": 1,
+"name": &"blink",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_nooxs"]
+offsets = PackedFloat32Array(0, 0.10769231, 0.20512821, 0.2974359, 0.42051283, 0.6666667)
+colors = PackedColorArray(1, 1, 1, 1, 0.9372549, 0.9372549, 0.5058824, 0.8117647, 0.26033866, 0.84679145, 0.45597148, 0.66827095, 0.0627451, 0.4117647, 0.3137255, 0.7411765, 0.047058824, 0.29803923, 0.22745098, 0.56078434, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3i4fh"]
+gradient = SubResource("Gradient_nooxs")
+width = 32
+height = 32
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Animation" id="Animation_p40wc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Hand:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.95020187]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.33044663]
+}
+
+[sub_resource type="Animation" id="Animation_3i4fh"]
+resource_name = "breath"
+length = 4.0666666
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4.0333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.895), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Hand:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.9, 4.0333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.95020187, 0.6963863715457371, 0.95020187]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.113996126, 0.5, 4.0333333),
+"transitions": PackedFloat32Array(1, 1.0352651, 1.0352651),
+"update": 0,
+"values": [0.33044663, 0.2635447170511442, 0.2635447170511442]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xio6a"]
+_data = {
+&"RESET": SubResource("Animation_p40wc"),
+&"breath": SubResource("Animation_3i4fh")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ecn3p"]
 size = Vector2(4, 5.4)
@@ -80,24 +222,43 @@ material = SubResource("ShaderMaterial_5hupk")
 [node name="Player" type="CharacterBody2D" parent="." unique_id=790403615 groups=["player"]]
 motion_mode = 1
 script = ExtResource("2_44tlo")
-smoothspeed = null
-maxspeed = null
-pushstrength = null
-knockbackdecay = null
-minbounce = null
-maxbounce = null
-maxbouncestrength = null
-mouseleash = null
 metadata/player = false
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Player" unique_id=185907041]
 position = Vector2(4.250061, -1.333313)
 occluder = SubResource("OccluderPolygon2D_mtuoh")
 
+[node name="Kevin" type="AnimatedSprite2D" parent="Player" unique_id=1819149226]
+material = SubResource("ShaderMaterial_0vibq")
+position = Vector2(6, -5)
+rotation = 0.33044663
+sprite_frames = SubResource("SpriteFrames_ecn3p")
+animation = &"blink"
+autoplay = "blink"
+frame_progress = 0.6607108
+
+[node name="PointLight2D" type="PointLight2D" parent="Player/Kevin" unique_id=1112878516]
+position = Vector2(-1.8917949, 0.64893115)
+scale = Vector2(0.6455372, 0.64553726)
+energy = 1.23
+texture = SubResource("GradientTexture2D_3i4fh")
+texture_scale = 2.0
+
 [node name="Bean" type="Sprite2D" parent="Player" unique_id=1185226408]
 material = SubResource("ShaderMaterial_0vibq")
 position = Vector2(4.250061, -1.333313)
 texture = ExtResource("1_v0iea")
+
+[node name="Hand" type="Sprite2D" parent="Player" unique_id=2130363195]
+material = SubResource("ShaderMaterial_0vibq")
+position = Vector2(6, -7)
+rotation = 0.95020187
+texture = ExtResource("6_p40wc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player" unique_id=336810966]
+root_node = NodePath("../Kevin")
+libraries/ = SubResource("AnimationLibrary_xio6a")
+autoplay = &"breath"
 
 [node name="HitBoxMain" type="CollisionShape2D" parent="Player" unique_id=1278946407]
 position = Vector2(3, -0.6999999)
@@ -138,6 +299,7 @@ layer = 2
 follow_viewport_enabled = true
 
 [node name="Death" type="AnimatedSprite2D" parent="Player/CanvasLayer" unique_id=912871788]
+visible = false
 material = SubResource("ShaderMaterial_8ubx7")
 position = Vector2(2, -1)
 sprite_frames = SubResource("SpriteFrames_tghwg")

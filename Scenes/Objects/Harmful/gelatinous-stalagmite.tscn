@@ -13,7 +13,7 @@ shader = ExtResource("1_isy84")
 polygon = PackedVector2Array(2.1, -8, -3.1, -8, -3.1, -7.1, -5, -7.1, -5, -2.9, -4.1, -2.9, -4.1, -0.9000001, -3.1, -0.9000001, -3.1, 2.1000004, -2.1, 2.1000004, -2.1, 7.1000004, -1.0999999, 7.1000004, -1.0999999, 8, 1.0999999, 8, 1.0999999, 4.1000004, 2.1, 4.1000004, 2.1, 1.1000004, 3.1000004, 1.1000004, 3.1000004, -0.9000001, 4.1000004, -0.9000001, 4.1000004, -2.9, 5, -2.9, 5, -5.1, 4.1000004, -5.1, 4.1000004, -6.1, 3.1000004, -6.1, 3.1000004, -7.1, 2.1, -7.1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ecn3p"]
-size = Vector2(5, 12)
+size = Vector2(5, 11)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y2qpd"]
 size = Vector2(37, 96)
@@ -75,7 +75,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_gsqfj"]
 resource_name = "trigger"
-length = 13.066667
+length = 11.366667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -83,7 +83,7 @@ tracks/0/path = NodePath("Sprite2D:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.18, 0.44, 1.2, 12.066667),
+"times": PackedFloat32Array(0, 0.18, 0.44, 1.2, 10.333333),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1.0000008),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(-1.295, 0), Vector2(3.16, 0), Vector2(0, 0), Vector2(0, 593.125)]
@@ -95,7 +95,7 @@ tracks/1/path = NodePath("Sprite2D:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 11.666667, 12.066668),
+"times": PackedFloat32Array(0, 9.933333, 10.333334),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(1, 1), Vector2(0, 0)]
@@ -122,11 +122,11 @@ occluder = SubResource("OccluderPolygon2D_gsqfj")
 script = ExtResource("3_dx2tv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Stalagmite" unique_id=391043683]
-position = Vector2(-0.5, 0)
+position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_ecn3p")
 
 [node name="Light" parent="Sprite2D" unique_id=346560384 instance=ExtResource("5_vuugn")]
-color = Color(0.7884957, 0.7571682, 1, 1)
+color = Color(0.8965059, 0.88462985, 0.9999986, 1)
 shadow_enabled = true
 
 [node name="Area" type="Area2D" parent="." unique_id=1697795552]
