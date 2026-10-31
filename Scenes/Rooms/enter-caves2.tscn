@@ -29,6 +29,7 @@
 [ext_resource type="Script" uid="uid://dpvvvlgkqh8pv" path="res://Scripts/flicker.gd" id="22_5ts0o"]
 [ext_resource type="Script" uid="uid://bdgjmrdblsypp" path="res://Scenes/Utilities/VentStuffIdkWhereToPutThis/vent.gd" id="23_640wu"]
 [ext_resource type="AudioStream" uid="uid://beybhfp4g7mle" path="res://Assets/SFX/starling-echo.wav" id="24_pmnev"]
+[ext_resource type="AudioStream" uid="uid://ddb4aqyviyhb6" path="res://Assets/Dialogue/SFX/starling.wav" id="30_7ucn6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_itqxu"]
 shader = ExtResource("5_l8oyr")
@@ -68,7 +69,7 @@ shader = ExtResource("5_l8oyr")
 [sub_resource type="Resource" id="Resource_r3tq4"]
 script = ExtResource("20_t06tm")
 speaker = "Kevin"
-text = "I think going in these vents may have not been that great of an idea..."
+text = "You know, after I got transfered to this lab, I got forgotten about..."
 textspeed = 21.0
 textsound = ExtResource("24_pmnev")
 textpitchmin = 1.0
@@ -88,10 +89,56 @@ metadata/_custom_type_script = "uid://mucl34xgjg7u"
 [sub_resource type="Resource" id="Resource_5ts0o"]
 script = ExtResource("20_t06tm")
 speaker = "Kevin"
-text = "Maybe... Maybe this adventure stuff isn't for me..."
-textspeed = 13.5
+text = "..."
+textspeed = 5.0
 textsound = ExtResource("24_pmnev")
 textpitchmin = 1.0
+textpitchmax = 2.0
+metadata/_custom_type_script = "uid://mucl34xgjg7u"
+
+[sub_resource type="Resource" id="Resource_ve05d"]
+script = ExtResource("20_t06tm")
+speaker = "Kevin"
+text = "You know... ever since I [pause=0.3] \"made you\""
+textspeed = 20.0
+textsound = ExtResource("30_7ucn6")
+metadata/_custom_type_script = "uid://mucl34xgjg7u"
+
+[sub_resource type="Resource" id="Resource_8xhj7"]
+script = ExtResource("20_t06tm")
+speaker = "Kevin"
+text = "[shake rate=25 level=8]..."
+textspeed = 5.0
+textsound = ExtResource("30_7ucn6")
+textpitchmin = 1.0
+textpitchmax = 2.0
+metadata/_custom_type_script = "uid://mucl34xgjg7u"
+
+[sub_resource type="Resource" id="Resource_6jjb0"]
+script = ExtResource("20_t06tm")
+speaker = "Kevin"
+text = " I... [pause=0.3] I'm not sure how exactly your able to understand me... "
+textspeed = 15.0
+textsound = ExtResource("30_7ucn6")
+textpitchmin = 1.0
+textpitchmax = 2.0
+metadata/_custom_type_script = "uid://mucl34xgjg7u"
+
+[sub_resource type="Resource" id="Resource_7ucn6"]
+script = ExtResource("20_t06tm")
+speaker = "Kevin"
+text = "... [pause=0.3] I guess I should know...[pause=0.3]  Since you know.. I made you..."
+textspeed = 20.0
+textsound = ExtResource("30_7ucn6")
+metadata/_custom_type_script = "uid://mucl34xgjg7u"
+
+[sub_resource type="Resource" id="Resource_rqyhy"]
+script = ExtResource("20_t06tm")
+speaker = "Kevin"
+text = "Just...[pause=0.3]  Forget About it..."
+textspeed = 10.0
+textsound = ExtResource("30_7ucn6")
+textpitchmin = 0.5
 textpitchmax = 2.0
 metadata/_custom_type_script = "uid://mucl34xgjg7u"
 
@@ -1004,6 +1051,12 @@ lock_player = false
 position = Vector2(-157, -438)
 scale = Vector2(17.050762, 4.8914733)
 dialogue = Array[ExtResource("19_hwap6")]([SubResource("Resource_5ts0o")])
+lock_player = false
+
+[node name="EvenDeeperCaverns" parent="Dialogue" unique_id=1076713805 instance=ExtResource("18_wcxem")]
+position = Vector2(195.00003, -612)
+scale = Vector2(2.8507633, 4.8914733)
+dialogue = Array[ExtResource("19_hwap6")]([SubResource("Resource_ve05d"), SubResource("Resource_8xhj7"), SubResource("Resource_6jjb0"), SubResource("Resource_7ucn6"), SubResource("Resource_rqyhy")])
 lock_player = false
 
 [editable path="Camera/Fixed Camera"]

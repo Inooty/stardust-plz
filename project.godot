@@ -12,7 +12,7 @@ config_version=5
 
 config/name="STARDUST PLZ"
 config/description="Stardust Please Demo."
-run/main_scene="uid://chbp8tc1qtwpf"
+run/main_scene="uid://dd0ad0j4gi6kp"
 config/features=PackedStringArray("4.7", "Forward Plus")
 boot_splash/bg_color=Color(0.13020152, 0.059931062, 0.29657927, 1)
 boot_splash/use_filter=false

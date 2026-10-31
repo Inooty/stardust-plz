@@ -70,4 +70,3 @@ func _open_menu() -> void:
 	menu.hitbox = _hitbox
 	# Parent it to the checkpoint's root (not the hovering sprite) so the hover animation can't shake it
 	get_parent().get_parent().add_child(menu)
- 

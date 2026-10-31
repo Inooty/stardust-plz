@@ -279,8 +279,9 @@ material = SubResource("ShaderMaterial_0u5uq")
 position = Vector2(1.9999924, -1)
 scale = Vector2(-0.79119074, -0.79119074)
 color = Color(0.9630882, 1, 0.7180156, 1)
-energy = 1.04
+energy = 0.74
 texture = SubResource("GradientTexture2D_ieq7e")
+texture_scale = 1.91
 
 [node name="GeneralLight" type="PointLight2D" parent="Player" unique_id=963373310]
 visibility_layer = 2

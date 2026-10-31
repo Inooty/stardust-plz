@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://broy2rxaqpjsu"
-path="res://.godot/imported/index.png-e90f5f160aab97165313f303aac8e9e1.ctex"
+uid="uid://dcyi71v2ji0xh"
+path="res://.godot/imported/giantbomb.png-a1b6514f645a52361414f734c2be5899.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Exports/index.png"
-dest_files=["res://.godot/imported/index.png-e90f5f160aab97165313f303aac8e9e1.ctex"]
+source_file="res://Assets/Misc/giantbomb.png"
+dest_files=["res://.godot/imported/giantbomb.png-a1b6514f645a52361414f734c2be5899.ctex"]
 
 [params]
 

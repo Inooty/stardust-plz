@@ -1,15 +1,15 @@
 extends Control
  
-const MENU_SIZE := Vector2(420, 240)   # screen pixels (the script cancels out camera zoom)
+const MENU_SIZE := Vector2(280, 160)   # screen pixels (the script cancels out camera zoom)
 const GAP := 24.0                      # space between the checkpoint and the menu
-const PADDING := 16                    # space between the box edge and the buttons
-const FONT_SIZE := 28
+const PADDING := 8              # space between the box edge and the buttons
+const FONT_SIZE := 18
 const HOVER_COLOR := Color(1.0, 0.92, 0.2)   # yellow: hovered + selected slot
 const DISABLED_COLOR := Color(0.5, 0.5, 0.5)
-const FADE_TIME := 0.15                # fade in / fade out duration
-const FADE_DELAY := 0.6                # seconds outside the menu before it fades away
+const FADE_TIME := 1          # fade in / fade out duration
+const FADE_DELAY := 2           # seconds outside the menu before it fades away
 const INSIDE_MARGIN := 4.0             # extra forgiveness around the stay zone (screen pixels)
-const STAY_WIDTH := 260.0              # width of the zone that keeps the menu open (screen pixels, centered, can't exceed MENU_SIZE.x)
+const STAY_WIDTH := 170          # width of the zone that keeps the menu open (screen pixels, centered, can't exceed MENU_SIZE.x)
  
 # Optional: drag your shader material here. If empty, an unshaded material is used,
 # which makes the menu ignore Light2D (but NOT the CanvasModulate tint).
@@ -57,7 +57,7 @@ func _ready() -> void:
 	# the buttons are hidden, so the slots don't jump around when you select one.
 	var row := HBoxContainer.new()
 	row.alignment = BoxContainer.ALIGNMENT_CENTER
-	row.add_theme_constant_override("separation", 24)
+	row.add_theme_constant_override("separation", 16)
 	row.custom_minimum_size.y = FONT_SIZE + 16
 	box.add_child(row)
 	save_btn.reparent(row, false)

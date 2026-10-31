@@ -16,8 +16,6 @@ shader = ExtResource("1_tkhaj")
 
 [node name="SkyHigh" type="Node2D" unique_id=863714889]
 
-[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=149296100]
-
 [node name="BG" type="CanvasLayer" parent="." unique_id=472802905]
 layer = -1
 follow_viewport_enabled = true

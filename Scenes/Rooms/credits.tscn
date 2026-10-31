@@ -1,0 +1,286 @@
+[gd_scene format=3 uid="uid://7cbnt2fkibww"]
+
+[ext_resource type="PackedScene" uid="uid://b0pmxi1wxrlsv" path="res://Scenes/Utilities/music.tscn" id="1_c5i1b"]
+[ext_resource type="Texture2D" uid="uid://b81hc7f2xhpvj" path="res://Assets/Misc/litteralyjustawhitescreen.png" id="1_h6ie3"]
+[ext_resource type="AudioStream" uid="uid://csjc2xsb7r3em" path="res://Assets/SFX/Music/Credits.wav" id="2_m6sdk"]
+[ext_resource type="FontFile" uid="uid://caykkcx7unpfe" path="res://Assets/Fonts/Ithaca-LVB75.ttf" id="3_4flb0"]
+[ext_resource type="Texture2D" uid="uid://loqboggrqqxm" path="res://Assets/GUI/logo.png" id="3_ocou4"]
+[ext_resource type="Script" uid="uid://d3gucw0tg3n27" path="res://Scenes/Rooms/countdown.gd" id="6_m6sdk"]
+
+[sub_resource type="Animation" id="Animation_4flb0"]
+resource_name = "Credits"
+length = 98.13333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Logo:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.3666667, 2.2333336),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Credits:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3.7000003, 4.8333335, 92.33333, 93.066666),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Logo:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(6.133333, 25.533333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-1, 1.000001), Vector2(-1, -70.76)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Credits:offset_transform_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(4.4, 93.23333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -987.535)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../PostCredits:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(94.63333, 97.166664),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Thanks:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(4.866667, 75.63333, 79.566666, 89.433334),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ocou4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Logo:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Credits:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Logo:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, 1.000001)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Credits:offset_transform_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../PostCredits:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.57290065)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Thanks:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.8583552)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c5i1b"]
+_data = {
+&"Credits": SubResource("Animation_4flb0"),
+&"RESET": SubResource("Animation_ocou4")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c5i1b"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ocou4"]
+
+[node name="Credits" type="Node2D" unique_id=1746460838]
+
+[node name="Music" parent="." unique_id=514312882 instance=ExtResource("1_c5i1b")]
+song = ExtResource("2_m6sdk")
+
+[node name="Litteralyjustawhitescreen" type="Sprite2D" parent="." unique_id=1792330602]
+position = Vector2(-303, 135)
+scale = Vector2(114.648224, 108.888214)
+texture = ExtResource("1_h6ie3")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=949151370]
+zoom = Vector2(7, 7)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1410758039]
+physics_interpolation_mode = 1
+root_node = NodePath("../Camera2D")
+libraries/ = SubResource("AnimationLibrary_c5i1b")
+autoplay = &"Credits"
+
+[node name="Credits" type="RichTextLabel" parent="." unique_id=1797084206]
+material = SubResource("ShaderMaterial_c5i1b")
+offset_left = -82.0
+offset_top = 47.0
+offset_right = 514.47797
+offset_bottom = 839.87933
+scale = Vector2(0.2749473, 0.2749473)
+offset_transform_enabled = true
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_4flb0")
+bbcode_enabled = true
+text = "Demo By: Inoty
+Part of The \"Stardance Challenge\"
+
+General:
+Assets: Inoty
+Dialogue: Inoty
+Dialogue System: Claude
+Save System: Claude
+Game Engine: Godot
+Playtesters: My Friends & Classmates
+Technical Help: Claude (Thank you Claude)
+Writing: Inoty
+
+Music:
+Cave Ambience: Dark CAVE / Ambience SOUND Effect (NO Copyright) by The Audio Horizon SFX
+Gelatin Caves Music: Crystal Cave • Royalty Free Game Music by Zef Parisoto
+Sunset | Melody Free Background Music | NO COPYRIGHT 2020 | DOWNLOADABLE MUSIC by No Copyright Music and Video Themes
+Melancholic Cinematic (Free Music) - \"A KIND OF HOPE\" by Scott Buckley
+Casual Game Music 09 By Ivan Formin
+All These can be found on Youtube
+
+Sound Effects:
+BUBBLE POP SOUND EFFECT - FREE by Sound FX
+Broken light bulb sound effect by pbelz4759
+WALKING ON METAL SURFACE SOUND EFFECT - FREE
+ by Sound FX
+Crumbling sound effect by 1000s sound effects
+Undertale Death Sound Effect
+ by Canned Sound Collection
+The Starling SFX are just some Meowing SFX really speed up (I forgot the origianal source)
+All these can be found on Youtube
+
+Special Thanks: To everyone who commented on the devlogs, or said nice things about the game. It really boosted my motivation to keep working on it."
+horizontal_alignment = 1
+
+[node name="PostCredits" type="RichTextLabel" parent="." unique_id=1016155878]
+modulate = Color(1, 1, 1, 0.57290065)
+material = SubResource("ShaderMaterial_c5i1b")
+offset_left = -77.0
+offset_top = -3.0
+offset_right = 515.84094
+offset_bottom = 33.370613
+scale = Vector2(0.2749473, 0.2749473)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_4flb0")
+bbcode_enabled = true
+text = "To Be Continued in Stardust Plz - Full Game ...
+Coming if HackClub makes Stardance 2 or something smh"
+horizontal_alignment = 1
+
+[node name="Thanks" type="RichTextLabel" parent="." unique_id=1487374442]
+modulate = Color(1, 1, 1, 0.8583552)
+material = SubResource("ShaderMaterial_c5i1b")
+offset_left = -77.0
+offset_top = -3.0
+offset_right = 515.84094
+offset_bottom = 33.370613
+scale = Vector2(0.2749473, 0.2749473)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_4flb0")
+bbcode_enabled = true
+text = "And Thank You, So Much For Playing."
+horizontal_alignment = 1
+
+[node name="Logo" type="Sprite2D" parent="." unique_id=878356645]
+physics_interpolation_mode = 1
+texture_filter = 3
+material = SubResource("ShaderMaterial_ocou4")
+position = Vector2(-1, 1.000001)
+texture = ExtResource("3_ocou4")
+
+[node name="TheDemo" type="RichTextLabel" parent="Logo" unique_id=2095162861]
+material = SubResource("ShaderMaterial_c5i1b")
+offset_left = 4.0000005
+offset_top = -14.0
+offset_right = 65.0
+scale = Vector2(0.2749473, 0.2749473)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_4flb0")
+bbcode_enabled = true
+text = "The Demo"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Countdown" type="Node" parent="." unique_id=1595077772]
+script = ExtResource("6_m6sdk")

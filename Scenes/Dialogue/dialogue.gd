@@ -582,7 +582,8 @@ func _choice_resource(i: DialogueChoice) -> void:
 		btn.add_theme_stylebox_override("focus", StyleBoxEmpty.new())
 		var f: DialogueFunction = i.choicetextcall[n] if n < i.choicetextcall.size() else null
 		var jump: StringName = i.choicejump[n] if n < i.choicejump.size() else &""
-		btn.pressed.connect(_on_choice_pressed.bind(f, jump), CONNECT_ONE_SHOT)
+		var resp: DialogueText = i.choiceresponse[n] if n < i.choiceresponse.size() else null
+		btn.pressed.connect(_on_choice_pressed.bind(f, jump, resp), CONNECT_ONE_SHOT)
 		button_container.add_child(holder)
 		if first_btn == null:
 			first_btn = btn
@@ -591,7 +592,7 @@ func _choice_resource(i: DialogueChoice) -> void:
 		first_btn.grab_focus()
  
  
-func _on_choice_pressed(f: DialogueFunction, jump: StringName) -> void:
+func _on_choice_pressed(f: DialogueFunction, jump: StringName, response: DialogueText = null) -> void:
 	button_container.hide()
 	for c in button_container.get_children():
 		c.queue_free()
@@ -601,6 +602,15 @@ func _on_choice_pressed(f: DialogueFunction, jump: StringName) -> void:
 			hide()
 		await _run_function(f)
 		if not is_inside_tree():
+			return
+ 
+	# Optional response line: plays like any DialogueText (animation, zoom, function...)
+	if response != null:
+		if _has_text(response):
+			_show_box()
+		else:
+			hide()
+		if not await _play_text(response):
 			return
  
 	if jump != &"":
@@ -614,6 +624,14 @@ func _on_choice_pressed(f: DialogueFunction, jump: StringName) -> void:
 # Text block
 # =====================================================================
 func _text_resource(i: DialogueText) -> void:
+	if await _play_text(i):
+		current_dialogue_item += 1
+		next_item = true
+ 
+ 
+# Plays one DialogueText line: animation, zoom, functions, typing, waiting for Enter.
+# Returns false if the box was removed meanwhile. Also used for choice responses.
+func _play_text(i: DialogueText) -> bool:
 	_hide_arrow()
 	_set_speaker(i.speaker)
 	audio.stream = _build_sound(i)
@@ -630,48 +648,45 @@ func _text_resource(i: DialogueText) -> void:
  
 	await _run_text_function(i, DialogueText.FunctionTiming.LINE_START)
 	if not is_inside_tree():
-		return
+		return false
  
 	# Empty text = animation-only line: no typing, no waiting for Enter
 	if not _has_text(i):
 		await _wait_line_animations(started)
 		if not is_inside_tree():
-			return
+			return false
 		# No typing or Enter on this line, so run the later timings here
 		await _run_text_function(i, DialogueText.FunctionTiming.AFTER_TYPING)
 		await _run_text_function(i, DialogueText.FunctionTiming.AFTER_ENTER)
 		if not is_inside_tree():
-			return
+			return false
 		if zoomed_here and not i.camerazoomuntilend:
 			_restore_camera_zoom(true)
-		current_dialogue_item += 1
-		next_item = true
-		return
+		return true
  
 	if not await _reveal(i.text, i):
-		return
+		return false
  
 	await _run_text_function(i, DialogueText.FunctionTiming.AFTER_TYPING)
 	if not is_inside_tree():
-		return
+		return false
  
 	_show_arrow()
 	while true:
 		if not await _next_frame():
-			return
+			return false
 		if Input.is_action_just_pressed("ui_accept"):
 			break
 	_hide_arrow()
  
 	await _run_text_function(i, DialogueText.FunctionTiming.AFTER_ENTER)
 	if not is_inside_tree():
-		return
+		return false
  
 	if zoomed_here and not i.camerazoomuntilend:
 		_restore_camera_zoom(true)   # this line's zoom ends with the line
  
-	current_dialogue_item += 1
-	next_item = true
+	return true
  
  
 # =====================================================================
@@ -702,10 +717,14 @@ func _set_speaker(speaker: String) -> void:
 	if not has_name:
 		return
  
+	# Measure the name straight from the font instead of waiting a frame for the label's
+	# layout. If the box opens while a room is still loading, that layout can be stale,
+	# which made the name wrap ("Kev" / "in") and the tab too narrow.
+	name_label.autowrap_mode = TextServer.AUTOWRAP_OFF
 	name_label.text = speaker
-	if not await _next_frame():
-		return
-	var w := name_label.get_content_width()
+	var font := name_label.get_theme_font("normal_font")
+	var font_size := name_label.get_theme_font_size("normal_font_size")
+	var w := font.get_string_size(speaker, HORIZONTAL_ALIGNMENT_LEFT, -1, font_size).x
 	name_bg.size.x = w + NAME_PADDING * 2.0
 	name_label.position.x = name_bg.position.x + NAME_PADDING
 	name_label.size.x = w + 1.0

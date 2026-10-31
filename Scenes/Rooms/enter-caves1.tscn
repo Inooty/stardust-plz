@@ -206,7 +206,7 @@ _data = {
 &"kevinjump": SubResource("Animation_gdg2c")
 }
 
-[node name="EnterCaves2" type="Node2D" unique_id=1374072587]
+[node name="EnterCaves1" type="Node2D" unique_id=1374072587]
 
 [node name="Music" parent="." unique_id=514312882 instance=ExtResource("1_0gxxr")]
 position = Vector2(313.8136, -382.97937)

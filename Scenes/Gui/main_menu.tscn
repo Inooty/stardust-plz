@@ -1,11 +1,15 @@
-[gd_scene format=3 uid="uid://dd0ad0j4gi6kp"]
+[gd_scene format=4 uid="uid://dd0ad0j4gi6kp"]
 
+[ext_resource type="PackedScene" uid="uid://b0pmxi1wxrlsv" path="res://Scenes/Utilities/music.tscn" id="1_3n1oq"]
 [ext_resource type="PackedScene" uid="uid://dk57bkk7gcttr" path="res://Scenes/Player/neplayer.tscn" id="1_seu4g"]
 [ext_resource type="PackedScene" uid="uid://dqpkfo1ap13ry" path="res://Scenes/Camera/camera_point.tscn" id="2_b7hnm"]
+[ext_resource type="AudioStream" uid="uid://c4eya72ewrp6n" path="res://Assets/SFX/Music/randomgamemusic09.wav" id="2_wlhis"]
 [ext_resource type="PackedScene" uid="uid://dob4mcky5570l" path="res://Scenes/Camera/camtrigger.tscn" id="3_hhune"]
 [ext_resource type="PackedScene" uid="uid://w2rlotxebhxo" path="res://Scenes/Rooms/Backgrounds/skyhigh.tscn" id="4_hhune"]
 [ext_resource type="Shader" uid="uid://dk0mym17ufua" path="res://Scenes/Effects/lighting.gdshader" id="5_6vkxh"]
 [ext_resource type="Texture2D" uid="uid://loqboggrqqxm" path="res://Assets/GUI/logo.png" id="6_rd46c"]
+[ext_resource type="PackedScene" uid="uid://cufods8ihl5pf" path="res://Scenes/Gui/button.tscn" id="8_s1nfg"]
+[ext_resource type="PackedScene" uid="uid://yisxqmb8afnj" path="res://Scenes/Rooms/Tiles/tiles.tscn" id="9_gh0m0"]
 [ext_resource type="PackedScene" uid="uid://bnx353fexsf6x" path="res://Scenes/Lights/light.tscn" id="9_i73qt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hhune"]
@@ -19,7 +23,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Logo:position")
+tracks/0/path = NodePath("CanvasLayer/Logo:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -36,7 +40,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Logo:position")
+tracks/0/path = NodePath("CanvasLayer/Logo:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -53,6 +57,9 @@ _data = {
 }
 
 [node name="MainMenu" type="Node2D" unique_id=2059105808]
+
+[node name="Music" parent="." unique_id=514312882 instance=ExtResource("1_3n1oq")]
+song = ExtResource("2_wlhis")
 
 [node name="Player" type="Node" parent="." unique_id=1338796185]
 
@@ -85,15 +92,39 @@ position = Vector2(-686, -267)
 layer = 3
 follow_viewport_enabled = true
 
-[node name="Logo" type="Sprite2D" parent="." unique_id=185053397]
+[node name="Logo" type="Sprite2D" parent="CanvasLayer" unique_id=185053397]
 material = SubResource("ShaderMaterial_hhune")
 position = Vector2(-203, -111)
 scale = Vector2(2.8924637, 2.8924637)
 texture = ExtResource("6_rd46c")
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="Logo" unique_id=1685111041]
+[node name="LightOccluder2D" type="LightOccluder2D" parent="CanvasLayer/Logo" unique_id=1685111041]
 show_behind_parent = true
 occluder = SubResource("OccluderPolygon2D_i73qt")
+
+[node name="Button" parent="CanvasLayer/Logo/LightOccluder2D" unique_id=1571099341 instance=ExtResource("8_s1nfg")]
+texture_filter = 1
+position = Vector2(-16.940575, 20.397837)
+scale = Vector2(0.34572604, 0.34572604)
+text = "Play"
+target_room = "uid://dnwne1yhnldf4"
+quit_game = false
+target_spawn = &""
+fade_time = 0.5
+click_action = &"use"
+hover_color = Color(1, 0.88, 0.25, 1)
+
+[node name="Button2" parent="CanvasLayer/Logo/LightOccluder2D" unique_id=1729404218 instance=ExtResource("8_s1nfg")]
+texture_filter = 1
+position = Vector2(-17.2863, 31.806797)
+scale = Vector2(0.34572604, 0.34572604)
+text = "Quit"
+target_room = ""
+quit_game = true
+target_spawn = &""
+fade_time = 0.5
+click_action = &"use"
+hover_color = Color(1, 0.88, 0.25, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1215253811]
 libraries/ = SubResource("AnimationLibrary_s1nfg")
@@ -102,6 +133,9 @@ autoplay = &"main"
 [node name="Light" parent="." unique_id=346560384 instance=ExtResource("9_i73qt")]
 position = Vector2(0, -161)
 texture_scale = 9.68
+
+[node name="Tiles" parent="." unique_id=937004909 instance=ExtResource("9_gh0m0")]
+tile_map_data = PackedByteArray("AADb/+z/AwABAAEAAADb/+3/AwABAAEAAADb/+7/AwABAAEAAADb/+//AwABAAEAAADb//D/AwABAAEAAADb//H/AwABAAEAAADb//L/AwABAAEAAADb//P/AwABAAEAAADb//T/AwABAAEAAADb//X/AwABAAEAAADb//b/AwABAAEAAADb//f/AwABAAEAAADb//j/AwABAAEAAADb//n/AwABAAEAAADb//r/AwABAAEAAADb//v/AwABAAEAAADb//z/AwABAAEAAADb//3/AwABAAEAAADb//7/AwABAAEAAADb////AwABAAEAAADb/wAAAwABAAEAAADb/wEAAwABAAEAAADb/wIAAwABAAEAAADb/wMAAwABAAEAAADb/wQAAwABAAEAAADb/wUAAwABAAEAAADb/wYAAwABAAEAAADb/wcAAwABAAEAAADb/wgAAwABAAEAAADb/wkAAwABAAEAAADb/woAAwABAAEAAADb/wsAAwABAAEAAADb/wwAAwABAAEAAADb/w0AAwABAAEAAADb/w4AAwABAAEAAADb/w8AAwABAAEAAADb/xAAAwABAAEAAADb/xEAAwABAAEAAADb/xIAAwABAAEAAADb/xMAAwABAAEAAADb/xQAAwABAAEAAAAkAOr/AwABAAEAAAAkAOv/AwABAAEAAAAkAOz/AwABAAEAAAAkAO3/AwABAAEAAAAkAO7/AwABAAEAAAAkAO//AwABAAEAAAAkAPD/AwABAAEAAAAkAPH/AwABAAEAAAAkAPL/AwABAAEAAAAkAPP/AwABAAEAAAAkAPT/AwABAAEAAAAkAPX/AwABAAEAAAAkAPb/AwABAAEAAAAkAPf/AwABAAEAAAAkAPj/AwABAAEAAAAkAPn/AwABAAEAAAAkAPr/AwABAAEAAAAkAPv/AwABAAEAAAAkAPz/AwABAAEAAAAkAP3/AwABAAEAAAAkAP7/AwABAAEAAAAkAP//AwABAAEAAAAkAAAAAwABAAEAAAAkAAEAAwABAAEAAAAkAAIAAwABAAEAAAAkAAMAAwABAAEAAAAkAAQAAwABAAEAAAAkAAUAAwABAAEAAAAkAAYAAwABAAEAAAAkAAcAAwABAAEAAAAkAAgAAwABAAEAAAAkAAkAAwABAAEAAAAkAAoAAwABAAEAAAAkAAsAAwABAAEAAAAkAAwAAwABAAEAAAAkAA0AAwABAAEAAAAkAA4AAwABAAEAAAAkAA8AAwABAAEAAAAkABAAAwABAAEAAAAkABEAAwABAAEAAAAkABIAAwABAAEAAAAkABMAAwABAAEAAAAkABQAAwABAAEAAADb/+r/AwABAAEAAADc/+r/AwABAAEAAADd/+r/AwABAAEAAADe/+r/AwABAAEAAADf/+r/AwABAAEAAADg/+r/AwABAAEAAADh/+r/AwABAAEAAADi/+r/AwABAAEAAADj/+r/AwABAAEAAADk/+r/AwABAAEAAADl/+r/AwABAAEAAADm/+r/AwABAAEAAADn/+r/AwABAAEAAADo/+r/AwABAAEAAADp/+r/AwABAAEAAADq/+r/AwABAAEAAADr/+r/AwABAAEAAADs/+r/AwABAAEAAADt/+r/AwABAAEAAADu/+r/AwABAAEAAADv/+r/AwABAAEAAADw/+r/AwABAAEAAADx/+r/AwABAAEAAADy/+r/AwABAAEAAADz/+r/AwABAAEAAAD0/+r/AwABAAEAAAD1/+r/AwABAAEAAAD2/+r/AwABAAEAAAD3/+r/AwABAAEAAAD4/+r/AwABAAEAAAD5/+r/AwABAAEAAAD6/+r/AwABAAEAAAD7/+r/AwABAAEAAAD8/+r/AwABAAEAAAD9/+r/AwABAAEAAAD+/+r/AwABAAEAAAD//+r/AwABAAEAAAAAAOr/AwABAAEAAAABAOr/AwABAAEAAAACAOr/AwABAAEAAAADAOr/AwABAAEAAAAEAOr/AwABAAEAAAAFAOr/AwABAAEAAAAGAOr/AwABAAEAAAAHAOr/AwABAAEAAAAIAOr/AwABAAEAAAAJAOr/AwABAAEAAAAKAOr/AwABAAEAAAALAOr/AwABAAEAAAAMAOr/AwABAAEAAAANAOr/AwABAAEAAAAOAOr/AwABAAEAAAAPAOr/AwABAAEAAAAQAOr/AwABAAEAAAARAOr/AwABAAEAAAASAOr/AwABAAEAAAATAOr/AwABAAEAAAAUAOr/AwABAAEAAAAVAOr/AwABAAEAAAAWAOr/AwABAAEAAAAXAOr/AwABAAEAAAAYAOr/AwABAAEAAAAZAOr/AwABAAEAAAAaAOr/AwABAAEAAAAbAOr/AwABAAEAAAAcAOr/AwABAAEAAAAdAOr/AwABAAEAAAAeAOr/AwABAAEAAAAfAOr/AwABAAEAAAAgAOr/AwABAAEAAAAhAOr/AwABAAEAAAAiAOr/AwABAAEAAAAjAOr/AwABAAEAAADb/+v/AwABAAEAAADb/xUAAwABAAEAAADc/xUAAwABAAEAAADd/xUAAwABAAEAAADe/xUAAwABAAEAAADf/xUAAwABAAEAAADg/xUAAwABAAEAAADh/xUAAwABAAEAAADi/xUAAwABAAEAAADj/xUAAwABAAEAAADk/xUAAwABAAEAAADl/xUAAwABAAEAAADm/xUAAwABAAEAAADn/xUAAwABAAEAAADo/xUAAwABAAEAAADp/xUAAwABAAEAAADq/xUAAwABAAEAAADr/xUAAwABAAEAAADs/xUAAwABAAEAAADt/xUAAwABAAEAAADu/xUAAwABAAEAAADv/xUAAwABAAEAAADw/xUAAwABAAEAAADx/xUAAwABAAEAAADy/xUAAwABAAEAAADz/xUAAwABAAEAAAD0/xUAAwABAAEAAAD1/xUAAwABAAEAAAD2/xUAAwABAAEAAAD3/xUAAwABAAEAAAD4/xUAAwABAAEAAAD5/xUAAwABAAEAAAD6/xUAAwABAAEAAAD7/xUAAwABAAEAAAD8/xUAAwABAAEAAAD9/xUAAwABAAEAAAD+/xUAAwABAAEAAAD//xUAAwABAAEAAAAAABUAAwABAAEAAAABABUAAwABAAEAAAACABUAAwABAAEAAAADABUAAwABAAEAAAAEABUAAwABAAEAAAAFABUAAwABAAEAAAAGABUAAwABAAEAAAAHABUAAwABAAEAAAAIABUAAwABAAEAAAAJABUAAwABAAEAAAAKABUAAwABAAEAAAALABUAAwABAAEAAAAMABUAAwABAAEAAAANABUAAwABAAEAAAAOABUAAwABAAEAAAAPABUAAwABAAEAAAAQABUAAwABAAEAAAARABUAAwABAAEAAAASABUAAwABAAEAAAATABUAAwABAAEAAAAUABUAAwABAAEAAAAVABUAAwABAAEAAAAWABUAAwABAAEAAAAXABUAAwABAAEAAAAYABUAAwABAAEAAAAZABUAAwABAAEAAAAaABUAAwABAAEAAAAbABUAAwABAAEAAAAcABUAAwABAAEAAAAdABUAAwABAAEAAAAeABUAAwABAAEAAAAfABUAAwABAAEAAAAgABUAAwABAAEAAAAhABUAAwABAAEAAAAiABUAAwABAAEAAAAjABUAAwABAAEAAAAkABUAAwABAAEAAAA=")
 
 [editable path="Player/Player/CameraPoint"]
 [editable path="Player/Player/CameraPoint/Fixed Camera"]

@@ -62,6 +62,15 @@ textpitchmin = 1.0
 textpitchmax = 2.0
 metadata/_custom_type_script = "uid://mucl34xgjg7u"
 
+[sub_resource type="Resource" id="Resource_ykm02"]
+script = ExtResource("14_hiyig")
+speaker = "Kevin"
+text = "I cant wait to see the sun up at the surface...[pause=0.5] Wait...[pause=0.3] Isn't the sun a star?"
+textsound = ExtResource("15_ve05d")
+textpitchmin = 1.0
+textpitchmax = 2.0
+metadata/_custom_type_script = "uid://mucl34xgjg7u"
+
 [sub_resource type="Resource" id="Resource_6jjb0"]
 script = ExtResource("14_hiyig")
 speaker = "Kevin"
@@ -620,32 +629,8 @@ rotation = 3.1415925
 position = Vector2(-316, -732)
 rotation = 3.1415925
 
-[node name="GelatinousStalagmite53" parent="Tiles/Objects" unique_id=182538826 instance=ExtResource("8_u3fw2")]
-position = Vector2(-303, -733)
-rotation = 3.1415925
-
-[node name="GelatinousStalagmite54" parent="Tiles/Objects" unique_id=747748758 instance=ExtResource("8_u3fw2")]
-position = Vector2(-291, -732)
-rotation = 3.1415925
-
-[node name="GelatinousStalagmite55" parent="Tiles/Objects" unique_id=2108465282 instance=ExtResource("8_u3fw2")]
-position = Vector2(-278, -732)
-rotation = 3.1415925
-
-[node name="GelatinousStalagmite56" parent="Tiles/Objects" unique_id=847603825 instance=ExtResource("8_u3fw2")]
-position = Vector2(-266, -732)
-rotation = 3.1415925
-
-[node name="GelatinousStalagmite57" parent="Tiles/Objects" unique_id=1955626894 instance=ExtResource("8_u3fw2")]
-position = Vector2(-253, -732)
-rotation = 3.1415925
-
 [node name="GelatinousStalagmite58" parent="Tiles/Objects" unique_id=59065750 instance=ExtResource("8_u3fw2")]
 position = Vector2(-239, -731)
-rotation = 3.1415925
-
-[node name="GelatinousStalagmite59" parent="Tiles/Objects" unique_id=1173773443 instance=ExtResource("8_u3fw2")]
-position = Vector2(-217, -748)
 rotation = 3.1415925
 
 [node name="GelatinousStalagmite60" parent="Tiles/Objects" unique_id=1508159043 instance=ExtResource("8_u3fw2")]
@@ -1362,6 +1347,13 @@ stop_animations = false
 position = Vector2(105, -109)
 scale = Vector2(1.866177, 17.270668)
 dialogue = Array[ExtResource("13_hh27b")]([SubResource("Resource_ve05d")])
+stop_animations = false
+lock_player = false
+
+[node name="Dialogue Area4" parent="Dialogue" unique_id=861020991 instance=ExtResource("12_pd5ch")]
+position = Vector2(-245, -520)
+scale = Vector2(1.866177, 17.270668)
+dialogue = Array[ExtResource("13_hh27b")]([SubResource("Resource_ykm02")])
 stop_animations = false
 lock_player = false
 

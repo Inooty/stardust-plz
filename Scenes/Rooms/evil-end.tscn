@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://bnuj2fe8p4ipf"]
+
+[ext_resource type="PackedScene" uid="uid://b0pmxi1wxrlsv" path="res://Scenes/Utilities/music.tscn" id="1_2sm0w"]
+[ext_resource type="Texture2D" uid="uid://y7k44cwh3xdx" path="res://Assets/Misc/litteralyjustablackscreen.png" id="1_lje0g"]
+[ext_resource type="Shader" uid="uid://dk0mym17ufua" path="res://Scenes/Effects/lighting.gdshader" id="2_5y4ww"]
+[ext_resource type="AudioStream" uid="uid://csjc2xsb7r3em" path="res://Assets/SFX/Music/Credits.wav" id="2_upkd2"]
+[ext_resource type="Texture2D" uid="uid://bpr6b5007kyce" path="res://Assets/NPCs/Kevin/AHHHH.png" id="3_4ldte"]
+
+[sub_resource type="Animation" id="Animation_ca185"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RichTextLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RichTextLabel2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_5y4ww"]
+resource_name = "fade"
+length = 9.233334
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RichTextLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 8.566667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RichTextLabel2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(6.9333334, 9.233334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4ldte"]
+_data = {
+&"RESET": SubResource("Animation_ca185"),
+&"fade": SubResource("Animation_5y4ww")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lje0g"]
+shader = ExtResource("2_5y4ww")
+
+[node name="Node2D" type="Node2D" unique_id=1291707685]
+
+[node name="Music" parent="." unique_id=514312882 instance=ExtResource("1_2sm0w")]
+song = ExtResource("2_upkd2")
+
+[node name="Litteralyjustablackscreen" type="Sprite2D" parent="." unique_id=460448067]
+position = Vector2(3, -20)
+scale = Vector2(23.290104, -20.816298)
+texture = ExtResource("1_lje0g")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1350597546]
+offset_left = -174.0
+offset_top = -54.0
+offset_right = 164.0
+offset_bottom = 31.0
+text = "why were you mean to him :("
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="." unique_id=1093533306]
+offset_left = -125.0
+offset_top = -32.0
+offset_right = 213.0
+offset_bottom = 53.0
+text = "this wont unload until you close the game btw"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1833722365]
+libraries/ = SubResource("AnimationLibrary_4ldte")
+autoplay = &"fade"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=552793863]
+
+[node name="Ahhhh" type="Sprite2D" parent="." unique_id=1562743860]
+material = SubResource("ShaderMaterial_lje0g")
+position = Vector2(-169, 4)
+scale = Vector2(2.198634, 2.198634)
+texture = ExtResource("3_4ldte")
