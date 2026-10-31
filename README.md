@@ -3,6 +3,23 @@
   
 Stardust Plz, or as I will be called it "SDP" is a simple RPG-Like game about an adventure with your friend. The game was originally much larger in scale, but it had to be cut down for time reasons. This is actually my first ever game, so please don't be too hard on it!
 
+## Install
+
+https://github.com/Inooty/stardust-plz/releases/tag/1.0
+
+### Linux (Flatpak)
+```bash
+curl -L -O https://github.com/Inooty/stardust-plz/releases/download/1.0/sdp.flatpak
+flatpak install --user sdp.flatpak
+flatpak run io.github.inooty.StardustPlz
+```
+
+### Windows
+```bash
+curl.exe -L -o sdp-windows.exe https://github.com/Inooty/stardust-plz/releases/download/1.0/sdp-windows.exe
+.\sdp-windows.exe
+```
+
 ## Why is it based off the Stardance Characters?
 I wanted to make a game that could only really be made as a result of this competition, so whenever the extension of the competition was announced, and the Beans & Bukus were introduced to the Stardance "Lore" if you will, I saw the perfect opportunity to make a game about it! But... I made one fatal mistake
 
