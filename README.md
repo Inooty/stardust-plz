@@ -41,6 +41,40 @@ Well, the Starling mascots for the competition are intentionally just meant to b
 ## What's Next?
 This game probably won't getting any updates after the Stardance Competition is complete (Unless they make Stardance 2, as promised in the credits), because I want to move on to other things, and this was just a fun idea I came up with when thinking of a secondary project. (Yes this was meant to be a short and quick project I was gonna do, before I moved on to working on Riftbook again) But as you can tell it spiraled out of control, and now were here.
 
+## Credits
+These are also viewable in-game.
+
+### General:
+Assets: Inoty
+Dialogue: Inoty
+Dialogue System: Claude
+Save System: Claude
+Game Engine: Godot
+Playtesters: My Friends & Classmates
+Technical Help: Claude (Thank you Claude)
+Writing: Inoty
+
+### Music:
+Cave Ambience: Dark CAVE / Ambience SOUND Effect (NO Copyright) by The Audio Horizon SFX
+Gelatin Caves Music: Crystal Cave • Royalty Free Game Music by Zef Parisoto
+Sunset | Melody Free Background Music | NO COPYRIGHT 2020 | DOWNLOADABLE MUSIC by No Copyright Music and Video Themes
+Melancholic Cinematic (Free Music) - "A KIND OF HOPE" by Scott Buckley
+Casual Game Music 09 By Ivan Formin
+All These can be found on Youtube
+
+### Sound Effects:
+BUBBLE POP SOUND EFFECT - FREE by Sound FX
+Broken light bulb sound effect by pbelz4759
+WALKING ON METAL SURFACE SOUND EFFECT - FREE
+ by Sound FX
+Crumbling sound effect by 1000s sound effects
+Undertale Death Sound Effect
+ by Canned Sound Collection
+The Starling SFX are just some Meowing SFX really speed up (I forgot the origianal source)
+All these can be found on Youtube
+
+Special Thanks: To everyone who commented on the devlogs, or said nice things about the game. It really boosted my motivation to keep working on it.
+
 ## Game Screenshots
 <p align="center">
     <img src="/Assets/ReadMe/1.png" alt="1" width="820">
