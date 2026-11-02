@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://dt54847fgvcr6" path="res://Scenes/Player/playerneutral.gd" id="2_y77a1"]
 [ext_resource type="Shader" uid="uid://dk0mym17ufua" path="res://Scenes/Effects/lighting.gdshader" id="3_hy60o"]
 [ext_resource type="Texture2D" uid="uid://bg8hwi02erlgw" path="res://Assets/Player/cursor_neutral.png" id="4_y77a1"]
-[ext_resource type="Script" uid="uid://ddnrs0luocnev" path="res://Scenes/Player/health.gd" id="5_ypdjs"]
 [ext_resource type="Texture2D" uid="uid://ks373dm77e8o" path="res://Assets/Player/cursor_death1.png" id="6_owmec"]
 [ext_resource type="Texture2D" uid="uid://dw6uc75r5n3un" path="res://Assets/Player/cursor_death2.png" id="7_qut7x"]
 [ext_resource type="Texture2D" uid="uid://c7ac8tq3khkfn" path="res://Assets/Particles/playerbit1.png" id="8_jceoc"]
@@ -175,6 +174,7 @@ position = Vector2(4.250061, -1.333313)
 texture = ExtResource("4_y77a1")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="CanvasLayer2/Player/Neutral" unique_id=395273702]
+visible = false
 show_behind_parent = true
 occluder = SubResource("OccluderPolygon2D_ljr0b")
 
@@ -210,9 +210,6 @@ color = Color(0.096204735, 0.09620475, 0.096204735, 1)
 energy = 0.04
 texture = SubResource("GradientTexture2D_mtuoh")
 texture_scale = 10.74
-
-[node name="Health" type="Node2D" parent="CanvasLayer2/Player" unique_id=1013200883]
-script = ExtResource("5_ypdjs")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="CanvasLayer2/Player" unique_id=715545407]
 layer = 2
@@ -280,7 +277,6 @@ root_node = NodePath("../CanvasLayer/Death")
 libraries/ = SubResource("AnimationLibrary_ns8l0")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1578257849]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1478961958]
 position = Vector2(2.5, -1.5)

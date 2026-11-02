@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bkbowiaio16np" path="res://Assets/Tiles/Backgrounds/labbg.png" id="2_ql613"]
 [ext_resource type="Texture2D" uid="uid://77o7ibx6jwbg" path="res://Assets/Tiles/Backgrounds/leaf.png" id="3_cy8xb"]
 [ext_resource type="Texture2D" uid="uid://br3y3vncycimv" path="res://Assets/Tiles/Backgrounds/caverocks.png" id="4_u878e"]
+[ext_resource type="Texture2D" uid="uid://c28eat7co15ni" path="res://Assets/Tiles/Backgrounds/unused.png" id="5_ql613"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y2qpd"]
 shader = ExtResource("1_ifode")
@@ -44,10 +45,23 @@ texture = ExtResource("4_u878e")
 1:2/0 = 0
 2:2/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cy8xb"]
+texture = ExtResource("5_ql613")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_ecn3p"]
 sources/0 = SubResource("TileSetAtlasSource_knmtw")
 sources/1 = SubResource("TileSetAtlasSource_h55ia")
 sources/2 = SubResource("TileSetAtlasSource_3lva1")
+sources/3 = SubResource("TileSetAtlasSource_cy8xb")
 
 [node name="Background Tiles" type="TileMapLayer" unique_id=967418695]
 material = SubResource("ShaderMaterial_y2qpd")
