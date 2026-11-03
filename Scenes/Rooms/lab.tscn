@@ -116,7 +116,7 @@ metadata/_custom_type_script = "uid://mucl34xgjg7u"
 [sub_resource type="Resource" id="Resource_2exbo"]
 script = ExtResource("16_3tot0")
 speaker = "Kevin"
-text = "Well, our species is split into 2 factions,[pause=0.3] the Beans and the Bukus,[pause=0.3] We both are part of the Beans, [pause=0.3]right now[pause=0.2] the beans are under attack, the Bukus think we are corrupted, [pause=0.3]because we don't worship the same God as them or something... [pause=0.3]They want to stop us from leaving earth...[pause=0.3] Rumors  say some of the folks over at the Spaceship Construction Site teamed up with some fleshy creatures named \"Humans\" to help them repair a space station... [pause=0.3]Not that I would care about that though."
+text = "Well, our species is split into 2 factions,[pause=0.3] the Beans and the Bukus,[pause=0.3] We both are part of the Beans, [pause=0.3]right now[pause=0.2] the beans are under attack, the Bukus think we are corrupted, [pause=0.3]for some reason... [pause=0.3]They want to stop us from leaving earth...[pause=0.3] Rumors  say some of the folks over at the Spaceship Construction Site teamed up with some fleshy creatures named \"Humans\" to help them repair a space station... [pause=0.3]Not that I would care about that though."
 textspeed = 20.0
 textsound = ExtResource("17_d2nth")
 textpitchmin = 1.0
@@ -606,7 +606,7 @@ libraries/ = SubResource("AnimationLibrary_gdg2c")
 
 [node name="RoomExit" parent="." unique_id=2011914728 instance=ExtResource("19_q8ay7")]
 position = Vector2(901, -200)
-target_room = "uid://cqjc7c4ugm5yc"
+target_room = "uid://dlo2yaf7mtoja"
 
 [editable path="Camera/Fixed Camera"]
 [editable path="Dialogue/Kevin"]

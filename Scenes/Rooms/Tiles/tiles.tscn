@@ -1156,7 +1156,6 @@ polygon = PackedVector2Array(-4, 1.1094923, 4, 1.0401497, 4, 4, -4, 4)
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mvve2"]
 texture = ExtResource("8_f1n2y")
 texture_region_size = Vector2i(10, 8)
-0:2/0 = 0
 0:0/0 = 0
 0:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_f1n2y")
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, 0, 4, 0, 4, 2.983832, -4, 2.983832)

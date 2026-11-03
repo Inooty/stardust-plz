@@ -7,8 +7,8 @@ extends CharacterBody2D
 # Newton, pass me the sauce
 @export var pushstrength: float = 2
 @export var knockbackdecay: float = 2
-@export var minbounce: float = 10
-@export var maxbounce: float = 1000
+@export var minbounce: float = 120
+@export var maxbounce: float = 300
 @export var maxbouncestrength: float = 100
  
 # Mouse Leash (Yes it gets its own section)
@@ -133,12 +133,28 @@ func die() -> void:
 	get_tree().paused = false
 	if not SaveManager.respawn():
 		RoomManager.change_room(get_tree().current_scene.scene_file_path)
+
+func free_mouse() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+func capture_mouse() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	vmousepos = global_position
  
 # OS, am I moving the mouse?
 func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("free"):
+		free_mouse()
+		return
+
+	if event is InputEventMouseButton and event.pressed \
+			and Input.get_mouse_mode() != Input.MOUSE_MODE_CAPTURED and move:
+		capture_mouse()
+		return
+
 	if not move:
 		return
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		vmousepos += event.relative
  
 # Even Eviler Physics Processes
@@ -176,17 +192,18 @@ func _physics_process(delta: float) -> void:
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		var collider = collision.get_collider()
+		var normal = collision.get_normal()
 		var impspeed = velbefcol.length()
  
 		if collider is RigidBody2D:
-			var pushdir = -collision.get_normal()
+			var pushdir = -normal
 			var impulse = pushdir * impspeed * pushstrength
 			collider.apply_central_impulse(impulse)
  
 		# Bouncy
-		var bouncefact = clamp(inverse_lerp(minbounce, maxbounce, impspeed), 0.0, 1.0)
-		var bounceamount = bouncefact * maxbouncestrength
-		if bounceamount > 0.0:
-			knockbackvel += collision.get_normal() * bounceamount
-			chasevel = chasevel.slide(collision.get_normal())
- 
+		var hitspeed = -velbefcol.dot(normal)
+		if hitspeed > minbounce:
+			var bouncefact = clamp(inverse_lerp(minbounce, maxbounce, hitspeed), 0.0, 1.0)
+			knockbackvel += normal * bouncefact * maxbouncestrength
+			chasevel = chasevel.slide(normal)
+			vmousepos = global_position + (vmousepos - global_position).slide(normal)
