@@ -3,11 +3,16 @@
   
 Stardust Plz, or as I will call it "SDP," is a simple single-player RPG-like game about an adventure with your friend. The game was originally much larger in scale, but it had to be cut down for time reasons. This is actually my first-ever game, so please don't be too hard on it!
 
+> [!IMPORTANT]
+> #### Explore The Files
+> This game has A LOT of unused assets. The spritesheet I used is in the Repository so you can see everything I drew; there's also a lot of hidden surprises inside the files anyway, so I encourage you to go digging around that assets folder!
+>
+> #### Important Keybinds
+> Press **Enter** to skip / Complete Dialogue and 
+> Press **Esc** to free your mouse cursor.
+
 > [!NOTE]
 > This is my first-ever game! So expect bugs...
-
-> [!IMPORTANT]
-> This game has A LOT of unused assets. The spritesheet I used is in the Repository so you can see everything I drew; there's also a lot of hidden surprises inside the files anyway, so I encourage you to go digging around that assets folder!
 
 ## Install
 
