@@ -1,7 +1,7 @@
 extends CanvasLayer
- 
+
 signal finished
- 
+
 # Scene tree expected:
 #   Dialogue (CanvasLayer, this script)
 #   ├─ Control
@@ -12,7 +12,7 @@ signal finished
 #   └─ AnimationPlayer   "popup", "begone", "arrow"
 #
 # Custom tags: [speed=0.3]...[/speed]  [pause=0.5]
- 
+
 const DIALOGUE_BUTTON = preload("res://Scenes/Dialogue/button.tscn")
 const NO_CAMERA := Vector2(999.999, 999.999)
 const NAME_PADDING := 12.0
@@ -22,7 +22,7 @@ const ZOOM_RESTORE_TIME := 0.4
 const ALWAYS_BOTTOM := true   # every dialogue sits at the bottom, locked or not
 const RESUME_IDLE := true     # restart paused/replaced idle animations when the dialogue ends
 const MAX_ANIM_WAIT := 20.0   # an animation-only line never waits longer than this (seconds)
- 
+
 @onready var label: RichTextLabel = $Control/VBoxContainer/RichTextLabel
 @onready var button_container: HBoxContainer = $Control/VBoxContainer/HBoxContainer
 @onready var audio: AudioStreamPlayer = $AudioStreamPlayer
@@ -30,9 +30,9 @@ const MAX_ANIM_WAIT := 20.0   # an animation-only line never waits longer than t
 @onready var name_bg: NinePatchRect = get_node_or_null("Control/NameBG")
 @onready var name_label: RichTextLabel = get_node_or_null("Control/NameLabel")
 @onready var arrow: AnimatedSprite2D = find_child("FinishTriangle", true, false) as AnimatedSprite2D
- 
+
 var arrow_sound: AudioStreamPlayer
- 
+
 var dialogue: Array[DE] = []     # set by the Area2D
 var sets := {}                   # id -> Array[DE], set by the Area2D
 var lock_player := true          # set by the Area2D
@@ -51,25 +51,25 @@ var _zoom_hold := false
 var _played_players: Array[AnimationPlayer] = []   # stopped when the dialogue ends
 var _played_sprites: Array[AnimatedSprite2D] = []  # stopped when the dialogue ends
 var _suspended_idle := {}                          # AnimationPlayer -> idle animation name, resumed at the end
- 
+
 static var _folder_cache: Dictionary = {}
- 
- 
+
+
 func _ready() -> void:
 	add_to_group("dialogue")
- 
+
 	var pad := StyleBoxEmpty.new()
 	pad.content_margin_left = TEXT_PADDING
 	pad.content_margin_right = TEXT_PADDING
 	pad.content_margin_top = TEXT_PADDING
 	pad.content_margin_bottom = TEXT_PADDING
 	label.add_theme_stylebox_override("normal", pad)
- 
+
 	if ResourceLoader.exists(ARROW_SOUND_PATH):
 		arrow_sound = AudioStreamPlayer.new()
 		arrow_sound.stream = load(ARROW_SOUND_PATH)
 		add_child(arrow_sound)
- 
+
 	hide()
 	button_container.hide()
 	if name_bg:
@@ -79,32 +79,32 @@ func _ready() -> void:
 	if arrow:
 		arrow.stop()
 		arrow.hide()
- 
+
 	if anchor_bottom or ALWAYS_BOTTOM:
 		_anchor_to_bottom()
- 
- 
+
+
 func _exit_tree() -> void:
 	if not _finished_emitted:
 		_finished_emitted = true
 		finished.emit()
- 
- 
+
+
 func _process(_delta: float) -> void:
 	# Hold the zoom every frame so nothing else can reset it mid-dialogue
 	if _zoom_hold:
 		var zc := get_viewport().get_camera_2d()
 		if zc:
 			zc.zoom = _zoom_target
- 
+
 	if current_dialogue_item >= dialogue.size():
 		_finish()
 		return
- 
+
 	if not next_item:
 		return
 	next_item = false
- 
+
 	var i = dialogue[current_dialogue_item]
 	if i is DialogueFunction:
 		if i.hidebox:
@@ -128,8 +128,8 @@ func _process(_delta: float) -> void:
 		push_error("Dialogue: an empty or DE resource is in the array, remove it. Skipping.")
 		current_dialogue_item += 1
 		next_item = true
- 
- 
+
+
 # Called by a newer dialogue taking over the screen
 func dismiss() -> void:
 	_stop_line_animations()
@@ -141,8 +141,8 @@ func dismiss() -> void:
 		_finished_emitted = true
 		finished.emit()
 	queue_free()
- 
- 
+
+
 func _jump_to(id: StringName) -> void:
 	if id != &"" and sets.has(id):
 		dialogue.assign(sets[id])
@@ -151,16 +151,16 @@ func _jump_to(id: StringName) -> void:
 		if id != &"":
 			push_warning("Dialogue: no set named '%s'" % id)
 		current_dialogue_item = dialogue.size()
- 
- 
+
+
 func _next_frame() -> bool:
 	var tree := Engine.get_main_loop() as SceneTree
 	await tree.process_frame
 	while is_inside_tree() and not can_process():
 		await tree.process_frame
 	return is_inside_tree()
- 
- 
+
+
 # True if the line has anything to type out. Blank text, or text made only of
 # tags like [pause=1] or [shake][/shake], counts as "no text".
 func _has_text(i) -> bool:
@@ -168,8 +168,8 @@ func _has_text(i) -> bool:
 	if t.strip_edges() == "":
 		return false
 	return _parse_markup(t)["speeds"].size() > 0
- 
- 
+
+
 func _show_box() -> void:
 	if visible:
 		return
@@ -177,8 +177,8 @@ func _show_box() -> void:
 		anim.play("popup")
 		anim.advance(0)
 	show()
- 
- 
+
+
 func _finish() -> void:
 	set_process(false)
 	_hide_arrow()
@@ -195,10 +195,10 @@ func _finish() -> void:
 		_finished_emitted = true
 		finished.emit()
 	queue_free()
- 
- 
+
+
 # =====================================================================
-# Camera zoom + per-line animation (set in the DialogueText inspector)
+# Camera zoom
 # =====================================================================
 func _apply_camera_zoom(i: DialogueText) -> void:
 	if i.camerazoom <= 0.0:
@@ -219,8 +219,8 @@ func _apply_camera_zoom(i: DialogueText) -> void:
 		var tw := create_tween().set_trans(Tween.TRANS_SINE)
 		tw.tween_property(cam, "zoom", _zoom_target, i.camerazoomtime)
 		tw.tween_callback(func(): _zoom_hold = true)
- 
- 
+
+
 func _restore_camera_zoom(force := false) -> void:
 	if not _zoom_changed or not (force or restore_zoom):
 		return
@@ -231,12 +231,15 @@ func _restore_camera_zoom(force := false) -> void:
 		return
 	var tw := cam.create_tween().set_trans(Tween.TRANS_SINE)
 	tw.tween_property(cam, "zoom", _zoom_before, ZOOM_RESTORE_TIME)
- 
- 
-func _play_line_animation(i: DialogueText) -> Array:
+
+
+# =====================================================================
+# Per-line animations (works for DialogueText and DialogueChoice)
+# =====================================================================
+func _play_line_animation(i) -> Array:
 	# Returns the non-looping players/sprites it started, so callers can wait on them
 	var waitable: Array = []
- 
+
 	# AnimationPlayer
 	if i.animationname != &"":
 		var ap := _find_target(i.animationplayer) as AnimationPlayer
@@ -251,9 +254,9 @@ func _play_line_animation(i: DialogueText) -> Array:
 				_played_players.append(ap)
 			if ap.get_animation(i.animationname).loop_mode == Animation.LOOP_NONE:
 				waitable.append(ap)
-				if i.persist_end:
+				if "persist_end" in i and i.persist_end:
 					_persist_anim_end(ap, i)
- 
+
 	# AnimatedSprite2D
 	if i.spriteanimation != &"":
 		var sprite := _find_target(i.spritenode) as AnimatedSprite2D
@@ -268,10 +271,10 @@ func _play_line_animation(i: DialogueText) -> Array:
 				_played_sprites.append(sprite)
 			if not sprite.sprite_frames.get_animation_loop(i.spriteanimation):
 				waitable.append(sprite)
- 
+
 	return waitable
- 
- 
+
+
 # Remembers a finished animation so the area can restore its last frame after a reload
 func _persist_anim_end(ap: AnimationPlayer, i: DialogueText) -> void:
 	var key: StringName = i.persist_key(ap)
@@ -281,8 +284,8 @@ func _persist_anim_end(ap: AnimationPlayer, i: DialogueText) -> void:
 		if finished_name == anim_name:
 			GameState.set_flag(key)
 			return
- 
- 
+
+
 # Waits until every given animation has finished. Uses the animation_finished
 # signals (an AnimatedSprite2D can report is_playing() == true on its last frame),
 # with a time cap so a stuck animation can never keep the player locked forever.
@@ -291,7 +294,7 @@ func _wait_line_animations(started: Array) -> void:
 	for n in started:
 		pending[n] = true
 		n.animation_finished.connect(func(_a = null): pending.erase(n), CONNECT_ONE_SHOT)
- 
+
 	var waited := 0.0
 	while not pending.is_empty():
 		if waited >= MAX_ANIM_WAIT:
@@ -303,20 +306,19 @@ func _wait_line_animations(started: Array) -> void:
 		if not await _next_frame():
 			return
 		waited += get_process_delta_time()
- 
- 
+
+
 # Stops animations started by dialogue lines that are still playing.
 # Ones that already finished are left alone so they keep their end pose.
 func _stop_line_animations() -> void:
 	if not stop_animations:
-		# Leave everything as it is (no stopping, and idle stays put so it doesn't fight)
 		_played_players.clear()
 		_played_sprites.clear()
 		_suspended_idle.clear()
 		return
 	for ap in _played_players:
 		if is_instance_valid(ap) and ap.is_playing():
-			ap.seek(0.0, true)   # snap back to the first frame of the animation
+			ap.seek(0.0, true)
 			ap.stop()
 	for sprite in _played_sprites:
 		if is_instance_valid(sprite) and sprite.is_playing():
@@ -326,11 +328,9 @@ func _stop_line_animations() -> void:
 	_played_players.clear()
 	_played_sprites.clear()
 	_resume_idle()
- 
- 
-# Stops (and resets) idle AnimationPlayers that would fight with a line animation: the
-# target itself (if it's a player) and any AnimationPlayer sibling of the target.
-# Everything touched is remembered so it can be resumed when the dialogue ends.
+
+
+# Stops (and resets) idle AnimationPlayers that would fight with a line animation
 func _suspend_idle(node: Node) -> void:
 	var candidates: Array = []
 	if node is AnimationPlayer:
@@ -340,26 +340,25 @@ func _suspend_idle(node: Node) -> void:
 		for c in parent.get_children():
 			if c is AnimationPlayer and c != node:
 				candidates.append(c)
- 
+
 	for ap in candidates:
-		# Skip ones we already handled, and ones playing line animations
 		if _suspended_idle.has(ap) or _played_players.has(ap):
 			continue
 		if ap.is_playing() and ap.current_animation != &"":
 			_suspended_idle[ap] = ap.current_animation
 			if ap != node:
-				ap.seek(0.0, true)   # reset to the first frame, then stop
-				ap.stop()            # (the target player just gets replaced by play())
- 
- 
+				ap.seek(0.0, true)
+				ap.stop()
+
+
 func _resume_idle() -> void:
 	if RESUME_IDLE:
 		for ap in _suspended_idle:
 			if is_instance_valid(ap):
-				ap.play(_suspended_idle[ap])   # restarts from the first frame
+				ap.play(_suspended_idle[ap])
 	_suspended_idle.clear()
- 
- 
+
+
 # =====================================================================
 # Finish arrow
 # =====================================================================
@@ -372,15 +371,15 @@ func _show_arrow() -> void:
 		arrow_sound.play()
 	if anim and anim.has_animation("arrow"):
 		anim.play("arrow")
- 
- 
+
+
 func _hide_arrow() -> void:
 	if arrow == null:
 		return
 	arrow.stop()
 	arrow.hide()
- 
- 
+
+
 # =====================================================================
 # Markup parsing
 # =====================================================================
@@ -392,12 +391,12 @@ func _parse_markup(src: String) -> Dictionary:
 	var pending_pause := 0.0
 	var p := 0
 	var n := src.length()
- 
+
 	while p < n:
 		var chunk := src[p]
 		var step := 1
 		var is_letter := true
- 
+
 		if chunk == "[":
 			var close := src.find("]", p)
 			if close != -1:
@@ -420,7 +419,7 @@ func _parse_markup(src: String) -> Dictionary:
 					pass
 				else:
 					is_letter = false
- 
+
 		out += chunk
 		if is_letter:
 			if pending_pause > 0.0:
@@ -428,17 +427,17 @@ func _parse_markup(src: String) -> Dictionary:
 				pending_pause = 0.0
 			speeds.append(speed)
 		p += step
- 
+
 	return {"text": out, "speeds": speeds, "pauses": pauses}
- 
- 
+
+
 func _parse_speed(s: String) -> float:
 	s = s.strip_edges()
 	if s.ends_with("%"):
 		return maxf(s.trim_suffix("%").to_float() / 100.0, 0.001)
 	return maxf(s.to_float(), 0.001)
- 
- 
+
+
 # =====================================================================
 # Typewriter (Enter / Escape completes the line instantly)
 # =====================================================================
@@ -446,35 +445,35 @@ func _reveal(text: String, i) -> bool:
 	var parsed_markup := _parse_markup(text)
 	var speeds: Array[float] = parsed_markup["speeds"]
 	var pauses: Dictionary = parsed_markup["pauses"]
- 
+
 	label.visible_characters = 0
 	label.text = parsed_markup["text"]
 	var total: int = label.get_total_character_count()
 	var timer := 0.0
 	var last_pause_idx := -1
- 
+
 	# Wait a frame so the press that advanced to this line doesn't skip it
 	if not await _next_frame():
 		return false
- 
+
 	while label.visible_characters < total:
 		if Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("ui_cancel"):
 			label.visible_characters = total
 			break
- 
+
 		var idx := label.visible_characters
- 
+
 		if pauses.has(idx) and last_pause_idx != idx:
 			last_pause_idx = idx
 			timer = -float(pauses[idx])
- 
+
 		var mult: float = speeds[idx] if idx < speeds.size() else 1.0
 		var interval: float = 1.0 / (float(i.textspeed) * mult)
- 
+
 		timer += get_process_delta_time()
 		var plain := label.get_parsed_text()
 		var is_space := idx < plain.length() and plain[idx] == " "
- 
+
 		if timer >= interval or (is_space and timer >= 0.0):
 			label.visible_characters += 1
 			if not is_space and audio.stream:
@@ -484,8 +483,8 @@ func _reveal(text: String, i) -> bool:
 		if not await _next_frame():
 			return false
 	return true
- 
- 
+
+
 # =====================================================================
 # Function block
 # =====================================================================
@@ -495,19 +494,19 @@ func _function_resource(i: DialogueFunction) -> void:
 		return
 	current_dialogue_item += 1
 	next_item = true
- 
- 
+
+
 func _find_target(path: NodePath) -> Node:
 	if path.is_empty():
 		return null
- 
+
 	# Paths picked in the inspector are relative to the node that owns the
 	# resource (the Dialogue Area), so try that first.
 	if origin and is_instance_valid(origin):
 		var o := origin.get_node_or_null(path)
 		if o:
 			return o
- 
+
 	var n: Node = null
 	if get_tree().current_scene:
 		n = get_tree().current_scene.get_node_or_null(path)
@@ -516,8 +515,8 @@ func _find_target(path: NodePath) -> Node:
 	if n == null:
 		n = get_tree().root.get_node_or_null(path)
 	return n
- 
- 
+
+
 func _run_function(f: DialogueFunction) -> void:
 	var target := _find_target(f.targetpath)
 	if target == null:
@@ -526,19 +525,19 @@ func _run_function(f: DialogueFunction) -> void:
 	if not target.has_method(f.funcname):
 		push_warning("Dialogue: target has no method '%s'" % f.funcname)
 		return
- 
+
 	if f.funcarg.is_empty():
 		target.call(f.funcname)
 	else:
 		target.callv(f.funcname, f.funcarg)
- 
+
 	if f.waitsignal != "":
 		if target.has_signal(f.waitsignal):
 			await Signal(target, f.waitsignal)
 		else:
 			push_warning("Dialogue: target has no signal '%s'" % f.waitsignal)
- 
- 
+
+
 # Runs the function embedded in a DialogueText, if it's enabled and set to this timing
 func _run_text_function(i: DialogueText, timing: int) -> void:
 	if not i.use_function or i.function_call == null:
@@ -551,8 +550,8 @@ func _run_text_function(i: DialogueText, timing: int) -> void:
 		await _run_function(i.function_call)
 	else:
 		_run_function(i.function_call)   # fire and forget
- 
- 
+
+
 # =====================================================================
 # Choice block
 # =====================================================================
@@ -562,11 +561,12 @@ func _choice_resource(i: DialogueChoice) -> void:
 	button_container.hide()
 	audio.stream = _build_sound(i)
 	audio.volume_db = i.textvolume
- 
+
+	_play_line_animation(i)   # animation starts as the question begins typing
 	if not await _reveal(i.text, i):
 		return
 	button_container.show()
- 
+
 	var first_btn: Button = null
 	for n in i.choicetext.size():
 		var holder: Node = DIALOGUE_BUTTON.instantiate()
@@ -587,23 +587,23 @@ func _choice_resource(i: DialogueChoice) -> void:
 		button_container.add_child(holder)
 		if first_btn == null:
 			first_btn = btn
- 
+
 	if first_btn:
 		first_btn.grab_focus()
- 
- 
+
+
 func _on_choice_pressed(f: DialogueFunction, jump: StringName, response: DialogueText = null) -> void:
 	button_container.hide()
 	for c in button_container.get_children():
 		c.queue_free()
- 
+
 	if f != null:
 		if f.hidebox:
 			hide()
 		await _run_function(f)
 		if not is_inside_tree():
 			return
- 
+
 	# Optional response line: plays like any DialogueText (animation, zoom, function...)
 	if response != null:
 		if _has_text(response):
@@ -612,14 +612,14 @@ func _on_choice_pressed(f: DialogueFunction, jump: StringName, response: Dialogu
 			hide()
 		if not await _play_text(response):
 			return
- 
+
 	if jump != &"":
 		_jump_to(jump)
 	else:
 		current_dialogue_item += 1
 	next_item = true
- 
- 
+
+
 # =====================================================================
 # Text block
 # =====================================================================
@@ -627,8 +627,8 @@ func _text_resource(i: DialogueText) -> void:
 	if await _play_text(i):
 		current_dialogue_item += 1
 		next_item = true
- 
- 
+
+
 # Plays one DialogueText line: animation, zoom, functions, typing, waiting for Enter.
 # Returns false if the box was removed meanwhile. Also used for choice responses.
 func _play_text(i: DialogueText) -> bool:
@@ -636,26 +636,25 @@ func _play_text(i: DialogueText) -> bool:
 	_set_speaker(i.speaker)
 	audio.stream = _build_sound(i)
 	audio.volume_db = i.textvolume
- 
+
 	var cam := get_viewport().get_camera_2d()
 	if cam and not i.camerapos.is_equal_approx(NO_CAMERA):
 		var tween := create_tween().set_trans(Tween.TRANS_SINE)
 		tween.tween_property(cam, "global_position", i.camerapos, i.cameratranstime)
- 
+
 	var zoomed_here: bool = i.camerazoom > 0.0
 	_apply_camera_zoom(i)
 	var started := _play_line_animation(i)
- 
+
 	await _run_text_function(i, DialogueText.FunctionTiming.LINE_START)
 	if not is_inside_tree():
 		return false
- 
+
 	# Empty text = animation-only line: no typing, no waiting for Enter
 	if not _has_text(i):
 		await _wait_line_animations(started)
 		if not is_inside_tree():
 			return false
-		# No typing or Enter on this line, so run the later timings here
 		await _run_text_function(i, DialogueText.FunctionTiming.AFTER_TYPING)
 		await _run_text_function(i, DialogueText.FunctionTiming.AFTER_ENTER)
 		if not is_inside_tree():
@@ -663,14 +662,14 @@ func _play_text(i: DialogueText) -> bool:
 		if zoomed_here and not i.camerazoomuntilend:
 			_restore_camera_zoom(true)
 		return true
- 
+
 	if not await _reveal(i.text, i):
 		return false
- 
+
 	await _run_text_function(i, DialogueText.FunctionTiming.AFTER_TYPING)
 	if not is_inside_tree():
 		return false
- 
+
 	_show_arrow()
 	while true:
 		if not await _next_frame():
@@ -678,17 +677,17 @@ func _play_text(i: DialogueText) -> bool:
 		if Input.is_action_just_pressed("ui_accept"):
 			break
 	_hide_arrow()
- 
+
 	await _run_text_function(i, DialogueText.FunctionTiming.AFTER_ENTER)
 	if not is_inside_tree():
 		return false
- 
+
 	if zoomed_here and not i.camerazoomuntilend:
-		_restore_camera_zoom(true)   # this line's zoom ends with the line
- 
+		_restore_camera_zoom(true)
+
 	return true
- 
- 
+
+
 # =====================================================================
 # Bottom anchor
 # =====================================================================
@@ -706,8 +705,8 @@ func _anchor_to_bottom() -> void:
 		vp_size.x / 2.0 - (r.position.x + r.size.x / 2.0),
 		vp_size.y - bottom_margin - (r.position.y + r.size.y)
 	)
- 
- 
+
+
 func _set_speaker(speaker: String) -> void:
 	if name_bg == null or name_label == null:
 		return
@@ -716,10 +715,8 @@ func _set_speaker(speaker: String) -> void:
 	name_label.visible = has_name
 	if not has_name:
 		return
- 
-	# Measure the name straight from the font instead of waiting a frame for the label's
-	# layout. If the box opens while a room is still loading, that layout can be stale,
-	# which made the name wrap ("Kev" / "in") and the tab too narrow.
+
+	# Measure the name straight from the font instead of waiting a frame for layout
 	name_label.autowrap_mode = TextServer.AUTOWRAP_OFF
 	name_label.text = speaker
 	var font := name_label.get_theme_font("normal_font")
@@ -728,8 +725,8 @@ func _set_speaker(speaker: String) -> void:
 	name_bg.size.x = w + NAME_PADDING * 2.0
 	name_label.position.x = name_bg.position.x + NAME_PADDING
 	name_label.size.x = w + 1.0
- 
- 
+
+
 func _build_sound(i) -> AudioStream:
 	var streams: Array[AudioStream] = []
 	if i.textsoundfolder != "":
@@ -742,12 +739,12 @@ func _build_sound(i) -> AudioStream:
 	for st in streams:
 		r.add_stream(-1, st)
 	return r
- 
- 
+
+
 func _folder_sounds(folder: String) -> Array[AudioStream]:
 	if _folder_cache.has(folder):
 		return _folder_cache[folder]
- 
+
 	var result: Array[AudioStream] = []
 	var dir := DirAccess.open(folder)
 	if dir == null:
@@ -765,15 +762,14 @@ func _folder_sounds(folder: String) -> Array[AudioStream]:
 					result.append(st)
 		if result.is_empty():
 			push_warning("Dialogue: no audio files found in '%s'" % folder)
- 
+
 	_folder_cache[folder] = result
 	return result
- 
- 
+
+
 func set_players_move(value: bool) -> void:
 	for p in get_tree().get_nodes_in_group("player"):
 		if "move" in p:
 			p.move = value
 		else:
 			push_warning("%s is in group 'player' but has no 'move' variable" % p.name)
- 

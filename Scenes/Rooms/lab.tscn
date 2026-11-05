@@ -102,6 +102,8 @@ choicetext = Array[String](["What is a bean?", "Alright"])
 choicejump = Array[StringName]([&"What is a bean?"])
 textspeed = 10.0
 textsound = ExtResource("17_d2nth")
+animationplayer = NodePath("../../AnimationPlayer")
+animationname = &"kevinjump"
 metadata/_custom_type_script = "uid://b43ae1tpwhx7w"
 
 [sub_resource type="Resource" id="Resource_5p1ep"]
@@ -111,6 +113,8 @@ text = "But the only exit to the laboratory is blocked by some plastic blocks...
 textsound = ExtResource("17_d2nth")
 textpitchmin = 1.0
 textpitchmax = 2.0
+animationplayer = NodePath("../../AnimationPlayer")
+animationname = &"kevinjump"
 metadata/_custom_type_script = "uid://mucl34xgjg7u"
 
 [sub_resource type="Resource" id="Resource_2exbo"]

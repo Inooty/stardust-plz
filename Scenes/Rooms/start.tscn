@@ -53,6 +53,8 @@ textpitchmin = 0.2
 textpitchmax = 2.0
 spritenode = NodePath("../../Tiles/Kevin/AnimatedSprite2D")
 spriteanimation = &"AAAH"
+animationplayer = NodePath("../../AnimationPlayer")
+animationname = &"kevinjump"
 metadata/_custom_type_script = "uid://mucl34xgjg7u"
 
 [sub_resource type="Resource" id="Resource_mche3"]
@@ -82,6 +84,8 @@ textpitchmin = 1.0
 textpitchmax = 2.0
 spritenode = NodePath("../../Tiles/Kevin/AnimatedSprite2D")
 spriteanimation = &"blinking"
+animationplayer = NodePath("../../AnimationPlayer")
+animationname = &"taste"
 use_function = true
 function_call = SubResource("Resource_lje0g")
 metadata/_custom_type_script = "uid://mucl34xgjg7u"
@@ -137,6 +141,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(51, -80)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tiles/Kevin:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_mche3"]
 resource_name = "intro`"
@@ -160,14 +176,55 @@ length = 0.6
 
 [sub_resource type="Animation" id="Animation_gdg2c"]
 resource_name = "kevinjump"
-length = 3.0333333
+length = 0.43333334
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tiles/Kevin:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.18646696, 0.28646696),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1.245), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tiles/Kevin:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-2.215, -85), Vector2(-2.215, -87), Vector2(-2.215, -85)]
+}
+
+[sub_resource type="Animation" id="Animation_purd4"]
+resource_name = "taste"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Tiles/Kevin:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-2.215, -80)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gdg2c"]
 _data = {
 &"RESET": SubResource("Animation_4kpyj"),
 &"intro`": SubResource("Animation_mche3"),
 &"jumpinthecaac": SubResource("Animation_17hyr"),
-&"kevinjump": SubResource("Animation_gdg2c")
+&"kevinjump": SubResource("Animation_gdg2c"),
+&"taste": SubResource("Animation_purd4")
 }
 
 [node name="EnterCaves2" type="Node2D" unique_id=1374072587]
@@ -234,7 +291,7 @@ emission_rect_extents = Vector2(1000, 1000)
 [node name="Player" type="Node" parent="." unique_id=410974993]
 
 [node name="Player" parent="Player" unique_id=2092462778 instance=ExtResource("21_6ck11")]
-position = Vector2(-5, 0)
+position = Vector2(-4, -10)
 
 [node name="Camera2D" type="Camera2D" parent="Player/Player" unique_id=156413492]
 zoom = Vector2(6, 6)

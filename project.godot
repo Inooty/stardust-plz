@@ -59,6 +59,10 @@ folder_colors={
 "res://Scripts/": "pink"
 }
 
+[filesystem]
+
+import/blender/enabled=false
+
 [input]
 
 use={
