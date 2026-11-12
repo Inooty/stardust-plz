@@ -10,6 +10,7 @@ Stardust Plz, or as I will call it "SDP," is a simple single-player RPG-like gam
 > #### Important Keybinds
 > Press **Enter** to skip / Complete Dialogue and 
 > Press **Esc** to free your mouse cursor.
+> Use the **Arrow Keys** to select dialogue choices.
 
 > [!NOTE]
 > This is my first-ever game! So expect bugs...
@@ -24,11 +25,27 @@ curl -L -O https://github.com/Inooty/stardust-plz/releases/download/1.0/sdp.flat
 flatpak install --user sdp.flatpak
 flatpak run io.github.inooty.StardustPlz
 ```
-### Windows
+
+#### Reinstall
 ```bash
-curl.exe -L -O https://github.com/Inooty/stardust-plz/releases/download/1.0/sdp-windows.exe
-curl.exe -L -O https://github.com/Inooty/stardust-plz/releases/download/1.0/sdp-windows.pck
-.\sdp-windows.exe
+flatpak install --user --reinstall sdp.flatpak
+```
+
+If that doesn't pick up the new version, uninstall first:
+```bash
+flatpak uninstall --user io.github.inooty.stardustplz
+flatpak install --user sdp.flatpak
+
+```
+
+#### Uninstall
+```bash
+flatpak uninstall --user io.github.inooty.stardustplz
+
+```
+### Windows (Executable)
+```bash
+echo "Did you expect code here? Just run the exe dummy."
 ```
 
 ## Full Walkthrough
