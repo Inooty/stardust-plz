@@ -9,7 +9,7 @@ extends CharacterBody2D
 @export var knockbackdecay: float = 2
 @export var minbounce: float = 120
 @export var maxbounce: float = 300
-@export var maxbouncestrength: float = 100
+@export var maxbouncestrength: float = 65
  
 # Mouse Leash (Yes it gets its own section)
 @export var mouseleash: float = 300

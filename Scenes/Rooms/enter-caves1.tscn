@@ -356,11 +356,11 @@ target_room = "uid://bqjedw0fs4g7n"
 [node name="Player" type="Node" parent="." unique_id=410974993]
 
 [node name="Player" parent="Player" unique_id=2092462778 instance=ExtResource("15_u3n3h")]
-position = Vector2(-458, 0)
+position = Vector2(-344, -7)
 
 [node name="Node2D2" parent="Player/Player" unique_id=687580857 instance=ExtResource("16_50lq2")]
 show_behind_parent = true
-position = Vector2(757, 17)
+position = Vector2(646, 23)
 
 [node name="CharacterBody2D" parent="Player/Player/Node2D2/AnimatedSprite2D" parent_id_path=PackedInt32Array(687580857, 790014732) index="0" unique_id=490424275]
 checkpoint_name = "Escaping The Lab"
@@ -369,6 +369,11 @@ checkpoint_name = "Escaping The Lab"
 zoom = Vector2(4, 4)
 process_callback = 0
 position_smoothing_enabled = true
+
+[node name="RoomExit" parent="Player" unique_id=1145788899 instance=ExtResource("20_17hyr")]
+position = Vector2(-529, -105)
+scale = Vector2(1, 16.36)
+target_room = "uid://dhaog5vfbyt86"
 
 [node name="Lights" type="Node" parent="." unique_id=1735566557]
 

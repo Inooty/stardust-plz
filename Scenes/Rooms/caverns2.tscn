@@ -260,6 +260,7 @@ _data = {
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1214177375]
 layer = 8
+visible = false
 follow_viewport_enabled = true
 
 [node name="Litteralyjustablackscreen" type="Sprite2D" parent="CanvasLayer" unique_id=1216445642]
@@ -726,18 +727,6 @@ position = Vector2(-73, -927)
 
 [node name="GelatinousStalagmite87" parent="Tiles/Objects" unique_id=819448828 instance=ExtResource("8_u3fw2")]
 position = Vector2(-111, -926)
-
-[node name="GelatinousStalagmite88" parent="Tiles/Objects" unique_id=624862054 instance=ExtResource("8_u3fw2")]
-position = Vector2(-154, -918)
-
-[node name="GelatinousStalagmite89" parent="Tiles/Objects" unique_id=683883864 instance=ExtResource("8_u3fw2")]
-position = Vector2(-183, -917)
-
-[node name="GelatinousStalagmite90" parent="Tiles/Objects" unique_id=869801582 instance=ExtResource("8_u3fw2")]
-position = Vector2(-192, -917)
-
-[node name="GelatinousStalagmite91" parent="Tiles/Objects" unique_id=1660350237 instance=ExtResource("8_u3fw2")]
-position = Vector2(-209, -917)
 
 [node name="GelatinousStalagmite92" parent="Tiles/Objects" unique_id=188580157 instance=ExtResource("8_u3fw2")]
 position = Vector2(-254, -910)
